@@ -8,8 +8,11 @@ sudo make install
 ```
 
 ## Running Server
+```
 ./build/src/pbrpc_srv
-
+```
 ## Compiling and Running Client(work on progress)
+```
 ./src/compile.sh
 ./client
+```
