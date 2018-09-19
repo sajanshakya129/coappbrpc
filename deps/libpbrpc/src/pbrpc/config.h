@@ -1,0 +1,6 @@
+#ifndef PBRPC_CONFIG_H_INCLUDED
+#define PBRPC_CONFIG_H_INCLUDED
+
+#define PBRPC_VERSION   "1.1"
+
+#endif
