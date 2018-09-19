@@ -3,6 +3,7 @@
 
 #include <pbrpc/pbrpc.pb.h>
 #include <string>
+using namespace std;
 typedef struct {
   string addr;
   string port;
