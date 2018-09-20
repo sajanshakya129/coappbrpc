@@ -1,10 +1,9 @@
 #ifndef __ServerRPC_HH_INCLUDED_
 #define __ServerRPC_HH_INCLUDED_
 
-#include <coap/coap.h>
-#include "coap_common.hh"
-#include <string>
-using namespace std;
+#include <mongoose.h>
+
+
 namespace pbrpc {
 class ServerRPC {
 public:
@@ -12,12 +11,12 @@ public:
     virtual ~ServerRPC();
     void     init(void);
     int      start(void);
-    bool     stop(int);
+    bool     stop(void);
 
-    coap_context_t *ctx = nullptr;
+    struct mg_context *ctx = nullptr;
 
-    int  port    = 5683;
-    string  serverAddr = "localhost";
+    int  port    = 9999;
+    int  threads = 50;
     bool running = false;
 };
 
