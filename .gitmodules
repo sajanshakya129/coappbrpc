@@ -1,4 +1,3 @@
 [submodule "deps/mongoose"]
 	path = deps/mongoose
 	url = https://github.com/sajanshakya129/mongoose
-
