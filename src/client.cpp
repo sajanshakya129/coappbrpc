@@ -83,11 +83,12 @@ ClientRPC client;
 Request req;
   req.set_pbrpc("1.1");
   req.set_service("PingService");
-  req.set_method("ping");
+  req.set_method("Ping");
+  req.set_params("testparams");
   req.set_id(123);
   std::string data;
   req.SerializeToString(&data);
-
+  
   client.sendPayload(data);
   client.runClient();
 }
