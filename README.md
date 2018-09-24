@@ -6,6 +6,7 @@ Install [libpbrpc](https://github.com/sajanshakya129/libpbrpc.git) library in yo
 
 ##installation
 ```
+git clone --recurse-submodules https://github.com/sajanshakya129/coappbrpc
 mkdir build && cd build
 cmake ..
 make
