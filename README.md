@@ -1,5 +1,10 @@
 # Protobuf RPC over CoAP
 
+## Dependency
+Install [libpbrpc](https://github.com/sajanshakya129/libpbrpc.git) library in your system.
+
+
+##installation
 ```
 mkdir build && cd build
 cmake ..
