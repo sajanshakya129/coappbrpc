@@ -1,38 +1,38 @@
 #include "ClientRPC.hh"
 #include <iostream>
 
+#include "../proto/rpc_ping.pb.h"
 #include <curl/curl.h>
+#include <pbrpc/pbrpc.pb.h>
 #include <stdio.h>
 #include <string>
-#include "../proto/rpc_ping.pb.h"
-#include <pbrpc/pbrpc.pb.h>
 
+using ::pbrpc::ClientRPC;
+using ::pbrpc::Request;
+using ::pbrpc::Response;
 using ::pbrpc::api::PingRequest;
 using ::pbrpc::api::PingResponse;
 using ::pbrpc::api::PingService;
-using ::pbrpc::Request;
-using ::pbrpc::Response;
-using ::pbrpc::ClientRPC;
 using namespace std;
 
-class PingClient{
+class PingClient {
 public:
-	string ping (const string& msg){
-		cout<<"inside ping"<<endl;
-		PingRequest request;
-		request.set_message(msg);
+  string ping(const string &msg) {
+    cout << "inside ping" << endl;
+    PingRequest request;
+    request.set_message(msg);
 
-		PingResponse response;
-		//clientcontext
-		//Status status=PingService.Ping(request, &response);
-		// if (status.ok()) {
-	 //      return response.result();
-	 //    } else {
-	 //      cout << status.error_code() << ": " << status.error_message()
-	 //                << std::endl;
-	 //      return "RPC failed";
-	 //    }
-	}
+    PingResponse response;
+    // clientcontext
+    // Status status=PingService.Ping(request, &response);
+    // if (status.ok()) {
+    //      return response.result();
+    //    } else {
+    //      cout << status.error_code() << ": " << status.error_message()
+    //                << std::endl;
+    //      return "RPC failed";
+    //    }
+  }
 };
 
 // int main(void) {
@@ -42,9 +42,8 @@ public:
 //   // PingResponse response;
 //   // request.set_message("hello whats up");
 
-//   Request req;//Creating a pbrpc request that needs to be Serialized and transported to Server
-//   req.set_pbrpc("1.1");
-//   req.set_service("PingService");
+//   Request req;//Creating a pbrpc request that needs to be Serialized and
+//   transported to Server req.set_pbrpc("1.1"); req.set_service("PingService");
 //   req.set_method("ping");
 //   req.set_id(123);
 
@@ -62,9 +61,9 @@ public:
 //   if (curl) {
 
 //     struct curl_slist *header = NULL;
-//     header = curl_slist_append(header, "Content-Type: application/x-protobuf");
-//     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
-//     curl_easy_setopt(curl, CURLOPT_URL, "localhost:9999/rpc");
+//     header = curl_slist_append(header, "Content-Type:
+//     application/x-protobuf"); curl_easy_setopt(curl, CURLOPT_HTTPHEADER,
+//     header); curl_easy_setopt(curl, CURLOPT_URL, "localhost:9999/rpc");
 //     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
 //     res = curl_easy_perform(curl);
 
@@ -79,8 +78,9 @@ public:
 // }
 
 int main(void) {
-ClientRPC client;
-Request req;
+GOOGLE_PROTOBUF_VERIFY_VERSION;
+  ClientRPC client;
+  Request req;
   req.set_pbrpc("1.1");
   req.set_service("PingService");
   req.set_method("Ping");

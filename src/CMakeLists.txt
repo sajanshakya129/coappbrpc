@@ -47,4 +47,4 @@ set(pbrpc_srv_SRCS
 )
 add_executable(pbrpc_srv ${pbrpc_srv_SRCS})
 
-target_link_libraries(pbrpc_srv pbrpc mongoose  coap-2 proto_msg)
+target_link_libraries(pbrpc_srv pbrpc coap-2 proto_msg)

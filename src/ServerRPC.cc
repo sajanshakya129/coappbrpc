@@ -192,7 +192,7 @@ void ServerRPC::init(void) {
   std::cout << "from send ServerRPC init" << std::endl;
   running = false;
   // init the PBRPC system
-  // init_pbrpc();
+  init_pbrpc();
 }
 
 bool ServerRPC::stop(int result) {
