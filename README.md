@@ -4,7 +4,7 @@
 Install [libpbrpc](https://github.com/sajanshakya129/libpbrpc.git) library in your system.
 
 
-##installation
+## Installation
 ```
 git clone --recurse-submodules https://github.com/sajanshakya129/coappbrpc
 mkdir build && cd build
