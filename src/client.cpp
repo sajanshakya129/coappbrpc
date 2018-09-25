@@ -35,48 +35,6 @@ public:
   }
 };
 
-// int main(void) {
-//   GOOGLE_PROTOBUF_VERIFY_VERSION;
-//   cout << "executing client" << endl;
-//   // PingRequest request;
-//   // PingResponse response;
-//   // request.set_message("hello whats up");
-
-//   Request req;//Creating a pbrpc request that needs to be Serialized and
-//   transported to Server req.set_pbrpc("1.1"); req.set_service("PingService");
-//   req.set_method("ping");
-//   req.set_id(123);
-
-//   std::string data;
-//   req.SerializeToString(&data);//Serializing
-
-//   std::cout<<"data="<<data<<std::endl;
-
-//   CURL *curl;
-//   CURLcode res;
-
-//   curl_global_init(CURL_GLOBAL_ALL);
-
-//   curl = curl_easy_init();
-//   if (curl) {
-
-//     struct curl_slist *header = NULL;
-//     header = curl_slist_append(header, "Content-Type:
-//     application/x-protobuf"); curl_easy_setopt(curl, CURLOPT_HTTPHEADER,
-//     header); curl_easy_setopt(curl, CURLOPT_URL, "localhost:9999/rpc");
-//     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
-//     res = curl_easy_perform(curl);
-
-//     if (res != CURLE_OK)
-//       fprintf(stderr, "curl_easy_perform() failed: %s\n",
-//               curl_easy_strerror(res));
-
-//     curl_easy_cleanup(curl);
-//   }
-//   curl_global_cleanup();
-//   return 0;
-// }
-
 int main(void) {
 GOOGLE_PROTOBUF_VERIFY_VERSION;
   ClientRPC client;
@@ -88,7 +46,13 @@ GOOGLE_PROTOBUF_VERIFY_VERSION;
   req.set_id(123);
   std::string data;
   req.SerializeToString(&data);
-  
   client.sendPayload(data);
   client.runClient();
+  
+  cout<<"getting response"<<endl;
+  cout<<client.getResponse()<<endl;
+  // resp.ParseFromString(client.getResponse());
+
+  // cout<<"RESPONSE_VERSION"<<resp.pbrpc()<<endl;
+  // cout<<"REPONSE_ID"<<resp.id()<<endl;
 }

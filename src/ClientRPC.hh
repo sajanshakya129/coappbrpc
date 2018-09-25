@@ -10,10 +10,13 @@ namespace pbrpc {
 class ClientRPC {
 public:
   string payload;
+  string response;
   ClientRPC();
   virtual ~ClientRPC();
   void sendPayload(string);
   void runClient();
+  void receiveResponse(unsigned char *, size_t );
+  string getResponse();
 
 };
 

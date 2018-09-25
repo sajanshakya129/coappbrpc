@@ -1,3 +1,5 @@
+#ifndef __CoapClient_HH_INCLUDED_
+#define __CoapClient_HH_INCLUDED_
 #include <coap/coap.h>
 #include <iostream>
 #include <string>
@@ -17,3 +19,4 @@ public:
                              coap_pdu_t *, coap_pdu_t *, const coap_tid_t);
   static int runClient(ClientParams);
 };
+#endif

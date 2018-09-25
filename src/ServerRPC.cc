@@ -14,7 +14,7 @@ using ::google::protobuf::ServiceDescriptor;
 
 using ::pbrpc::Request;
 using ::pbrpc::Response;
-using namespace std;
+
 #define UNUSED_PARAM
 namespace pbrpc {
 
@@ -32,7 +32,12 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 
   coap_get_data(request, &data_len, &data); // data must be unsigned char *
 
-  handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
+  string rpcResponse;
+
+  rpcResponse=handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
+
+  std::cout<<"REPONSE TO BE SENT BACK USING COAP"<<std::endl;
+  std::cout<<rpcResponse<<std::endl;
 
   // std::string
   //     strdata; // to parse protobug string data must be represented by string
@@ -41,10 +46,10 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
   // Request req;
   // req.ParseFromString(strdata);
 
-  // cout << req.pbrpc() << endl;
+  // std::cout << req.pbrpc() << std::endl;
 
 
-  response_data = "this is the result";
+  response_data = rpcResponse.c_str();
   response->code = COAP_RESPONSE_CODE(205);
   coap_add_option(response, COAP_OPTION_CONTENT_TYPE,
                   coap_encode_var_safe(buf, sizeof(buf),
