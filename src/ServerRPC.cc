@@ -29,26 +29,13 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
   
   unsigned char *data;
   size_t data_len;
-
   coap_get_data(request, &data_len, &data); // data must be unsigned char *
 
   string rpcResponse;
-
   rpcResponse=handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
 
   std::cout<<"REPONSE TO BE SENT BACK USING COAP"<<std::endl;
   std::cout<<rpcResponse<<std::endl;
-
-  // std::string
-  //     strdata; // to parse protobug string data must be represented by string
-  // strdata.append(reinterpret_cast<const char *>(data)); // converting unsigned char* to const char* using reinterpret and
-  //             // converting to string
-  // Request req;
-  // req.ParseFromString(strdata);
-
-  // std::cout << req.pbrpc() << std::endl;
-
-
   response_data = rpcResponse.c_str();
   response->code = COAP_RESPONSE_CODE(205);
   coap_add_option(response, COAP_OPTION_CONTENT_TYPE,
@@ -60,51 +47,6 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
   coap_add_data(response, strlen(response_data),
                 (const uint8_t *)response_data);
 }
-
-// int handleRPC(struct mg_connection *conn) {
-//   std::cout << "from send handleRPC" << std::endl;
-//   mg_request_info *request_info = mg_get_request_info(conn);
-
-//   // only process "POST" request
-//   if (IS_METHOD_POST(request_info->request_method)) {
-//     std::cout << "method post" << std::endl;
-//     // check the content type
-//     const char *contentType = mg_get_header(conn, HEADER_Content_Type);
-//     if (IS_CONTENT_TYPE_PROTOBUF(contentType)) {
-//       std::cout << "content type is protobuf" << std::endl;
-//       const char *size_header = mg_get_header(conn, HEADER_Content_Length);
-//       int len = 0;
-//       sscanf(size_header, "%d", &len);
-
-//       char *buff = (char *)malloc(sizeof(char) * (len + 1));
-//       mg_read(conn, buff, len);
-//       sendResponsePROTO(conn, handle_pbrpc(buff, len));
-//       free(buff);
-//     } else {
-//       std::cout << "content type not protobuf" << std::endl;
-//       // empty or unknown content type, ignore
-//     }
-//   } else if (IS_METHOD_OPTIONS(request_info->request_method)) {
-//     std::cout << "from method options" << std::endl;
-//     // received HTTP OPTIONS
-//     sendResponseOPTIONS(conn);
-//   } else {
-//     std::cout << "not using post options" << std::endl;
-//     // received HTTP OPTIONS
-//     // should be other POST messages
-//     sendResponsePROTO(conn, "The RPC request is not using POST.");
-//   }
-
-//   return 0; // Mark as processed
-// }
-
-// int handleCOAP(struct mg_connection *conn) {
-//   std::cout << "from send handleHTTP" << std::endl;
-//   // the URI starts with /rpc
-//   if (IS_URI_RPC(mg_get_request_info(conn)->uri)) {
-//     return handleRPC(conn);
-//   }
-// }
 
 int resolve_address(const char *host, const char *service,
                     coap_address_t *dst) {

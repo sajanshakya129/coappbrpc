@@ -17,6 +17,6 @@ public:
   string payload;
   static void client_handler(struct coap_context_t *, coap_session_t *,
                              coap_pdu_t *, coap_pdu_t *, const coap_tid_t);
-  static int runClient(ClientParams);
+  static int executeClient(ClientParams);
 };
 #endif

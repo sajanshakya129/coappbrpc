@@ -15,8 +15,9 @@ void CoapClient::client_handler(struct coap_context_t *ctx,
   size_t data_len;
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
-      ClientRPC clientrpc;
-      clientrpc.receiveResponse(data,data_len);
+      std::string strData(reinterpret_cast<char *>(data));
+      ClientRPC* client_ret = ClientRPC::getInstance();
+      client_ret->receiveResponse(strData);
 
       // cout << "datalength:" << data_len << endl;
       // cout << "Received:" << data_len << data << endl;
@@ -24,7 +25,7 @@ void CoapClient::client_handler(struct coap_context_t *ctx,
   }
 }
 
-int CoapClient::runClient(ClientParams params) {
+int CoapClient::executeClient(ClientParams params) {
   CoapCommon common;
   coap_context_t *ctx = nullptr;
   coap_session_t *session = nullptr;

@@ -5,21 +5,25 @@
 using namespace std;
 
 namespace pbrpc {
-ClientRPC::ClientRPC() {
-  std::cout << "from send client RPC Constructor" << endl;
+ClientRPC *ClientRPC::instance = 0; // initializing instance
+
+ClientRPC *ClientRPC::getInstance() { // getting new clientRPC instance
+  if (instance == 0) {
+    instance = new ClientRPC();
+  }
+
+  return instance;
 }
 
-ClientRPC::~ClientRPC() {
-  std::cout << "from send client RPC Destructor" << endl;
-}
+ClientRPC::ClientRPC() {}
+
+ClientRPC::~ClientRPC() {}
 
 void ClientRPC::sendPayload(string data) {
-  cout << "from clientRPC sendPayload" << endl;
   payload = this->payload = data;
 }
 
 void ClientRPC::runClient() {
-  cout << "from clientRPC runclient" << endl;
   CoapClient coapclient;
   ClientParams params;
   params.addr = "localhost";
@@ -27,22 +31,11 @@ void ClientRPC::runClient() {
   params.methodType = COAP_REQUEST_POST;
   params.interface = "rpc";
   params.payload = this->payload;
-  coapclient.runClient(params);
+  coapclient.executeClient(params);
 }
 
-void ClientRPC::receiveResponse(unsigned char *data, size_t len) {
-  cout << "from receving RESPONSE" << endl;
-  cout<<data<<endl;
-  std::string strData(reinterpret_cast<char *>(data)); //converting unsigned char to char* then to std::string
-  cout<<strData<<endl;
-  //this->response = resp;
-  //cout <<this->response<<endl;
-}
+void ClientRPC::receiveResponse(string resp) { this->response = resp; }
 
-string ClientRPC::getResponse() {
-cout<<"inside getReponse()";
-	 cout <<this->response<<endl;
-  return response;
-}
+string ClientRPC::getResponse() { return this->response; }
 
 } // namespace pbrpc
