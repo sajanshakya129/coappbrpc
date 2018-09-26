@@ -1,7 +1,7 @@
 #include "ClientRPC.hh"
 #include <iostream>
 
-#include "../proto/rpc_ping.pb.h"
+#include "../build/proto/rpc_ping.pb.h"
 #include <pbrpc/pbrpc.pb.h>
 #include <stdio.h>
 #include <string>
