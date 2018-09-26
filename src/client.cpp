@@ -2,7 +2,6 @@
 #include <iostream>
 
 #include "../proto/rpc_ping.pb.h"
-#include <curl/curl.h>
 #include <pbrpc/pbrpc.pb.h>
 #include <stdio.h>
 #include <string>

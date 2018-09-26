@@ -2,7 +2,6 @@
 #define PBRPC_API_PING_HH_INCLUDED
 
 #include <rpc_ping.pb.h>
-#include <iostream>
 using namespace std;
 namespace pbrpc {
 namespace api {
@@ -21,7 +20,8 @@ public:
             Closure* done
     ) {
         // Do your processing here
-        cout<<"INSIDE PING FUNCTION"<<endl;
+
+        
         // Fill response
         response->set_result("I got your message: " + request->message());
     }
