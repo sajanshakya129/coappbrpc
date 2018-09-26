@@ -34,10 +34,11 @@ sudo make install
 
 ## Running Server
 ```
-./build/src/pbrpc_srv
+cd build/src/
+./pbrpc_srv
 ```
 ## Compiling and Running Client(work on progress)
 ```
-./src/compile.sh
+compile_client.sh
 ./client
 ```
