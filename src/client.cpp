@@ -34,13 +34,13 @@ public:
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   ClientRPC *client = ClientRPC::getInstance();
-  //setting ping request and serializing it
+  // setting ping request and serializing it
   std::string msg;
   PingRequest request;
   request.set_message("Testing User Msg");
   request.SerializeToString(&msg);
 
-  //Preparing RPC Generic request
+  // Preparing RPC Generic request
 
   Request req;
   req.set_pbrpc("1.1");
@@ -53,17 +53,20 @@ int main(void) {
   client->sendPayload(data);
   client->runClient();
 
-  //Getting response and deserializing
+  // Getting response and deserializing
   Response resp;
   resp.ParseFromString(client->getResponse());
 
+  if (resp.id() != 0) {
+    cout << "RESPONSE_VERSION::  " << resp.pbrpc() << endl;
+    cout << "REPONSE_ID::  " << resp.id() << endl;
 
-  cout << "RESPONSE_VERSION::  " << resp.pbrpc() << endl;
-  cout << "REPONSE_ID::  " << resp.id() << endl;
-  
-  //Deserializing PingResponse
+    // Deserializing PingResponse
 
-  PingResponse response;
-  response.ParseFromString(resp.result());
-  cout << "RESPONSE_message:: " << response.result() << endl;
+    PingResponse response;
+    response.ParseFromString(resp.result());
+    cout << "RESPONSE_message:: " << response.result() << endl;
+  }else{
+    cout<<"RPC ERROR"<<endl;
+  }
 }
