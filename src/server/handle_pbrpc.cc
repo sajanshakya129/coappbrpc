@@ -2,7 +2,7 @@
 
 #include <pbrpc/ServiceManager.hh>
 
-#include "service/Ping.hh"
+#include "../service/Ping.hh"
 
 namespace pbrpc {
 

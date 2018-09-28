@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "coap_common.hh"
+#include "CoapCommon.hh"
 
 int CoapCommon::resolve_address(const char *host, const char *service,
                     coap_address_t *dst) {

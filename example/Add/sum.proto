@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pbrpc.api;
+
+option cc_generic_services = true;
+
+message AddRequest{
+	int32 operand1 = 1;
+	int32 operand2 = 2;
+}
+
+message AddResponse {
+	int32 result = 1;
+}
+
+service SumService {
+ rpc Add (AddRequest) returns (AddResponse);
+}
+

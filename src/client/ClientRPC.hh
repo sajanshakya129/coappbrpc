@@ -1,7 +1,7 @@
 #ifndef __ClientRPC_HH_INCLUDED_
 #define __ClientRPC_HH_INCLUDED_
 
-#include "coap_client.hh"
+#include "CoapClient.hh"
 #include <pbrpc/pbrpc.pb.h>
 #include <string>
 using namespace std;
@@ -10,6 +10,8 @@ namespace pbrpc {
 class ClientRPC {
 private:
   static ClientRPC* instance;
+  string address;
+  string port;
   string payload;
   string response;
   ClientRPC();
@@ -20,6 +22,7 @@ public:
   void runClient();
   void receiveResponse(string);
   string getResponse();
+  void createChannel(string);
 };
 } // namespace pbrpc
 

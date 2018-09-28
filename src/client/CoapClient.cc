@@ -1,6 +1,6 @@
-#include "coap_client.hh"
+#include "CoapClient.hh"
 #include "ClientRPC.hh"
-#include "coap_common.hh"
+#include "../common/CoapCommon.hh"
 #include <coap/coap.h>
 #include <iostream>
 #include <string>

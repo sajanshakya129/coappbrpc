@@ -2,7 +2,7 @@
 #define __ServerRPC_HH_INCLUDED_
 
 #include <coap/coap.h>
-#include "coap_common.hh"
+#include "../common/CoapCommon.hh"
 #include <string>
 using namespace std;
 namespace pbrpc {

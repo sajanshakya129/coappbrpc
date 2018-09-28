@@ -5,7 +5,7 @@
 
 
 // the parameters and configurations
-#define URI_RPC         "/rpc"          // the serviec URL
+#define URI_RPC         "rpc"          // the serviec URL
 #define PATH_SSL_CERT   "ssl_cert.pem"  // the SSL certificate path
 #define DOC_ROOT        "./web"
 

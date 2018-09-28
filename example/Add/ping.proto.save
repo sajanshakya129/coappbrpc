@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package pbrpc.api;
+
+option cc_generic_services = true;
+
+message PingRequest {
+    string message = 1;
+}
+
+message PingResponse {
+    string result = 1;
+}
+
+message AddRequest{
+	int32 operand1 = 1;
+	int32 operand2 = 2;
+
+service PingService {
+    rpc Add (AddRequest) returns (AddResponse);
+}
+
