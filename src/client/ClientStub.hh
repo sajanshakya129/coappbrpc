@@ -1,5 +1,6 @@
 #ifndef __ClientStub_HH_INCLUDED_
 #define __ClientStub_HH_INCLUDED_
+
 #include "../../build/proto/rpc_ping.pb.h"
 #include "ClientRPC.hh"
 

@@ -12,7 +12,6 @@ ServiceManager __srv_man;
 
 void init_pbrpc(void) {
     __srv_man.init();
-    __srv_man.regService(new ::pbrpc::api::PingServiceImpl());
 }
 
 string handle_pbrpc(const char *data, const size_t len) {
@@ -21,4 +20,9 @@ string handle_pbrpc(const char *data, const size_t len) {
     return ret;
 }
 
+void handle_regService(Service *service){
+	cout<<"inside handlepbrpc"<<endl;
+  __srv_man.regService(service);
 }
+
+}//pbrpc namespace

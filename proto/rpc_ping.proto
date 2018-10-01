@@ -5,7 +5,7 @@ package pbrpc.api;
 option cc_generic_services = true;
 
 message PingRequest {
-    string message = 1;
+    string msg = 1;
 }
 
 message PingResponse {

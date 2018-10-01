@@ -1,16 +1,14 @@
 #include <iostream>
 #include <stdlib.h>
-#include <string.h>
-#include <string>
 
 #include "ServerRPC.hh"
 #include "handle_pbrpc.hh"
 #include "server_cfg.h"
-#include <pbrpc/pbrpc.pb.h>
+
 
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
-using ::google::protobuf::ServiceDescriptor;
+
 
 using ::pbrpc::Request;
 using ::pbrpc::Response;
@@ -26,15 +24,15 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
                     coap_string_t *query UNUSED_PARAM, coap_pdu_t *response) {
   unsigned char buf[3];
   const char *response_data;
-  
+
   unsigned char *data;
   size_t data_len;
   coap_get_data(request, &data_len, &data); // data must be unsigned char *
 
   string rpcResponse;
-  rpcResponse=handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
-  std::cout<<"REPONSE TO BE SENT BACK USING COAP"<<std::endl;
-  std::cout<<rpcResponse<<std::endl;
+  rpcResponse = handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
+  std::cout << "REPONSE TO BE SENT BACK USING COAP" << std::endl;
+  std::cout << rpcResponse << std::endl;
   response_data = rpcResponse.c_str();
   response->code = COAP_RESPONSE_CODE(205);
   coap_add_option(response, COAP_OPTION_CONTENT_TYPE,
@@ -48,16 +46,28 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 }
 
 ServerRPC::ServerRPC() {
-  //std::cout << "from send serverRPC constructor" << std::endl;
+  // std::cout << "from send serverRPC constructor" << std::endl;
   init();
 }
 
-ServerRPC::~ServerRPC() { 
-//std::cout << "from send destructor" << std::endl; 
+ServerRPC::~ServerRPC() {
+  // std::cout << "from send destructor" << std::endl;
 }
 
-int ServerRPC::start(void) {
-  //std::cout << "from send start ServerRPC" << std::endl;
+int ServerRPC::start(string ipAddr) {
+  // std::cout << "from send start ServerRPC" << std::endl;
+  string delimiter = ":";
+  if (ipAddr.find(delimiter) != std::string::npos) {
+    this->serverAddr = ipAddr.substr(0, ipAddr.find(delimiter));
+    this->port =
+        stoi(ipAddr.substr((ipAddr.find(delimiter) + 1), ipAddr.find('\0')));
+  } else {
+    cout << "ERROR in channel: Please enter IP address in formart "
+            "ip_address:port_no"
+         << endl;
+    exit(0);
+  }
+
   if (running) {
     return 0;
   }
@@ -119,6 +129,11 @@ bool ServerRPC::stop(int result) {
   }
 
   return !running;
+}
+
+void ServerRPC::registerService(Service *service){
+  cout<<"inside serverRPC"<<endl;
+  handle_regService(service);
 }
 
 } // namespace pbrpc

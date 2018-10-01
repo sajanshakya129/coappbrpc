@@ -23,7 +23,7 @@ public:
 
         
         // Fill response
-        response->set_result("I got your message: " + request->message());
+        response->set_result("I got your message: " + request->msg());
     }
 };
 

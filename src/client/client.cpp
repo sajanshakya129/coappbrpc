@@ -16,10 +16,9 @@ using namespace std;
 class PingClient {
 public:
   string ping(const string &msg) {
-    cout << "inside PingClient:ping" << endl;
     
     PingRequest request;
-    request.set_message(msg);
+    request.set_msg(msg);
 
     PingResponse response;
     stub.Ping(request, &response);
@@ -37,7 +36,7 @@ int main(void) {
   client->SetServerAddr("localhost:5683");
   
 
-  std::string msg("Testing User Msg");
+  std::string msg("Hello world");
   PingClient pclient;
   std::string reply = pclient.ping(msg);
   std::cout << "Ping received: " << reply << std::endl;
