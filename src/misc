@@ -1,0 +1,45 @@
+// int main(void) {
+//   GOOGLE_PROTOBUF_VERIFY_VERSION;
+//   ClientRPC *client = ClientRPC::getInstance();
+//   client->createChannel("localhost:5683");
+
+//   std::string msg("Testing User Msg");
+//   std::string reply = PingClient.ping(msg);
+//   std::cout << "Ping received: " << reply << std::endl;
+
+//   // setting ping request and serializing it
+//   std::string msg;
+//   PingRequest request;
+//   request.set_message("Testing User Msg");
+//   request.SerializeToString(&msg);
+
+//   // Preparing RPC Generic request
+
+//   Request req;
+//   req.set_pbrpc("1.1");
+//   req.set_service("PingService");
+//   req.set_method("Ping");
+//   req.set_params(msg);
+//   req.set_id((rand() % 9999 + 1));
+//   std::string data;
+//   req.SerializeToString(&data);
+//   client->sendPayload(data);
+//   client->runClient();
+
+//   // Getting response and deserializing
+//   Response resp;
+//   resp.ParseFromString(client->getResponse());
+
+//   if (resp.id() != 0) {
+//     cout << "RESPONSE_VERSION::  " << resp.pbrpc() << endl;
+//     cout << "REPONSE_ID::  " << resp.id() << endl;
+
+//     // Deserializing PingResponse
+
+//     PingResponse response;
+//     response.ParseFromString(resp.result());
+//     cout << "RESPONSE_message:: " << response.result() << endl;
+//   }else{
+//     cout<<"RPC ERROR"<<endl;
+//   }
+// }

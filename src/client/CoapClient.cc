@@ -18,7 +18,6 @@ void CoapClient::client_handler(struct coap_context_t *ctx,
       std::string strData(reinterpret_cast<char *>(data));
       ClientRPC* client_ret = ClientRPC::getInstance();
       client_ret->receiveResponse(strData);
-
       // cout << "datalength:" << data_len << endl;
       // cout << "Received:" << data_len << data << endl;
     }

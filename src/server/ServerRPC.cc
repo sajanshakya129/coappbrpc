@@ -48,14 +48,16 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 }
 
 ServerRPC::ServerRPC() {
-  std::cout << "from send serverRPC constructor" << std::endl;
+  //std::cout << "from send serverRPC constructor" << std::endl;
   init();
 }
 
-ServerRPC::~ServerRPC() { std::cout << "from send destructor" << std::endl; }
+ServerRPC::~ServerRPC() { 
+//std::cout << "from send destructor" << std::endl; 
+}
 
 int ServerRPC::start(void) {
-  std::cout << "from send start ServerRPC" << std::endl;
+  //std::cout << "from send start ServerRPC" << std::endl;
   if (running) {
     return 0;
   }

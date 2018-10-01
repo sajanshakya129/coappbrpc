@@ -44,6 +44,7 @@ set(pbrpc_client_SRCS
     client.cpp
     ClientRPC.cc
     CoapClient.cc
+    ClientStub.cc
     ../common/CoapCommon.cc
 )
 

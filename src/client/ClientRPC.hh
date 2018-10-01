@@ -22,7 +22,8 @@ public:
   void runClient();
   void receiveResponse(string);
   string getResponse();
-  void createChannel(string);
+  void SetServerAddr(string);
+  Response execFunc(string,string,string,string);
 };
 } // namespace pbrpc
 
