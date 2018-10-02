@@ -1,4 +1,3 @@
-#include <cstdio>
 #include "CoapCommon.hh"
 
 int CoapCommon::resolve_address(const char *host, const char *service,

@@ -1,4 +1,3 @@
-#include<iostream>
 #include "ClientStub.hh"
 
 void ClientStub::Ping(PingRequest request, PingResponse *response){

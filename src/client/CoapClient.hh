@@ -3,6 +3,9 @@
 #include <coap/coap.h>
 #include <iostream>
 #include <string>
+
+#include "../common/CoapCommon.hh"
+
 using namespace std;
 typedef struct {
   string addr;
@@ -12,6 +15,7 @@ typedef struct {
   string payload;
 } ClientParams;
 
+namespace pbrpc {
 class CoapClient {
 public:
   string payload;
@@ -19,4 +23,5 @@ public:
                              coap_pdu_t *, coap_pdu_t *, const coap_tid_t);
   static int executeClient(ClientParams);
 };
+} // namespace pbrpc
 #endif

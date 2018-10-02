@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-#include "ServerRPC.hh"
-
-#include "../../build/proto/rpc_ping.pb.h"
+#include "ServerRPC.hh" //for server rpc handling
+#include "../../build/proto/rpc_ping.pb.h" //protobuf output file
 
 using namespace std;
 using ::pbrpc::ServerRPC;
+
 namespace pbrpc {
 namespace api {
 
@@ -31,6 +31,7 @@ public:
 int main() {
   ServerRPC server;
   server.registerService(new ::pbrpc::api::PingServiceImpl());
-  server.start("localhost:5683");
+  server.runServer();
+  // server.runServer("localhost:5683");
   return 0;
 }

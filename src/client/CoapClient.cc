@@ -1,13 +1,9 @@
 #include "CoapClient.hh"
 #include "ClientRPC.hh"
-#include "../common/CoapCommon.hh"
-#include <coap/coap.h>
-#include <iostream>
-#include <string>
-using namespace std;
+
 using ::pbrpc::ClientRPC;
 
-// cog regeneration of handlers//
+namespace pbrpc {
 void CoapClient::client_handler(struct coap_context_t *ctx,
                                 coap_session_t *session, coap_pdu_t *sent,
                                 coap_pdu_t *received, const coap_tid_t id) {
@@ -16,10 +12,8 @@ void CoapClient::client_handler(struct coap_context_t *ctx,
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
       std::string strData(reinterpret_cast<char *>(data));
-      ClientRPC* client_ret = ClientRPC::getInstance();
-      client_ret->receiveResponse(strData);
-      // cout << "datalength:" << data_len << endl;
-      // cout << "Received:" << data_len << data << endl;
+      ClientRPC *client_ret = ClientRPC::getInstance();
+      client_ret->setResponse(strData);
     }
   }
 }
@@ -84,4 +78,5 @@ finish:
   coap_cleanup();
 
   return result;
+}
 }

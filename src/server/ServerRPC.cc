@@ -1,17 +1,4 @@
-#include <iostream>
-#include <stdlib.h>
-
 #include "ServerRPC.hh"
-#include "handle_pbrpc.hh"
-#include "server_cfg.h"
-
-
-using ::google::protobuf::Message;
-using ::google::protobuf::MethodDescriptor;
-
-
-using ::pbrpc::Request;
-using ::pbrpc::Response;
 
 #define UNUSED_PARAM
 namespace pbrpc {
@@ -46,16 +33,14 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 }
 
 ServerRPC::ServerRPC() {
-  // std::cout << "from send serverRPC constructor" << std::endl;
   init();
 }
 
 ServerRPC::~ServerRPC() {
-  // std::cout << "from send destructor" << std::endl;
 }
 
-int ServerRPC::start(string ipAddr) {
-  // std::cout << "from send start ServerRPC" << std::endl;
+void ServerRPC::runServer(string ipAddr){
+  //cout<<"inside user defined parameter"<<endl;
   string delimiter = ":";
   if (ipAddr.find(delimiter) != std::string::npos) {
     this->serverAddr = ipAddr.substr(0, ipAddr.find(delimiter));
@@ -67,7 +52,19 @@ int ServerRPC::start(string ipAddr) {
          << endl;
     exit(0);
   }
+  this->start();
+}
 
+void ServerRPC::runServer(){
+  //cout<<"inside run parameter without parameter"<<endl;
+  this->serverAddr="localhost";
+  this->port=5683;
+  this->start();
+}
+
+
+int ServerRPC::start() {
+ //std::cout << "from send start ServerRPC" << std::endl;
   if (running) {
     return 0;
   }
@@ -132,7 +129,6 @@ bool ServerRPC::stop(int result) {
 }
 
 void ServerRPC::registerService(Service *service){
-  cout<<"inside serverRPC"<<endl;
   handle_regService(service);
 }
 

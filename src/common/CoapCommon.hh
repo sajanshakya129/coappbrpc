@@ -1,5 +1,6 @@
 #include <coap/coap.h>
 #include <iostream>
+#include <cstdio>
 #include <netdb.h>
 #include <sys/socket.h>
 #include <sys/types.h>

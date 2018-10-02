@@ -2,28 +2,32 @@
 #define __ClientRPC_HH_INCLUDED_
 
 #include "CoapClient.hh"
+#include <iostream>
 #include <pbrpc/pbrpc.pb.h>
 #include <string>
 using namespace std;
 
+#define COAP_INTERFACE_NAME "rpc"
+
 namespace pbrpc {
 class ClientRPC {
 private:
-  static ClientRPC* instance;
+  static ClientRPC *instance;
   string address;
   string port;
   string payload;
   string response;
   ClientRPC();
+
 public:
-  static ClientRPC* getInstance();
+  static ClientRPC *getInstance();
   virtual ~ClientRPC();
   void sendPayload(string);
   void runClient();
-  void receiveResponse(string);
+  void setResponse(string);
   string getResponse();
   void SetServerAddr(string);
-  Response execFunc(string,string,string,string);
+  Response execFunc(string, string, string, string);
 };
 } // namespace pbrpc
 
