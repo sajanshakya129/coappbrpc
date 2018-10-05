@@ -1,0 +1,52 @@
+{
+  "filename": "rpc_ping.proto", 
+  "data": [
+    {
+      "type": "Message", 
+      "name": "PingRequest", 
+      "properties": [
+        {
+          "type": 9, 
+          "name": "msg"
+        }, 
+        {
+          "type": 9, 
+          "name": "abc"
+        }, 
+        {
+          "type": 9, 
+          "name": "def"
+        }
+      ]
+    }, 
+    {
+      "type": "Message", 
+      "name": "PingResponse", 
+      "properties": [
+        {
+          "type": 9, 
+          "name": "result"
+        }
+      ]
+    }, 
+    {
+      "type": "Service", 
+      "name": "PingService", 
+      "methods": [
+        {
+          "method_name": "Ping", 
+          "input": "PingRequest", 
+          "output": "PingResponse"
+        }, 
+        {
+          "method_name": "Add", 
+          "input": "PingRequest", 
+          "output": "PingResponse"
+        }
+      ]
+    }
+  ], 
+  "headerfile": "rpc_ping.pb.h", 
+  "ccfile": "rpc_ping.pb.cc", 
+  "package": "pbrpc.api"
+}

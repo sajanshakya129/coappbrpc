@@ -1,0 +1,52 @@
+cmake_minimum_required(VERSION 2.8.9)
+
+project(coappbrpc)
+set(CMAKE_BUILD_TYPE Release)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+find_library(COAP_LIB libcoap-2.so)
+find_library(PBRPC_LIB libpbrpc.a)
+
+if (NOT PROTOBUF_ROOT)
+    find_package(Protobuf REQUIRED)
+else()
+    set(PROTOBUF_SRC_ROOT_FOLDER ${PROTOBUF_ROOT})
+    set(PROTOBUF_PROTOC_EXECUTABLE ${protoc_BINARY_DIR}/protoc)
+    include(FindProtobufExt)
+endif()
+
+set(INS_INCLUDE_DIR
+    "/coappbrpc"
+)
+
+set(INS_TARGETS
+    coappbrpc
+)
+
+set(COAPPBRPC_SRCS 
+	src/ClientRPC.cc
+	src/ClientStub.cc
+	src/CoapClient.cc
+	src/CoapCommon.cc
+	src/handle_pbrpc.cc
+	src/ServerRPC.cc
+)
+
+set(COAPPBRPC_HDRS 
+	include/ClientRPC.hh
+	include/ClientStub.hh
+	include/CoapClient.hh
+	include/CoapCommon.hh
+	include/handle_pbrpc.hh
+	include/ServerRPC.hh
+)
+
+
+
+add_library(coappbrpc SHARED ${COAPPBRPC_SRCS})
+target_link_libraries(coappbrpc  protobuf "${COAP_LIB}")
+
+install(TARGETS ${INS_TARGETS}  LIBRARY DESTINATION lib COMPONENT libraries)
+
+install(FILES ${COAPPBRPC_HDRS} DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)

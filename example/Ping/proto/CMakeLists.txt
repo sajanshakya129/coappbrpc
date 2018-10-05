@@ -1,3 +1,4 @@
+# Required cmake version
 cmake_minimum_required(VERSION 2.8.4)
 
 project(proto_msg)
@@ -31,6 +32,3 @@ add_dependencies(proto_msg protoc)
 target_link_libraries(proto_msg protobuf)
 
 target_include_directories(proto_msg PUBLIC "${proto_msg_BINARY_DIR}")
-
-
-

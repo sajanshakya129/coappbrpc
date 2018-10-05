@@ -1,14 +1,15 @@
 #ifndef __ClientStub_HH_INCLUDED_
 #define __ClientStub_HH_INCLUDED_
 
-#include "../../build/proto/rpc_ping.pb.h"
-#include "ClientRPC.hh"
+#include <rpc_ping.pb.h>
+#include <coappbrpc/ClientRPC.hh>
 
 using ::pbrpc::ClientRPC;
 using ::pbrpc::Request;
 using ::pbrpc::Response;
 using ::pbrpc::api::PingRequest;
 using ::pbrpc::api::PingResponse;
+using namespace std;
 
 class ClientStub {
 public:

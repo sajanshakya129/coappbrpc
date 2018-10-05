@@ -6,8 +6,6 @@ option cc_generic_services = true;
 
 message PingRequest {
     string msg = 1;
-    string abc=2;
-    string def=3;
 }
 
 message PingResponse {
@@ -16,5 +14,4 @@ message PingResponse {
 
 service PingService {
     rpc Ping (PingRequest) returns (PingResponse);
-    rpc Add (PingRequest) returns (PingResponse);
 }

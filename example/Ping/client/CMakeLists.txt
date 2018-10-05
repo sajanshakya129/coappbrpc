@@ -1,6 +1,4 @@
-cmake_minimum_required(VERSION 2.8.4)
-
-project(pbrpc_common)
+project(pbrpc_client)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L/usr/local/lib -lprotobuf -pthread -I/usr/local/include/coap")
 
@@ -40,19 +38,16 @@ else ()
     message (STATUS "No libcoap found")
 endif()
 
-set(INS_INCLUDE_DIR
-    "/coappbrpc"
-)
-set(COAPCOMMON_SRCS
-  CoapCommon.hh CoapCommon.cc)
 
-add_library(CoapCommon ${COAPCOMMON_SRCS})
 
-# Install
-install(TARGETS CoapCommon
-    RUNTIME DESTINATION bin COMPONENT applications
-    LIBRARY DESTINATION lib COMPONENT libraries
-    ARCHIVE DESTINATION lib COMPONENT libraries
+set(pbrpc_client_SRCS
+    ClientStub.cc
+    client.cpp
+    
 )
 
-install(FILES CoapCommon.hh DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/../bin)
+
+add_executable(runClient ${pbrpc_client_SRCS})
+
+target_link_libraries(runClient libcoappbrpc_client.a)

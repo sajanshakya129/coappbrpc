@@ -10,3 +10,4 @@ compile_commands.json
 CTestTestfile.cmake
 build
 http_files
+bin

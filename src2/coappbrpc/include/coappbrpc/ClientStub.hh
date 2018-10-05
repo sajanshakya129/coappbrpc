@@ -9,6 +9,7 @@ using ::pbrpc::Request;
 using ::pbrpc::Response;
 using ::pbrpc::api::PingRequest;
 using ::pbrpc::api::PingResponse;
+using namespace std;
 
 class ClientStub {
 public:

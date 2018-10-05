@@ -1,0 +1,2 @@
+templates/ClientStubTemplate.hh -o ClientStub.hh
+templates/ClientStubTemplate.cc -o ClientStub.cc
