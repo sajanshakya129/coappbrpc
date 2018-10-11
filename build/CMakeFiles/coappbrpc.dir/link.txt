@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcoappbrpc.a  CMakeFiles/coappbrpc.dir/src/ClientRPC.cc.o CMakeFiles/coappbrpc.dir/src/CoapClient.cc.o CMakeFiles/coappbrpc.dir/src/CoapCommon.cc.o CMakeFiles/coappbrpc.dir/src/ServerRPC.cc.o CMakeFiles/coappbrpc.dir/src/handle_pbrpc.cc.o
+/usr/bin/ranlib libcoappbrpc.a

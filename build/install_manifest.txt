@@ -1,0 +1,6 @@
+/usr/local/lib/libcoappbrpc.a
+/usr/local/include/coappbrpc/ClientRPC.hh
+/usr/local/include/coappbrpc/CoapClient.hh
+/usr/local/include/coappbrpc/CoapCommon.hh
+/usr/local/include/coappbrpc/handle_pbrpc.hh
+/usr/local/include/coappbrpc/ServerRPC.hh

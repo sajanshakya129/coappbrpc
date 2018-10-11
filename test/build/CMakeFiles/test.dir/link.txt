@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/test.dir/test.cpp.o  -o test -Wl,-rpath,/usr/local/lib /usr/local/lib/libcoappbrpc.a /usr/local/lib/libpbrpc.a /usr/local/lib/libcoap-2.so /usr/local/lib/libprotobuf.so 

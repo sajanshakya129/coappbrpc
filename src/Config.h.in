@@ -1,3 +1,0 @@
-// the configured options and settings for Tutorial
-#define CoapPbRpc_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
-#define CoapPbRpc_VERSION_MINOR @Tutorial_VERSION_MINOR@
