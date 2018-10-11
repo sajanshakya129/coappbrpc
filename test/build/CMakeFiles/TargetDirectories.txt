@@ -1,3 +1,0 @@
-/home/sajan/Desktop/project/coappbrpc/test/build/CMakeFiles/rebuild_cache.dir
-/home/sajan/Desktop/project/coappbrpc/test/build/CMakeFiles/test.dir
-/home/sajan/Desktop/project/coappbrpc/test/build/CMakeFiles/edit_cache.dir

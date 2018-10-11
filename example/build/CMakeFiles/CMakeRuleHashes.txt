@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-a4d91f91c6100e58848fefad78e6d998 proto/rpc_ping.pb.cc

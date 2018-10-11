@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/server.dir/server.cpp.o ../proto/CMakeFiles/proto_msg.dir/rpc_ping.pb.cc.o  -o server /usr/local/lib/libcoappbrpc.a -lprotobuf 

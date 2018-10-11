@@ -1,8 +1,0 @@
-/home/sajan/Desktop/project/example/build/CMakeFiles/rebuild_cache.dir
-/home/sajan/Desktop/project/example/build/CMakeFiles/edit_cache.dir
-/home/sajan/Desktop/project/example/build/proto/CMakeFiles/rebuild_cache.dir
-/home/sajan/Desktop/project/example/build/proto/CMakeFiles/proto_msg.dir
-/home/sajan/Desktop/project/example/build/proto/CMakeFiles/edit_cache.dir
-/home/sajan/Desktop/project/example/build/src/CMakeFiles/rebuild_cache.dir
-/home/sajan/Desktop/project/example/build/src/CMakeFiles/server.dir
-/home/sajan/Desktop/project/example/build/src/CMakeFiles/edit_cache.dir
