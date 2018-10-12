@@ -11,3 +11,9 @@ CTestTestfile.cmake
 build
 http_files
 bin
+generator/coappbrpc.sh
+generator/coappbrpc.sh.x
+generator/coappbrpc.sh.c
+example/proto/ClientStub.cc
+example/proto/ClientStub.hh
+example/proto/protofile.json

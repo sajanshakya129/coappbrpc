@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 2.8.4)
 
 find_library(LIB_COAP_PBRPC NAMES coappbrpc)
-find_library(LIB_PBRPC NAMES pbrpc)
 
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
@@ -44,4 +43,4 @@ else ()
 endif()
 
 add_executable(test test.cpp)
-target_link_libraries(test ${LIB_COAP_PBRPC}  ${LIB_PBRPC} ${COAP_LIBRARIES} ${PROTOBUF_LIBRARY})
+target_link_libraries(test ${LIB_COAP_PBRPC} ${COAP_LIBRARIES} ${PROTOBUF_LIBRARY})

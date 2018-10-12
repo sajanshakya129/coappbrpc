@@ -4,12 +4,12 @@
 #include <coap/coap.h>
 #include <google/protobuf/service.h>
 #include <iostream>
-#include <pbrpc/pbrpc.pb.h>
+#include "pbrpc.pb.h"
 #include <stdlib.h>
 #include <string>
 
 #include "CoapCommon.hh"
-#include "handle_pbrpc.hh"
+#include "HandlePbrpc.hh"
 
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;

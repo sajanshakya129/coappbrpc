@@ -4,38 +4,65 @@ cmake_minimum_required(VERSION 2.8.4)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_LIST_DIR}/cmake/modules")
 
 project(coappbrpc)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 set(CMAKE_BUILD_TYPE Release)
 
-find_path (PBRPC_INCLUDE_DIR
-           NAMES pbrpc/ServiceManager.hh
-           PATH_SUFFIXES pbrpc
-)
-mark_as_advanced (PBRPC_INCLUDE_DIR)
+add_subdirectory(proto)
 
-find_library (PBRPC_LIBRARY NAMES
-              pbrpc
-              )
+include(FindPythonInterp)
+if(NOT PYTHONINTERP_FOUND)
+  message(FATAL_ERROR" Python doesnot exist in your system.Please download and install Python in your System")
+else(PYTHONINTERP_FOUND)
+  message("Python version " ${PYTHON_VERSION_STRING} " exists in your system")
+endif(NOT PYTHONINTERP_FOUND)
+
+find_package(Protobuf REQUIRED)
 
 include(FindLibcoapExt)
-include(FindProtobufExt)
+include(GenerateExportHeader)
 
-include_directories(${PBRPC_INCLUDE_DIR})
-include_directories(${COAP_INCLUDE_DIRS})
-include_directories(${PROTOBUF_INCLUDE_DIRS})
+include_directories(
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${PROTOBUF_INCLUDE_DIRS}
+    ${PROTOBUF_ROOT}/src
+    ${pbrpc_proto_BINARY_DIR}
+    ${pbrpc_BINARY_DIR}
+    ${COAP_INCLUDE_DIRS}
+    include
+    generator
+)
 
-link_directories(${PBRPC_INCLUDE_DIR})
-include_directories(include)
+link_directories(${libprotobuf_BINARY_DIR})
+
+
+set(py_cmd "generator/checkPyLibs.py")
+execute_process(
+                  COMMAND ${PYTHON_EXECUTABLE} ${py_cmd}
+                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+                  RESULT_VARIABLE py_result
+               )
+
+
 file(GLOB COAP_PBRPC_SRCS "src/*.cc")
-
  
 set(COAP_PBRPC_HDRS
+  include/Config.h
+  include/ControllerRPC.hh
+  include/MethodRPC.hh
+  include/ServiceManager.hh
+  include/ServiceRPC.hh
 	include/ClientRPC.hh
 	include/CoapClient.hh
 	include/CoapCommon.hh
-	include/handle_pbrpc.hh
+	include/HandlePbrpc.hh
 	include/ServerRPC.hh
 )
 
+
+add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS})
+target_link_libraries(coappbrpc PUBLIC pbrpc_proto ${COAP_LIBRARY} ${PBRPC_LIBRARY} ${PROTOBUF_LIBRARIES})
+
+GENERATE_EXPORT_HEADER(coappbrpc)
 
 set(INS_INCLUDE_DIR
     "/coappbrpc"
@@ -45,14 +72,42 @@ set(INS_TARGETS
     coappbrpc
 )
 
-
-add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS})
-target_link_libraries(coappbrpc PUBLIC ${COAP_LIBRARY} ${PBRPC_LIBRARY} ${PROTOBUF_LIBRARIES})
-
 # Install
 install(TARGETS ${INS_TARGETS}
     RUNTIME DESTINATION bin COMPONENT applications
     LIBRARY DESTINATION lib COMPONENT libraries
     ARCHIVE DESTINATION lib COMPONENT libraries
 )
-install(FILES ${COAP_PBRPC_HDRS} DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
+# python scripts
+set(COAPPBRPC_TEMPLATES_FILES
+  generator/templates/ClientStubTemplate.cc
+  generator/templates/ClientStubTemplate.hh
+  generator/cogFiles.txt
+  
+)
+
+set(COAPPBRPC_COMPILER
+  generator/coappbrpc
+)
+
+set(COAPPBRPC_PLUGIN
+  generator/coappbrpcPlugin.py)
+
+
+install(FILES 
+        ${COAP_PBRPC_HDRS} ${proto_HDRS}
+        ${PROJECT_BINARY_DIR}/coappbrpc_export.h
+  DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
+
+install(FILES ${COAPPBRPC_TEMPLATES_FILES} 
+   DESTINATION "include${INS_INCLUDE_DIR}/templates" COMPONENT headers)
+
+install(FILES ${COAPPBRPC_COMPILER} 
+   DESTINATION bin 
+   PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+   COMPONENT applications)
+
+install(FILES ${COAPPBRPC_PLUGIN} 
+    DESTINATION "include${INS_INCLUDE_DIR}/templates" 
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+    COMPONENT headers)

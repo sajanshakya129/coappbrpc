@@ -3,7 +3,7 @@
 
 #include "CoapClient.hh"
 #include <iostream>
-#include <pbrpc/pbrpc.pb.h>
+#include "pbrpc.pb.h"
 #include <string>
 using namespace std;
 
