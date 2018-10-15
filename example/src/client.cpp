@@ -1,9 +1,9 @@
-#include "ClientRPC.hh"
+#include <coappbrpc/ClientRPC.hh>
 #include "ClientStub.hh"
 
 #include <iostream>
 
-#include "../../build/proto/rpc_ping.pb.h"
+#include "rpc_ping.pb.h"
 
 #include <string>
 

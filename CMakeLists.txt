@@ -16,6 +16,8 @@ else(PYTHONINTERP_FOUND)
   message("Python version " ${PYTHON_VERSION_STRING} " exists in your system")
 endif(NOT PYTHONINTERP_FOUND)
 
+
+include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 
 include(FindLibcoapExt)
@@ -26,13 +28,12 @@ include_directories(
     ${PROTOBUF_INCLUDE_DIRS}
     ${PROTOBUF_ROOT}/src
     ${pbrpc_proto_BINARY_DIR}
-    ${pbrpc_BINARY_DIR}
     ${COAP_INCLUDE_DIRS}
     include
     generator
 )
-
-link_directories(${libprotobuf_BINARY_DIR})
+message(${PROTOBUF_LIBRARIES})
+link_directories(${PROTOBUF_LIBRARIES})
 
 
 set(py_cmd "generator/checkPyLibs.py")
@@ -60,7 +61,7 @@ set(COAP_PBRPC_HDRS
 
 
 add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS})
-target_link_libraries(coappbrpc PUBLIC pbrpc_proto ${COAP_LIBRARY} ${PBRPC_LIBRARY} ${PROTOBUF_LIBRARIES})
+target_link_libraries(coappbrpc PUBLIC pbrpc_proto ${COAP_LIBRARIES} ${PROTOBUF_LIBRARIES})
 
 GENERATE_EXPORT_HEADER(coappbrpc)
 

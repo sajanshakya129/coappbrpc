@@ -7,7 +7,7 @@ cog.outl("#define __ClientStub_HH_INCLUDED_")
 with open('protofile.json') as fp:
 	jsonData=json.load(fp)
 cog.outl("#include \"%s\""% jsonData["headerfile"])
-cog.outl("#include \"ClientRPC.hh\"")
+cog.outl("#include <coappbrpc/ClientRPC.hh>")
 cog.outl("using ::pbrpc::ClientRPC;")
 cog.outl("using ::pbrpc::Request;")
 cog.outl("using ::pbrpc::Response;")

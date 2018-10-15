@@ -13,22 +13,29 @@ find_library (COAP_PBRPC_LIBRARY NAMES
               libcoappbrpc
 )
 
-include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 
+include(FindLibcoapExt)
+include(GenerateExportHeader)
+
+
 include_directories(
+    ${coappbrc_BINARY_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${PROTOBUF_INCLUDE_DIRS}
     ${PROTOBUF_ROOT}/src
-    ${pbrpc_proto_BINARY_DIR}
-    ${pbrpc_BINARY_DIR}
+	${COAP_INCLUDE_DIRS}
+	${proto_msg_BINARY_DIR}
+	${COAP_PBRPC_INCLUDE_DIR}
 )
 
-link_directories(
-    ${libprotobuf_BINARY_DIR}
-)
+message(${COAP_LIBRARIES})
+message(${COAP_INCLUDE_DIRS})
 
-include_directories(${COAP_PBRPC_INCLUDE_DIR})
-include_directories(${proto_msg_BINARY_DIR})
+link_directories(${libprotobuf_BINARY_DIR})
 
 add_executable(server server.cpp)
-target_link_libraries(server proto_msg ${COAP_PBRPC_LIBRARY})
+target_link_libraries(server proto_msg ${COAP_PBRPC_LIBRARY} ${COAP_LIBRARIES} ${PROTOBUF_LIBRARIES})
 
+add_executable(client client.cpp)
+target_link_libraries(server proto_msg ${COAP_PBRPC_LIBRARY} ${COAP_LIBRARIES} ${PROTOBUF_LIBRARIES})

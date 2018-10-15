@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pbrpc.api;
+
+option cc_generic_services = true;
+
+message PingRequest {
+    string msg = 1;
+}
+
+message PingResponse {
+    string result = 1;
+}
+
+service PingService {
+    rpc Ping (PingRequest) returns (PingResponse);
+    rpc Pingadfad (PingRequest) returns (PingResponse);
+}
