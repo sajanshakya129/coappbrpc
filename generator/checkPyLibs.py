@@ -18,6 +18,13 @@ try:
     print ('Python: Cog library is already installed')
 except ImportError:
     print ('Cog library is not installed, installing it now!')
-    install('cogapp')    
+    install('cogapp')
+
+try:
+    import protobuf
+    print ('Python: Protobuf library is already installed')
+except ImportError:
+    print ('Protobuf library is not installed, installing it now!')
+    install('protobuf')     
 
 sys.exit(1)
