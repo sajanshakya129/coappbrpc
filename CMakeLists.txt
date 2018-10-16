@@ -86,7 +86,7 @@ set(COAPPBRPC_TEMPLATES_FILES
 )
 
 set(COAPPBRPC_COMPILER
-  generator/coappbrpc
+  generator/coappbrpc.sh
 )
 
 set(COAPPBRPC_PLUGIN
