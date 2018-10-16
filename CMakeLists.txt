@@ -58,8 +58,8 @@ set(COAP_PBRPC_HDRS
 )
 
 
-add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS})
-target_link_libraries(coappbrpc PUBLIC pbrpc_proto ${COAP_LIBRARIES} ${PROTOBUF_LIBRARIES})
+add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS} $<TARGET_OBJECTS:pbrpc_proto>)
+target_link_libraries(coappbrpc PUBLIC  ${COAP_LIBRARIES} ${PROTOBUF_LIBRARIES})
 
 GENERATE_EXPORT_HEADER(coappbrpc)
 

@@ -23,23 +23,13 @@ PROTOBUF_GENERATE_CPP(proto_SRCS proto_HDRS ${proto_FILES})
 
 set_source_files_properties(${proto_FILES} PROPERTIES GENERATED TRUE)
 
-# Build library, link as static
+# Build library, link as object
 add_library(pbrpc_proto OBJECT ${proto_SRCS})
 target_include_directories(pbrpc_proto PUBLIC "${pbrpc_proto_BINARY_DIR}")
 
 
  
 set(INS_INCLUDE_DIR "/coappbrpc")
-
-# Install
-set(INS_TARGETS pbrpc_proto)
-
-# Install
-install(TARGETS ${INS_TARGETS}
-    RUNTIME DESTINATION bin COMPONENT applications
-    LIBRARY DESTINATION lib COMPONENT libraries
-    ARCHIVE DESTINATION lib COMPONENT libraries
-)
 
 install(FILES ${proto_HDRS} DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
 
