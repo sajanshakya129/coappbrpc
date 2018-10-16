@@ -24,7 +24,7 @@ PROTOBUF_GENERATE_CPP(proto_SRCS proto_HDRS ${proto_FILES})
 set_source_files_properties(${proto_FILES} PROPERTIES GENERATED TRUE)
 
 # Build library, link as static
-add_library(pbrpc_proto OBJECT ${proto_SRCS})
+add_library(pbrpc_proto STATIC ${proto_SRCS})
 target_link_libraries(pbrpc_proto ${PROTOBUF_LIBRARIES})
 target_include_directories(pbrpc_proto PUBLIC "${pbrpc_proto_BINARY_DIR}")
 
