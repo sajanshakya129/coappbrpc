@@ -8,16 +8,16 @@ def install(package):
 
 try:
     import json
-    print 'Python: Json library is already installed'
+    print ('Python: Json library is already installed')
 except ImportError:
-    print 'json library is not installed, installing it now!'
+    print ('json library is not installed, installing it now!')
     install('json')
 
 try:
     import cogapp
-    print 'Python: Cog library is already installed'
+    print ('Python: Cog library is already installed')
 except ImportError:
-    print 'Cog library is not installed, installing it now!'
+    print ('Cog library is not installed, installing it now!')
     install('cogapp')    
 
 sys.exit(1)
