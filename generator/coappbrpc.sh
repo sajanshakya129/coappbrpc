@@ -13,7 +13,7 @@ if [ -z $1 ]
 				echo "Creating h and cc files from $1"
 				protoc  --cpp_out=./ $1
 				echo "Creating Client stub file"
-				python -m cog -d  @/usr/local/include/coappbrpc/templates/cogFiles.txt
+				python -m cogapp -d  @/usr/local/include/coappbrpc/templates/cogFiles.txt
 			else
 				echo "File doesnot exists."
 			fi
