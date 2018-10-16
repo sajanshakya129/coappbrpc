@@ -9,11 +9,11 @@ if [ -z $1 ]
   			if [ -e $1 ]
   			then
 	  			echo "Creating Stub for $1"
-				protoc --plugin=protoc-gen-custom=/usr/local/lib/coappbrpc/templates/coappbrpcPlugin.py --custom_out=./ $1
+				protoc --plugin=protoc-gen-custom=/usr/local/include/coappbrpc/templates/coappbrpcPlugin.py --custom_out=./ $1
 				echo "Creating h and cc files from $1"
 				protoc  --cpp_out=./ $1
 				echo "Creating Client stub file"
-				python -m cog -d  @/usr/local/lib/coappbrpc/templates/cogFiles.txt
+				python -m cog -d  @/usr/local/include/coappbrpc/templates/cogFiles.txt
 			else
 				echo "File doesnot exists."
 			fi
