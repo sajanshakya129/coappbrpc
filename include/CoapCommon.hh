@@ -1,4 +1,4 @@
-#include <coap/coap.h>
+#include <coap2/coap.h>
 #include <iostream>
 #include <cstdio>
 #include <netdb.h>

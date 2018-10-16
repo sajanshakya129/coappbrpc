@@ -1,7 +1,7 @@
 #ifndef __ServerRPC_HH_INCLUDED_
 #define __ServerRPC_HH_INCLUDED_
 
-#include <coap/coap.h>
+#include <coap2/coap.h>
 #include <google/protobuf/service.h>
 #include <iostream>
 #include "pbrpc.pb.h"

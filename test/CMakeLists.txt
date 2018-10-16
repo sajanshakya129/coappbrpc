@@ -7,7 +7,7 @@ find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIR})
 
 find_path (COAP_INCLUDE_DIR
-           NAMES coap/coap.h
+           NAMES coap2/coap.h
            PATH_SUFFIXES coap
 )
 mark_as_advanced (COAP_INCLUDE_DIR)
@@ -22,8 +22,8 @@ find_library (COAP_LIBRARY NAMES
 )
 mark_as_advanced (COAP_LIBRARY)
 
-if(COAP_INCLUDE_DIR AND EXISTS "${COAP_INCLUDE_DIR}/coap/coap.h")
-    file(STRINGS "${COAP_INCLUDE_DIR}/coap/coap.h" COAP_VERSION_LINE REGEX "^[ \t]*#[ \t]*define[ \t]+LIBCOAP_PACKAGE_VERSION[ \t]+")
+if(COAP_INCLUDE_DIR AND EXISTS "${COAP_INCLUDE_DIR}/coap2/coap.h")
+    file(STRINGS "${COAP_INCLUDE_DIR}/coap2/coap.h" COAP_VERSION_LINE REGEX "^[ \t]*#[ \t]*define[ \t]+LIBCOAP_PACKAGE_VERSION[ \t]+")
     string(REGEX REPLACE "^[ \t]*#[ \t]*define[ \t]+LIBCOAP_PACKAGE_VERSION[ \t]+(.*)$" "\\1" COAP_VERSION_STRING "${COAP_VERSION_LINE}")
     unset(COAP_VERSION_LINE)
 endif()
