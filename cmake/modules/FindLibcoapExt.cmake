@@ -1,5 +1,5 @@
 find_path (COAP_INCLUDE_DIR
-           NAMES coap/coap.h
+           NAMES coap2/coap.h
            PATH_SUFFIXES coap
 )
 mark_as_advanced (COAP_INCLUDE_DIR)

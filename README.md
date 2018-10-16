@@ -1,9 +1,10 @@
 # Protobuf RPC over CoAP
 
 ## Dependency
-### Installation of Libpbrpc
-
-Install [libpbrpc](https://github.com/sajanshakya129/libpbrpc.git) library in your system. Follow ReadMe in the repo.
+Please install following application to build and run coappbrpc
+```
+sudo apt-get install cmake build-essential dh-autoreconf python python-pip
+```
 
 ### Installation of LibCoAP
 ```
@@ -17,6 +18,7 @@ sudo apt-get install pkg-config
 ```
 Then configure libcoap and install libcoap
 ```
+./autogen.sh
 ./configure --disable-doxygen --disable-manpages
 make
 sudo make install
