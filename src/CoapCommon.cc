@@ -1,7 +1,7 @@
 #include "CoapCommon.hh"
 
 int CoapCommon::resolve_address(const char *host, const char *service,
-                    coap_address_t *dst) {
+                                coap_address_t *dst) {
 
   struct addrinfo *res, *ainfo;
   struct addrinfo hints;

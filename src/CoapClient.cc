@@ -79,4 +79,4 @@ finish:
 
   return result;
 }
-}
+} // namespace pbrpc

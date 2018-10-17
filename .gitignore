@@ -1,4 +1,3 @@
-.idea
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -11,6 +10,3 @@ CTestTestfile.cmake
 build
 http_files
 bin
-example/proto/ClientStub.cc
-example/proto/ClientStub.hh
-example/proto/protofile.json

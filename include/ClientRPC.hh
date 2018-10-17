@@ -2,8 +2,8 @@
 #define __ClientRPC_HH_INCLUDED_
 
 #include "CoapClient.hh"
-#include <iostream>
 #include "pbrpc.pb.h"
+#include <iostream>
 #include <string>
 using namespace std;
 

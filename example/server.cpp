@@ -1,9 +1,6 @@
-#include <stdio.h>
-
 #include <coappbrpc/ServerRPC.hh> //for server rpc handling
 #include "rpc_ping.pb.h" //protobuf output file
 
-using namespace std;
 using ::pbrpc::ServerRPC;
 
 namespace pbrpc {

@@ -1,7 +1,6 @@
 #ifndef __CoapClient_HH_INCLUDED_
 #define __CoapClient_HH_INCLUDED_
 #include <coap2/coap.h>
-#include <iostream>
 #include <string>
 
 #include "CoapCommon.hh"

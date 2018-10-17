@@ -1,10 +1,8 @@
 #include <coappbrpc/ClientRPC.hh>
+
 #include "ClientStub.hh"
-
-#include <iostream>
-
 #include "rpc_ping.pb.h"
-
+#include <iostream>
 #include <string>
 
 using ::pbrpc::ClientRPC;
@@ -34,8 +32,6 @@ int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   ClientRPC *client = ClientRPC::getInstance();
   client->SetServerAddr("localhost:5683");
-  
-
   std::string msg("Hello world");
   PingClient pclient;
   std::string reply = pclient.ping(msg);

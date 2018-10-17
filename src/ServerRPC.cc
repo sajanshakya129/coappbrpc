@@ -18,8 +18,6 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 
   string rpcResponse;
   rpcResponse = handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
-  std::cout << "REPONSE TO BE SENT BACK USING COAP" << std::endl;
-  std::cout << rpcResponse << std::endl;
   response_data = rpcResponse.c_str();
   response->code = COAP_RESPONSE_CODE(205);
   coap_add_option(response, COAP_OPTION_CONTENT_TYPE,
@@ -33,39 +31,33 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 }
 
 ServerRPC::ServerRPC() {
-  cout<<"inside Server RPC constructor"<<endl;
   init();
 }
 
-ServerRPC::~ServerRPC() {
-}
+ServerRPC::~ServerRPC() {}
 
-void ServerRPC::runServer(string ipAddr){
-  //cout<<"inside user defined parameter"<<endl;
+void ServerRPC::runServer(string ipAddr) {
   string delimiter = ":";
   if (ipAddr.find(delimiter) != std::string::npos) {
     this->serverAddr = ipAddr.substr(0, ipAddr.find(delimiter));
     this->port =
         stoi(ipAddr.substr((ipAddr.find(delimiter) + 1), ipAddr.find('\0')));
   } else {
-    cout << "ERROR in channel: Please enter IP address in formart "
+    std::cerr << "ERROR in channel: Please enter IP address in formart "
             "ip_address:port_no"
-         << endl;
+         << std::endl;
     exit(0);
   }
   this->start();
 }
 
-void ServerRPC::runServer(){
-  //cout<<"inside run parameter without parameter"<<endl;
-  this->serverAddr="localhost";
-  this->port=5683;
+void ServerRPC::runServer() {
+  this->serverAddr = "localhost";
+  this->port = 5683;
   this->start();
 }
 
-
 int ServerRPC::start() {
- //std::cout << "from send start ServerRPC" << std::endl;
   if (running) {
     return 0;
   }
@@ -110,26 +102,21 @@ int ServerRPC::start() {
 }
 
 void ServerRPC::init(void) {
-  std::cout << "from send ServerRPC init" << std::endl;
   running = false;
-  // init the PBRPC system
   init_pbrpc();
 }
 
 bool ServerRPC::stop(int result) {
-  std::cout << "from send ServerRPC stop" << std::endl;
   if (running) {
-    // mg_stop(ctx);
     coap_free_context(ctx);
     coap_cleanup();
     running = false;
-    // ctx = nullptr;
   }
 
   return !running;
 }
 
-void ServerRPC::registerService(Service *service){
+void ServerRPC::registerService(Service *service) {
   handle_regService(service);
 }
 

@@ -1,7 +1,5 @@
 #include "ClientRPC.hh"
 
-using namespace std;
-
 namespace pbrpc {
 ClientRPC *ClientRPC::instance = 0; // initializing instance
 
@@ -40,9 +38,9 @@ void ClientRPC::SetServerAddr(string ipAddr) {
     this->address = ipAddr.substr(0, ipAddr.find(delimiter));
     this->port = ipAddr.substr((ipAddr.find(delimiter) + 1), ipAddr.find('\0'));
   } else {
-    cout << "ERROR in channel: Please enter IP address in formart "
+    std::cerr << "ERROR in channel: Please enter IP address in formart "
             "ip_address:port_no"
-         << endl;
+         << std::endl;
     exit(0);
   }
 }

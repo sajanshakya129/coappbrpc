@@ -1,8 +1,8 @@
 #ifndef HANDLE_PB_RPC_HH_INCLUDED
 #define HANDLE_PB_RPC_HH_INCLUDED
 
-#include <google/protobuf/service.h>
 #include "ServiceManager.hh"
+#include <google/protobuf/service.h>
 #include <string>
 
 namespace pbrpc {
