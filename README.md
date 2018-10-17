@@ -5,6 +5,21 @@ Please install following application to build and run coappbrpc
 ```
 sudo apt-get install cmake build-essential dh-autoreconf python python-pip
 ```
+### Protocol buffer library
+Follow the following link and [install protobuf](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
+Or follow the following steps
+```
+$ git clone https://github.com/protocolbuffers/protobuf.git
+$ cd protobuf
+$ git submodule update --init --recursive
+$ ./autogen.sh
+
+$ ./configure
+$ make
+$ make check
+$ sudo make install
+$ sudo ldconfig # refresh shared library cache.
+```
 
 ### Installation of LibCoAP
 ```
