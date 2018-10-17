@@ -1,0 +1,2 @@
+/usr/local/include/coappbrpc/templates/ClientStubTemplate.hh -o ClientStub.hh
+/usr/local/include/coappbrpc/templates/ClientStubTemplate.cc -o ClientStub.cc

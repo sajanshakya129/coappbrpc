@@ -1,19 +1,4 @@
-#include <iostream>
-#include <stdlib.h>
-#include <string.h>
-#include <string>
-
 #include "ServerRPC.hh"
-#include "handle_pbrpc.hh"
-#include "server_cfg.h"
-#include <pbrpc/pbrpc.pb.h>
-
-using ::google::protobuf::Message;
-using ::google::protobuf::MethodDescriptor;
-using ::google::protobuf::ServiceDescriptor;
-
-using ::pbrpc::Request;
-using ::pbrpc::Response;
 
 #define UNUSED_PARAM
 namespace pbrpc {
@@ -26,16 +11,13 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
                     coap_string_t *query UNUSED_PARAM, coap_pdu_t *response) {
   unsigned char buf[3];
   const char *response_data;
-  
+
   unsigned char *data;
   size_t data_len;
   coap_get_data(request, &data_len, &data); // data must be unsigned char *
 
   string rpcResponse;
-  rpcResponse=handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
-
-  std::cout<<"REPONSE TO BE SENT BACK USING COAP"<<std::endl;
-  std::cout<<rpcResponse<<std::endl;
+  rpcResponse = handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
   response_data = rpcResponse.c_str();
   response->code = COAP_RESPONSE_CODE(205);
   coap_add_option(response, COAP_OPTION_CONTENT_TYPE,
@@ -48,50 +30,34 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
                 (const uint8_t *)response_data);
 }
 
-int resolve_address(const char *host, const char *service,
-                    coap_address_t *dst) {
-
-  struct addrinfo *res, *ainfo;
-  struct addrinfo hints;
-  int error, len = -1;
-
-  memset(&hints, 0, sizeof(hints));
-  memset(dst, 0, sizeof(*dst));
-  hints.ai_socktype = SOCK_DGRAM;
-  hints.ai_family = AF_UNSPEC;
-
-  error = getaddrinfo(host, service, &hints, &res);
-
-  if (error != 0) {
-    fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(error));
-    return error;
-  }
-
-  for (ainfo = res; ainfo != NULL; ainfo = ainfo->ai_next) {
-    switch (ainfo->ai_family) {
-    case AF_INET6:
-    case AF_INET:
-      len = dst->size = ainfo->ai_addrlen;
-      memcpy(&dst->addr.sin6, ainfo->ai_addr, dst->size);
-      goto finish;
-    default:;
-    }
-  }
-
-finish:
-  freeaddrinfo(res);
-  return len;
-}
-
 ServerRPC::ServerRPC() {
-  std::cout << "from send serverRPC constructor" << std::endl;
   init();
 }
 
-ServerRPC::~ServerRPC() { std::cout << "from send destructor" << std::endl; }
+ServerRPC::~ServerRPC() {}
 
-int ServerRPC::start(void) {
-  std::cout << "from send start ServerRPC" << std::endl;
+void ServerRPC::runServer(string ipAddr) {
+  string delimiter = ":";
+  if (ipAddr.find(delimiter) != std::string::npos) {
+    this->serverAddr = ipAddr.substr(0, ipAddr.find(delimiter));
+    this->port =
+        stoi(ipAddr.substr((ipAddr.find(delimiter) + 1), ipAddr.find('\0')));
+  } else {
+    std::cerr << "ERROR in channel: Please enter IP address in formart "
+            "ip_address:port_no"
+         << std::endl;
+    exit(0);
+  }
+  this->start();
+}
+
+void ServerRPC::runServer() {
+  this->serverAddr = "localhost";
+  this->port = 5683;
+  this->start();
+}
+
+int ServerRPC::start() {
   if (running) {
     return 0;
   }
@@ -109,7 +75,7 @@ int ServerRPC::start(void) {
   coap_startup();
 
   /* resolve destination address where server should be sent */
-  if (resolve_address("localhost", port, &dst) < 0) {
+  if (common.resolve_address("localhost", port, &dst) < 0) {
     coap_log(LOG_CRIT, "failed to resolve address\n");
     this->stop(EXIT_FAILURE);
   }
@@ -136,23 +102,22 @@ int ServerRPC::start(void) {
 }
 
 void ServerRPC::init(void) {
-  std::cout << "from send ServerRPC init" << std::endl;
   running = false;
-  // init the PBRPC system
   init_pbrpc();
 }
 
 bool ServerRPC::stop(int result) {
-  std::cout << "from send ServerRPC stop" << std::endl;
   if (running) {
-    // mg_stop(ctx);
     coap_free_context(ctx);
     coap_cleanup();
     running = false;
-    // ctx = nullptr;
   }
 
   return !running;
+}
+
+void ServerRPC::registerService(Service *service) {
+  handle_regService(service);
 }
 
 } // namespace pbrpc
