@@ -1,6 +1,7 @@
 # Protobuf RPC over CoAP protocol(UDP)
 
-This library is developed to create a RPC that utilises features of CoAP protocol which uses UDP for transport. Protobuf is used as Interface Definition language(IDL). The goal is to use this RPC library over Constrained IoT devices.
+This library is developed to create a RPC that utilises features of CoAP protocol which uses UDP for transport. 
+Protobuf is used as Interface Definition language(IDL). The goal is to use this RPC library over Constrained IoT devices.
 
 ## Getting Started
 The following steps are written with the consideration that the system for development is fresh newly installed Linux Based System.
@@ -90,7 +91,8 @@ message PingResponse {  // User defined Response named "PingResponse" with param
 }
 
 service PingService { //User defined Service named "PingService" 
-    rpc Ping (PingRequest) returns (PingResponse); //User defined method named "Ping" which takes "PingRequest" as input and give "PingResponse" as output.
+    rpc Ping (PingRequest) returns (PingResponse); //User defined method named "Ping" which takes "PingRequest" as input 
+    											   //and give "PingResponse" as output.
 }
 ```
 
@@ -99,7 +101,8 @@ service PingService { //User defined Service named "PingService"
 #include <coappbrpc/ClientRPC.hh> // To Create client you must include this file: coappbrpc/ClientRPC.hh
 
 #include "ClientStub.hh" //including ClientStub.hh generated when you run "coappbrpc.sh <protofile>" in command prompt.
-#include "rpc_ping.pb.h" //including rpc_ping.pb.hh generate when you run "coappbrpc.sh <protofile>" in command prompt. <filename.proto> will generate "filename.pb.h" and "filename.pb.cc"
+#include "rpc_ping.pb.h" //including rpc_ping.pb.hh generate when you run "coappbrpc.sh <protofile>" 
+						 //in command prompt. <filename.proto> will generate "filename.pb.h" and "filename.pb.cc"
 
 #include <string>
 
@@ -114,10 +117,12 @@ public:
   string ping(const string &msg) { //Defining method ping where we use RPC call
     
     PingRequest request;
-    request.set_msg(msg); //Setting user msg to request. Note: In set_msg, msg is the parameter that we defined in protofile request.
+    request.set_msg(msg); //Setting user msg to request. 
+    					  //Note: In set_msg, msg is the parameter that we defined in protofile request.
 
     PingResponse response;
-    stub.Ping(request, &response); //this is where actual RPC call is done. Note: Ping is the method that we defined in protofile.
+    stub.Ping(request, &response); // This is where actual RPC call is done.
+    							   //Note: Ping is the method that we defined in protofile.
 
     return response.result();
   }
@@ -129,7 +134,8 @@ private:
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION; //verifiying protocol buffers version
   ClientRPC *client = ClientRPC::getInstance(); //creating a client instance
-  client->SetServerAddr("localhost:5683"); //setting up Server address. Default is "localhost:5683". Note: must be in format <server_address>:<port_no>
+  client->SetServerAddr("localhost:5683"); //setting up Server address. Default is "localhost:5683". 
+  										//Note: must be in format <server_address>:<port_no>
   std::string msg("Hello world"); //defining msg to be sent to Server.
   
   PingClient pclient;
@@ -142,7 +148,8 @@ int main(void) {
 ## Creating Server
 ```
 #include <coappbrpc/ServerRPC.hh> //To create server you must include this file: coappbrpc/ServerRPC.hh
-#include "rpc_ping.pb.h" //including rpc_ping.pb.hh generate when you run "coappbrpc.sh <protofile>" in command prompt. <filename.proto> will generate "filename.pb.h" and "filename.pb.cc"
+#include "rpc_ping.pb.h" //including rpc_ping.pb.hh generate when you run "coappbrpc.sh <protofile>" in command prompt.
+						//<filename.proto> will generate "filename.pb.h" and "filename.pb.cc"
 
 using ::pbrpc::ServerRPC; //Must be included in code
 
@@ -157,7 +164,9 @@ public:
   PingServiceImpl(){};
 
   virtual void Ping(RpcController *controller, const PingRequest *request,
-                    PingResponse *response, Closure *done) { //Defining Function named "Ping" which is defined as method in protobuf file. This is where you do processing and generate result and set result. 
+                    PingResponse *response, Closure *done) { //Defining Function named "Ping" which is defined 
+                    										//as method in protobuf file. This is where you do 
+                    										//processing and generate result and set result. 
     // Do your processing here
 
     // Fill response
@@ -182,7 +191,7 @@ int main() {
 * **Sajan Shakya** - *Initial work* - [Github](https://github.com/sajanshakya129)
 
 ## References
-This library was created referring with library [LibPbrpc](https://github.com/madwyn/libpbrpc) and gRPC.
+This library was created referring to library [LibPbrpc](https://github.com/madwyn/libpbrpc) and gRPC.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
