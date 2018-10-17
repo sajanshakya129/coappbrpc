@@ -1,6 +1,6 @@
 #ifndef __ControllerRPC_HH_INCLUDED_
 #define __ControllerRPC_HH_INCLUDED_
-
+#include "pbrpc.pb.h"
 #include <google/protobuf/service.h>
 #include <string>
 

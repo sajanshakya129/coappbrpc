@@ -7,7 +7,7 @@ Protobuf is used as Interface Definition language(IDL). The goal is to use this 
 The following steps are written with the consideration that the system for development is fresh newly installed Linux Based System.
 
 ### Prerequisites
-Please install following application to build and run coappbrpc
+Please install following applications to build and install coappbrpc.
 ```bash
 sudo apt-get install cmake build-essential dh-autoreconf python python-pip
 ```
@@ -83,7 +83,8 @@ package pbrpc.api; // Packaging codes under pbrpc.api namespace
 option cc_generic_services = true;// To use protocol buffers services
 
 message PingRequest {  // User defined Request named "PingRequest" with parameter "msg". 
-    string msg = 1; // For multiple parameters the numbering is done in increasing format which is non-repititive or cannot be duplicate.
+    string msg = 1; // For multiple parameters the numbering is done in increasing format 
+    //which is non-repititive or cannot be duplicate.
 }
 
 message PingResponse {  // User defined Response named "PingResponse" with parameter "result". 
@@ -92,7 +93,7 @@ message PingResponse {  // User defined Response named "PingResponse" with param
 
 service PingService { //User defined Service named "PingService" 
     rpc Ping (PingRequest) returns (PingResponse); //User defined method named "Ping" which takes "PingRequest" as input 
-    											   //and give "PingResponse" as output.
+    //and give "PingResponse" as output.
 }
 ```
 
