@@ -1,7 +1,7 @@
-#include "ServerRPC.hh"
+#include "ServerRPC.h"
 
 #define UNUSED_PARAM
-namespace pbrpc {
+namespace coappbrpc {
 
 void return_handler(coap_context_t *ctx UNUSED_PARAM,
                     struct coap_resource_t *resource UNUSED_PARAM,
@@ -17,7 +17,7 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
   coap_get_data(request, &data_len, &data); // data must be unsigned char *
 
   string rpcResponse;
-  rpcResponse = handle_pbrpc(reinterpret_cast<const char *>(data), data_len);
+  rpcResponse = handleService(reinterpret_cast<const char *>(data), data_len);
   response_data = rpcResponse.c_str();
   response->code = COAP_RESPONSE_CODE(205);
   coap_add_option(response, COAP_OPTION_CONTENT_TYPE,
@@ -31,7 +31,8 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 }
 
 ServerRPC::ServerRPC() {
-  init();
+  running = false;
+  //initService();
 }
 
 ServerRPC::~ServerRPC() {}
@@ -75,7 +76,7 @@ int ServerRPC::start() {
   coap_startup();
 
   /* resolve destination address where server should be sent */
-  if (common.resolve_address("localhost", port, &dst) < 0) {
+  if (common.resolveAddress("localhost", port, &dst) < 0) {
     coap_log(LOG_CRIT, "failed to resolve address\n");
     this->stop(EXIT_FAILURE);
   }
@@ -101,10 +102,6 @@ int ServerRPC::start() {
   this->stop(EXIT_SUCCESS);
 }
 
-void ServerRPC::init(void) {
-  running = false;
-  init_pbrpc();
-}
 
 bool ServerRPC::stop(int result) {
   if (running) {
@@ -117,7 +114,7 @@ bool ServerRPC::stop(int result) {
 }
 
 void ServerRPC::registerService(Service *service) {
-  handle_regService(service);
+  handleRegService(service);
 }
 
-} // namespace pbrpc
+} // namespace coappbrpc

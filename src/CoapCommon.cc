@@ -1,6 +1,6 @@
-#include "CoapCommon.hh"
+#include "CoapCommon.h"
 
-int CoapCommon::resolve_address(const char *host, const char *service,
+int CoapCommon::resolveAddress(const char *host, const char *service,
                                 coap_address_t *dst) {
 
   struct addrinfo *res, *ainfo;

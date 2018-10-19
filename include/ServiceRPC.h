@@ -1,12 +1,12 @@
-#ifndef __ServiceRPC_HH_INCLUDED_
-#define __ServiceRPC_HH_INCLUDED_
+#ifndef __ServiceRPC_H_INCLUDED_
+#define __ServiceRPC_H_INCLUDED_
 
 #include <map>
 #include <string>
 
-#include "MethodRPC.hh"
+#include "MethodRPC.h"
 
-namespace pbrpc {
+namespace coappbrpc {
 
 using ::google::protobuf::Service;
 using ::google::protobuf::ServiceDescriptor;
@@ -48,6 +48,6 @@ public:
   map<string, MethodRPC> _methods; /**< The methods in service */
 };
 
-} // namespace pbrpc
+} // namespace coappbrpc
 
-#endif //__ServiceRPC_HH_INCLUDED_
+#endif //__ServiceRPC_H_INCLUDED_

@@ -1,18 +1,18 @@
-#ifndef __ServiceManager_HH_INCLUDED_
-#define __ServiceManager_HH_INCLUDED_
+#ifndef __ServiceManager_H_INCLUDED_
+#define __ServiceManager_H_INCLUDED_
 
 #include <map>
 #include <string>
-
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/service.h>
 
-#include "ControllerRPC.hh"
-#include "MethodRPC.hh"
-#include "ServiceRPC.hh"
-#include "pbrpc.pb.h"
+#include "Config.h"
+#include "ControllerRPC.h"
+#include "MethodRPC.h"
+#include "ServiceRPC.h"
+#include "MsgSchema.pb.h"
 
-namespace pbrpc {
+namespace coappbrpc {
 
 using ::google::protobuf::RpcController;
 using ::google::protobuf::Service;
@@ -23,9 +23,6 @@ class ServiceManager {
 public:
   ServiceManager();
   virtual ~ServiceManager();
-
-  void init(void);
-  void dest(void);
   void handleRPC(const char *data, const size_t len, string &ret);
   void regService(Service *service);
 
@@ -46,6 +43,6 @@ private:
   map<string, ServiceRPC> _services;
 };
 
-} // namespace pbrpc
+} // namespace coappbrpc
 
-#endif //__ServiceManager_HH_INCLUDED_
+#endif //__ServiceManager_H_INCLUDED_

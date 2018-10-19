@@ -27,7 +27,7 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${PROTOBUF_INCLUDE_DIRS}
     ${PROTOBUF_ROOT}/src
-    ${pbrpc_proto_BINARY_DIR}
+    ${msg_schema_BINARY_DIR}
     ${COAP_INCLUDE_DIRS}
     include
     generator
@@ -46,19 +46,19 @@ file(GLOB COAP_PBRPC_SRCS "src/*.cc")
  
 set(COAP_PBRPC_HDRS
   include/Config.h
-  include/ControllerRPC.hh
-  include/MethodRPC.hh
-  include/ServiceManager.hh
-  include/ServiceRPC.hh
-	include/ClientRPC.hh
-	include/CoapClient.hh
-	include/CoapCommon.hh
-	include/HandlePbrpc.hh
-	include/ServerRPC.hh
+  include/ControllerRPC.h
+  include/MethodRPC.h
+  include/ServiceManager.h
+  include/ServiceRPC.h
+	include/ClientRPC.h
+	include/CoapClient.h
+	include/CoapCommon.h
+	include/HandleService.h
+	include/ServerRPC.h
 )
 
 
-add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS} $<TARGET_OBJECTS:pbrpc_proto>)
+add_library(coappbrpc STATIC ${COAP_PBRPC_SRCS} $<TARGET_OBJECTS:msg_schema>)
 target_link_libraries(coappbrpc PUBLIC  ${COAP_LIBRARIES} ${PROTOBUF_LIBRARIES})
 
 GENERATE_EXPORT_HEADER(coappbrpc)
@@ -80,13 +80,17 @@ install(TARGETS ${INS_TARGETS}
 # python scripts
 set(COAPPBRPC_TEMPLATES_FILES
   generator/templates/ClientStubTemplate.cc
-  generator/templates/ClientStubTemplate.hh
+  generator/templates/ClientStubTemplate.h
   generator/cogFiles.txt
   
 )
 
 set(COAPPBRPC_COMPILER
   generator/coappbrpc.sh
+)
+
+set(COAPPBRPC_UNINSTALLER
+  uninstall_coappbrpc.sh
 )
 
 set(COAPPBRPC_PLUGIN
@@ -102,6 +106,11 @@ install(FILES ${COAPPBRPC_TEMPLATES_FILES}
    DESTINATION "include${INS_INCLUDE_DIR}/templates" COMPONENT headers)
 
 install(FILES ${COAPPBRPC_COMPILER} 
+   DESTINATION bin 
+   PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+   COMPONENT applications)
+
+install(FILES ${COAPPBRPC_UNINSTALLER} 
    DESTINATION bin 
    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
    COMPONENT applications)

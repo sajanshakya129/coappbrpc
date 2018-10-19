@@ -1,9 +1,9 @@
-#ifndef __CoapClient_HH_INCLUDED_
-#define __CoapClient_HH_INCLUDED_
+#ifndef __CoapClient_H_INCLUDED_
+#define __CoapClient_H_INCLUDED_
 #include <coap2/coap.h>
 #include <string>
 
-#include "CoapCommon.hh"
+#include "CoapCommon.h"
 
 using namespace std;
 typedef struct {
@@ -14,13 +14,13 @@ typedef struct {
   string payload;
 } ClientParams;
 
-namespace pbrpc {
+namespace coappbrpc {
 class CoapClient {
 public:
   string payload;
-  static void client_handler(struct coap_context_t *, coap_session_t *,
+  static void clientHandler(struct coap_context_t *, coap_session_t *,
                              coap_pdu_t *, coap_pdu_t *, const coap_tid_t);
   static int executeClient(ClientParams);
 };
-} // namespace pbrpc
+} // namespace coappbrpc
 #endif

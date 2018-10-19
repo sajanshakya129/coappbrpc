@@ -1,10 +1,10 @@
-#include "CoapClient.hh"
-#include "ClientRPC.hh"
+#include "CoapClient.h"
+#include "ClientRPC.h"
 
-using ::pbrpc::ClientRPC;
+using ::coappbrpc::ClientRPC;
 
-namespace pbrpc {
-void CoapClient::client_handler(struct coap_context_t *ctx,
+namespace coappbrpc {
+void CoapClient::clientHandler(struct coap_context_t *ctx,
                                 coap_session_t *session, coap_pdu_t *sent,
                                 coap_pdu_t *received, const coap_tid_t id) {
   unsigned char *data;
@@ -32,7 +32,7 @@ int CoapClient::executeClient(ClientParams params) {
 
   coap_startup();
   /* resolve destination address where server should be sent */
-  if (common.resolve_address(params.addr.c_str(), params.port.c_str(), &dst) <
+  if (common.resolveAddress(params.addr.c_str(), params.port.c_str(), &dst) <
       0) {
     coap_log(LOG_CRIT, "failed to resolve address\n");
     goto finish;
@@ -47,7 +47,7 @@ int CoapClient::executeClient(ClientParams params) {
     goto finish;
   }
 
-  coap_register_response_handler(ctx, client_handler);
+  coap_register_response_handler(ctx, clientHandler);
 
   /* construct CoAP message */
   pdu = coap_pdu_init(COAP_MESSAGE_CON, params.methodType, 0 /* message id */,
@@ -79,4 +79,4 @@ finish:
 
   return result;
 }
-} // namespace pbrpc
+} // namespace coappbrpc

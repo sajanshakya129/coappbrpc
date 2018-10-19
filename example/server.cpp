@@ -1,9 +1,9 @@
-#include <coappbrpc/ServerRPC.hh> //for server rpc handling
+#include <coappbrpc/ServerRPC.h> //for server rpc handling
 #include "rpc_ping.pb.h" //protobuf output file
 
-using ::pbrpc::ServerRPC;
+using ::coappbrpc::ServerRPC;
 
-namespace pbrpc {
+namespace coappbrpc {
 namespace api {
 
 using ::google::protobuf::Closure;
@@ -23,11 +23,11 @@ public:
 };
 
 } // namespace api
-} // namespace pbrpc
+} // namespace coappbrpc
 
 int main() {
   ServerRPC server;
-  server.registerService(new ::pbrpc::api::PingServiceImpl());
+  server.registerService(new ::coappbrpc::api::PingServiceImpl());
   server.runServer();
   // server.runServer("localhost:5683");
   return 0;

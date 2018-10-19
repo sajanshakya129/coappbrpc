@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package pbrpc.api;
+package coappbrpc.api;
 
 option cc_generic_services = true;
 

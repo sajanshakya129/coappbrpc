@@ -1,31 +1,30 @@
-#ifndef __ServerRPC_HH_INCLUDED_
-#define __ServerRPC_HH_INCLUDED_
+#ifndef __ServerRPC_H_INCLUDED_
+#define __ServerRPC_H_INCLUDED_
 
-#include "pbrpc.pb.h"
+#include "MsgSchema.pb.h"
 #include <coap2/coap.h>
 #include <google/protobuf/service.h>
 #include <iostream>
 #include <stdlib.h>
 #include <string>
 
-#include "CoapCommon.hh"
-#include "HandlePbrpc.hh"
+#include "CoapCommon.h"
+#include "HandleService.h"
 
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
 using ::google::protobuf::Service;
 using ::google::protobuf::ServiceDescriptor;
-using ::pbrpc::Request;
-using ::pbrpc::Response;
+using ::coappbrpc::Request;
+using ::coappbrpc::Response;
 
 using namespace std;
-namespace pbrpc {
+namespace coappbrpc {
 
 class ServerRPC {
 public:
   ServerRPC();
   virtual ~ServerRPC();
-  void init(void);
   int start();
   bool stop(int);
   void runServer();
@@ -39,6 +38,6 @@ public:
   bool running = false;
 };
 
-} // namespace pbrpc
+} // namespace coappbrpc
 
-#endif //__ServerRPC_HH_INCLUDED_
+#endif //__ServerRPC_H_INCLUDED_

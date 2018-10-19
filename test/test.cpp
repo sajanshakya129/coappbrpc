@@ -1,6 +1,6 @@
 #include<iostream>
-#include<coappbrpc/ServerRPC.hh>
-using pbrpc::ServerRPC;
+#include<coappbrpc/ServerRPC.h>
+using coappbrpc::ServerRPC;
 using namespace std;
 int main(void){
 	ServerRPC server;
