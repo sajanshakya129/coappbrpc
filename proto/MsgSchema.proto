@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-// The definition of PB-RPC 1.1
-package pbrpc;
+// The definition of COAP-PB-RPC 1.1
+package coappbrpc;
 
 message Request {
-                                    // A String specifying the version of the PB-RPC protocol. MUST be exactly "1.1".
-    string  pbrpc   = 1;
+                                    // A String specifying the version of the COAP-PB-RPC protocol. MUST be exactly "1.1".
+    string  version   = 1;
                                     // A string containing the name of the service to be used.
     string  service = 2;
                                     // A String containing the name of the method to be invoked.
@@ -27,8 +27,8 @@ message Error {
 }
 
 message Response {
-                                    // A String specifying the version of the PB-RPC protocol. MUST be exactly "1.0".
-    string  pbrpc  = 1;
+                                    // A String specifying the version of the COAP-PB-RPC protocol. MUST be exactly "1.0".
+    string  version  = 1;
                                     // Pre-encoded PB message. This member is RECOMMENDED on success.
                                     // This member MUST NOT exist if there was an error invoking the method.
                                     // The value of this member is determined by the method invoked on the Server.

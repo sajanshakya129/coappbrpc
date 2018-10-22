@@ -1,33 +1,33 @@
-#ifndef __ControllerRPC_HH_INCLUDED_
-#define __ControllerRPC_HH_INCLUDED_
-#include "pbrpc.pb.h"
+#ifndef __ControllerRPC_H_INCLUDED_
+#define __ControllerRPC_H_INCLUDED_
+#include "MsgSchema.pb.h"
 #include <google/protobuf/service.h>
 #include <string>
 
-namespace pbrpc {
+namespace coappbrpc {
 
 using ::google::protobuf::Closure;
 using ::google::protobuf::RpcController;
-using ::pbrpc::Error;
+using ::coappbrpc::Error;
 using ::std::string;
 
 class ControllerRPC : public RpcController {
 public:
   ControllerRPC(void) { Reset(); }
   virtual ~ControllerRPC() {}
-  void Reset() { _failed = false; }
-  bool Failed() const { return _failed; }
-  string ErrorText() const { return _message; }
+  void Reset() { m_failed = false; }
+  bool Failed() const { return m_failed; }
+  string ErrorText() const { return m_message; }
 
   void SetFailed(const string &reason) {
-    _failed = true;
-    _message = reason;
+    m_failed = true;
+    m_message = reason;
   }
 
-  void AppendFailed(const string &reason) { _message += reason; }
+  void appendFailed(const string &reason) { m_message += reason; }
 
   // get the Error object
-  Error ErrorObj(void) const {
+  Error errorObj(void) const {
     Error error;
     error.set_message(ErrorText());
     return error;
@@ -38,10 +38,10 @@ public:
   void NotifyOnCancel(Closure *callback){};
 
 private:
-  bool _failed;
-  string _message;
+  bool m_failed;
+  string m_message;
 };
 
-} // namespace pbrpc
+} // namespace coappbrpc
 
-#endif //__ControllerRPC_HH_INCLUDED_
+#endif //__ControllerRPC_H_INCLUDED_

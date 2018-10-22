@@ -1,7 +1,7 @@
-#include "ServiceManager.hh"
-#include "Config.h"
+#include "ServiceManager.h"
 
-namespace pbrpc {
+
+namespace coappbrpc {
 
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
@@ -9,12 +9,7 @@ using ::google::protobuf::ServiceDescriptor;
 
 ServiceManager::ServiceManager() {}
 
-ServiceManager::~ServiceManager() { dest(); }
-
-void ServiceManager::init(void) {
-}
-
-void ServiceManager::dest(void) { freeServices(); }
+ServiceManager::~ServiceManager() { freeServices(); }
 
 void ServiceManager::regService(Service *service) {
   const string &serviceName = service->GetDescriptor()->name();
@@ -38,10 +33,10 @@ ServiceManager::getMethod(const string &serviceName,
 
 void genResponse(string &ret, Response &rpcResponse, Message *response,
                  ControllerRPC *controller) {
-  rpcResponse.set_pbrpc(PBRPC_VERSION);
+  rpcResponse.set_version(PBRPC_VERSION);
 
   if (controller->Failed()) {
-    Error error = controller->ErrorObj();
+    Error error = controller->errorObj();
     rpcResponse.mutable_error()->CopyFrom(error);
   } else {
     // response could be NULL when the response is NOT required (empty)
@@ -59,7 +54,7 @@ void ServiceManager::handleRPC(const char *data, const size_t len,
   ControllerRPC *controller = new ControllerRPC();
 
   Response rpcResponse;
-  rpcResponse.set_pbrpc(PBRPC_VERSION);
+  rpcResponse.set_version(PBRPC_VERSION);
 
   // check parameters
   if (!isValidParams(data, len, controller)) {
@@ -114,10 +109,10 @@ bool ServiceManager::isValidParams(const char *data, const size_t len,
 bool ServiceManager::isValidRequest(const Request &request,
                                     ControllerRPC *controller) const {
   // check the version is valid
-  if (!(isValidVersion(request.pbrpc()))) {
+  if (!(isValidVersion(request.version()))) {
     controller->SetFailed(
         "The RPC request version does not qualify: Actual version: " +
-        request.pbrpc() + " Required version: " + PBRPC_VERSION);
+        request.version() + " Required version: " + PBRPC_VERSION);
     return false;
   }
 
@@ -155,4 +150,4 @@ void ServiceManager::freeServices(void) {
   }
 }
 
-} // namespace pbrpc
+} // namespace coappbrpc

@@ -1,10 +1,10 @@
-#ifndef __MethodRPC_HH_INCLUDED_
-#define __MethodRPC_HH_INCLUDED_
+#ifndef __MethodRPC_H_INCLUDED_
+#define __MethodRPC_H_INCLUDED_
 
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/service.h>
 
-namespace pbrpc {
+namespace coappbrpc {
 
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
@@ -25,6 +25,6 @@ public:
   MethodRPC(void) : descriptor(NULL), request(NULL), response(NULL) {}
 };
 
-} // namespace pbrpc
+} // namespace coappbrpc
 
-#endif //__MethodRPC_HH_INCLUDED_
+#endif //__MethodRPC_H_INCLUDED_
