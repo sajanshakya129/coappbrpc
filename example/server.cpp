@@ -28,7 +28,8 @@ public:
 int main() {
   ServerRPC server;
   server.registerService(new ::coappbrpc::api::PingServiceImpl());
-  server.runServer();
-  // server.runServer("localhost:5683");
+  //server.runServer();
+  //server.runServer("localhost","5683");
+  server.runServer("10.0.2.15","5683");
   return 0;
 }

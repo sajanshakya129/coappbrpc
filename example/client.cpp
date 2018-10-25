@@ -31,7 +31,8 @@ private:
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   ClientRPC *client = ClientRPC::getInstance();
-  client->setServerAddr("localhost:5683");
+  //client->setServerAddr("localhost","5683");
+  client->setServerAddr("10.0.2.15","5683");
   std::string msg("Hello world");
   PingClient pclient;
   std::string reply = pclient.ping(msg);

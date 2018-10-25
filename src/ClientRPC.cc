@@ -32,18 +32,9 @@ void ClientRPC::setResponse(string resp) { this->m_response = resp; }
 
 string ClientRPC::getResponse() { return this->m_response; }
 
-void ClientRPC::setServerAddr(string ipAddr) {
-  //TODO: handle ipv6
-  string delimiter = ":";
-  if (ipAddr.find(delimiter) != std::string::npos) {
-    this->m_address = ipAddr.substr(0, ipAddr.find(delimiter));
-    this->m_port = ipAddr.substr((ipAddr.find(delimiter) + 1), ipAddr.find('\0'));
-  } else {
-    std::cerr << "ERROR in channel: Please enter IP address in formart "
-            "ip_address:port_no"
-         << std::endl;
-    exit(0);
-  }
+void ClientRPC::setServerAddr(string ipAddr,string port) {
+    this->m_address = ipAddr;
+    this->m_port = port;
 }
 
 Response ClientRPC::execFunc(string vers, string serviceName, string method,

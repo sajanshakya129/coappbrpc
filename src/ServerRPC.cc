@@ -37,24 +37,15 @@ ServerRPC::ServerRPC() {
 
 ServerRPC::~ServerRPC() {}
 
-void ServerRPC::runServer(string ipAddr) {
-  string delimiter = ":";
-  if (ipAddr.find(delimiter) != std::string::npos) {
-    this->serverAddr = ipAddr.substr(0, ipAddr.find(delimiter));
-    this->port =
-        stoi(ipAddr.substr((ipAddr.find(delimiter) + 1), ipAddr.find('\0')));
-  } else {
-    std::cerr << "ERROR in channel: Please enter IP address in formart "
-            "ip_address:port_no"
-         << std::endl;
-    exit(0);
-  }
+void ServerRPC::runServer(const char *ipAddr, const char *port) {
+  this->serverAddr=ipAddr;
+  this->port=port;
   this->start();
 }
 
 void ServerRPC::runServer() {
   this->serverAddr = "localhost";
-  this->port = 5683;
+  this->port = "5683";
   this->start();
 }
 
@@ -62,21 +53,19 @@ int ServerRPC::start() {
   if (running) {
     return 0;
   }
-  CoapCommon common;
 
-  char port[6];
-  snprintf(port, sizeof(port), "%d", this->port);
+  CoapCommon common;
 
   coap_address_t dst;
   coap_resource_t *resource = nullptr;
   coap_endpoint_t *endpoint = nullptr;
 
-  coap_str_const_t ruri = {3, (const uint8_t *)"rpc"};
+  coap_str_const_t ruri = {3, (const uint8_t *)COAP_INTERFACE_NAME};
 
   coap_startup();
-
+  std::cout<<this->serverAddr<<std::endl;
   /* resolve destination address where server should be sent */
-  if (common.resolveAddress("localhost", port, &dst) < 0) {
+  if (common.resolveAddress(this->serverAddr, this->port, &dst) < 0) {
     coap_log(LOG_CRIT, "failed to resolve address\n");
     this->stop(EXIT_FAILURE);
   }
@@ -96,6 +85,7 @@ int ServerRPC::start() {
   coap_add_resource(ctx, resource);
 
   while (true) {
+    std::cout<<"Server Running at "<<this->serverAddr<<":"<<this->port<<std::endl;
     coap_run_once(ctx, 0);
   }
   running = true;
