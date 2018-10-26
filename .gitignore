@@ -10,3 +10,8 @@ CTestTestfile.cmake
 build
 http_files
 bin
+example/ClientStub.cc
+example/ClientStub.h
+example/protofile.json
+example/rpc_ping.pb.cc
+example/rpc_ping.pb.h

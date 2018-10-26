@@ -7,8 +7,6 @@
 #include <string>
 using namespace std;
 
-#define COAP_INTERFACE_NAME "rpc"
-
 namespace coappbrpc {
 class ClientRPC {
 private:
@@ -26,7 +24,7 @@ public:
   void runClient();
   void setResponse(string);
   string getResponse();
-  void setServerAddr(string);
+  void setServerAddr(string,string);
   Response execFunc(string, string, string, string);
 };
 } // namespace coappbrpc

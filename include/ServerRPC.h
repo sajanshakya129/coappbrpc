@@ -28,13 +28,13 @@ public:
   int start();
   bool stop(int);
   void runServer();
-  void runServer(string);
+  void runServer(const char *,const char *);
   void registerService(Service *service);
 
   coap_context_t *ctx = nullptr;
 
-  int port;
-  string serverAddr;
+  const char *port;
+  const char *serverAddr;
   bool running = false;
 };
 
