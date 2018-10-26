@@ -83,9 +83,8 @@ int ServerRPC::start() {
   resource = coap_resource_init(&ruri, 0);
   coap_register_handler(resource, COAP_REQUEST_POST, return_handler);
   coap_add_resource(ctx, resource);
-
+  
   while (true) {
-    std::cout<<"Server Running at "<<this->serverAddr<<":"<<this->port<<std::endl;
     coap_run_once(ctx, 0);
   }
   running = true;

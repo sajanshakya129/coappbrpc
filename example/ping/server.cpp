@@ -30,6 +30,9 @@ int main() {
   server.registerService(new ::coappbrpc::api::PingServiceImpl());
   //server.runServer();
   //server.runServer("localhost","5683");
-  server.runServer("10.0.2.15","5683");
+  //server.runServer("10.0.2.15","5683");
+  server.runServer("192.168.56.101","5683");
+  //server.runServer("::1","5683");
+  //server.runServer("fe80::ba50:7d65:e4e0:71d0","5683");
   return 0;
 }

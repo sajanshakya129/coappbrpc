@@ -6,7 +6,7 @@
 #include <netdb.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-
+#include <iostream>
 #define COAP_INTERFACE_NAME "rpc"
 
 class CoapCommon {

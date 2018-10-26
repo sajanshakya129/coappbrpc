@@ -1,0 +1,39 @@
+{
+  "filename": "rpc_ping.proto", 
+  "data": [
+    {
+      "type": "Message", 
+      "name": "PingRequest", 
+      "properties": [
+        {
+          "type": 9, 
+          "name": "msg"
+        }
+      ]
+    }, 
+    {
+      "type": "Message", 
+      "name": "PingResponse", 
+      "properties": [
+        {
+          "type": 9, 
+          "name": "result"
+        }
+      ]
+    }, 
+    {
+      "type": "Service", 
+      "name": "PingService", 
+      "methods": [
+        {
+          "method_name": "Ping", 
+          "input": "PingRequest", 
+          "output": "PingResponse"
+        }
+      ]
+    }
+  ], 
+  "headerfile": "rpc_ping.pb.h", 
+  "ccfile": "rpc_ping.pb.cc", 
+  "package": "coappbrpc.api"
+}
