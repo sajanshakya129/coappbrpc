@@ -20,7 +20,6 @@ private:
 public:
   static ClientRPC *getInstance();
   virtual ~ClientRPC();
-  void setTransportPayload(string);
   void runClient();
   void setResponse(string);
   string getResponse();

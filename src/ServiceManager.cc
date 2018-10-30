@@ -1,3 +1,9 @@
+/** \page ServiceManager.h RPC Core
+ *
+ * \section RPC Service
+ *
+ * ServiceManager.h is the main file that handles Remote Procedure Call
+ */
 #include "ServiceManager.h"
 
 
@@ -6,7 +12,9 @@ namespace coappbrpc {
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
 using ::google::protobuf::ServiceDescriptor;
-
+/**
+ * ServiceManger.h This is constructor function
+ */
 ServiceManager::ServiceManager() {}
 
 ServiceManager::~ServiceManager() { freeServices(); }

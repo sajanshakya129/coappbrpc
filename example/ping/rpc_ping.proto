@@ -1,17 +1,22 @@
-syntax = "proto3";
+syntax = "proto3"; // Denotes Protocol buffers 3  is used for compiling
 
-package coappbrpc.api;
+package coappbrpc.api; // Packaging codes under coappbrpc.api namespace
 
-option cc_generic_services = true;
+option cc_generic_services = true; // To use protocol buffers services
 
-message PingRequest {
-    string msg = 1;
+message PingRequest { / User defined Request named "PingRequest" with parameter "msg". 
+    string msg = 1; // For multiple parameters the numbering is done in increasing format 
+    //which is non-repititive or cannot be duplicate.
 }
 
-message PingResponse {
+message PingResponse { // User defined Response named "PingResponse" with parameter "result". 
     string result = 1;
 }
 
-service PingService {
+/* ** Defining Services **
+  User defined Service named "PingService" is defined which contains 
+  method named "Ping" that takes "PingRequest" as input and gives"PingResponse" as output.
+*/
+service PingService { 
     rpc Ping (PingRequest) returns (PingResponse);
-}
+}	

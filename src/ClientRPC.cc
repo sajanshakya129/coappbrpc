@@ -15,9 +15,8 @@ ClientRPC::ClientRPC() {}
 
 ClientRPC::~ClientRPC() {}
 
-void ClientRPC::setTransportPayload(string reqPayload) { m_payload = this->m_payload = reqPayload; }
-
 void ClientRPC::runClient() {
+  //creates structure to run coap
   CoapClient coapclient;
   ClientParams params;
   params.addr = this->m_address;
@@ -39,6 +38,7 @@ void ClientRPC::setServerAddr(string ipAddr,string port) {
 
 Response ClientRPC::execFunc(string vers, string serviceName, string method,
                              string msg) {
+  //sets request that is to be sent
   ClientRPC *client = ClientRPC::getInstance();
   Request req;
   req.set_version(vers);
@@ -46,9 +46,7 @@ Response ClientRPC::execFunc(string vers, string serviceName, string method,
   req.set_method(method);
   req.set_params(msg);
   req.set_id((rand() % 9999 + 1));
-  std::string reqPayload;
-  req.SerializeToString(&reqPayload);
-  client->setTransportPayload(reqPayload);
+  req.SerializeToString(&this->m_payload);
   client->runClient();
 
   Response resp;

@@ -31,7 +31,7 @@ private:
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   ClientRPC *client = ClientRPC::getInstance();
-  client->setServerAddr("localhost","5683");
+  client->setServerAddr("aaaa::1","5683");
   std::string user("world");
   GreeterClient greeter;
   std::string reply = greeter.SayHello(user);

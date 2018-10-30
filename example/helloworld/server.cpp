@@ -15,7 +15,7 @@ public:
 
   virtual void SayHello(RpcController *controller, const HelloRequest *request,
                     HelloReply *reply, Closure *done) {
-    std::string prefix("Hello ");
+    std::string prefix("Hello");
     reply->set_message(prefix + request->name());
   }
 };
@@ -26,6 +26,6 @@ public:
 int main() {
   ServerRPC server;
   server.registerService(new ::coappbrpc::api::GreeterServiceImpl());
-  server.runServer("localhost","5683");
+  server.runServer("aaaa::1","5683");
   return 0;
 }
