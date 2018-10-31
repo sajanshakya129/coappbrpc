@@ -1,11 +1,11 @@
-#include <coappbrpc/ClientRPC.h>
+#include <coappbrpc/RpcClient.h>
 
 #include "ClientStub.h"
 #include "helloworld.pb.h"
 #include <iostream>
 #include <string>
 
-using ::coappbrpc::ClientRPC;
+using ::coappbrpc::RpcClient;
 using ::coappbrpc::api::Greeter;
 using ::coappbrpc::api::HelloRequest;
 using ::coappbrpc::api::HelloReply;
@@ -30,7 +30,7 @@ private:
 
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
-  ClientRPC *client = ClientRPC::getInstance();
+  RpcClient *client = RpcClient::getInstance();
   client->setServerAddr("aaaa::1","5683");
   std::string user("world");
   GreeterClient greeter;

@@ -22,3 +22,5 @@ example/ping/*
 !example/ping/rpc_ping.proto
 !example/ping/CMakeLists.txt
 
+documentation
+

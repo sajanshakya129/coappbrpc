@@ -15,6 +15,13 @@ typedef struct {
 } ClientParams;
 
 namespace coappbrpc {
+/*! \class CoapClient
+* \brief
+*This class contains two methods to clientHandler and executeClient
+*client Handler is a callback function which returns response back to RPC client
+*excuteClient handles coap client request. It creates a coap context, uses UDP as transport controller,
+*registers, adds options  and creates PDU and sends to server.
+*/
 class CoapClient {
 public:
   string payload;

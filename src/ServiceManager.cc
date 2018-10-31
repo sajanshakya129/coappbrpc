@@ -1,9 +1,3 @@
-/** \page ServiceManager.h RPC Core
- *
- * \section RPC Service
- *
- * ServiceManager.h is the main file that handles Remote Procedure Call
- */
 #include "ServiceManager.h"
 
 

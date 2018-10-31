@@ -50,11 +50,11 @@ set(COAP_PBRPC_HDRS
   include/MethodRPC.h
   include/ServiceManager.h
   include/ServiceRPC.h
-	include/ClientRPC.h
+	include/RpcClient.h
 	include/CoapClient.h
 	include/CoapCommon.h
 	include/HandleService.h
-	include/ServerRPC.h
+	include/RpcServer.h
 )
 
 

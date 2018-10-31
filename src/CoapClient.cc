@@ -1,7 +1,7 @@
 #include "CoapClient.h"
-#include "ClientRPC.h"
+#include "RpcClient.h"
 
-using ::coappbrpc::ClientRPC;
+using ::coappbrpc::RpcClient;
 
 namespace coappbrpc {
 void CoapClient::clientHandler(struct coap_context_t *ctx,
@@ -12,7 +12,7 @@ void CoapClient::clientHandler(struct coap_context_t *ctx,
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
       std::string strData(reinterpret_cast<char *>(data));
-      ClientRPC *client_ret = ClientRPC::getInstance();
+      RpcClient *client_ret = RpcClient::getInstance();
       client_ret->setResponse(strData);
     }
   }

@@ -1,7 +1,7 @@
-#include <coappbrpc/ServerRPC.h> //for server rpc handling
+#include <coappbrpc/RpcServer.h> //for server rpc handling
 #include "helloworld.pb.h" //protobuf output file
 
-using ::coappbrpc::ServerRPC;
+using ::coappbrpc::RpcServer;
 
 namespace coappbrpc {
 namespace api {
@@ -24,7 +24,7 @@ public:
 } // namespace coappbrpc
 
 int main() {
-  ServerRPC server;
+  RpcServer server;
   server.registerService(new ::coappbrpc::api::GreeterServiceImpl());
   server.runServer("aaaa::1","5683");
   return 0;

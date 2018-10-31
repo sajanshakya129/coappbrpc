@@ -1,3 +1,16 @@
+/*
+ * ServiceManager.h -- RPC Service Manager
+ *
+ * Copyright (C) 2018 Sajan Shakya <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see LICENSE.md for terms
+ * of use.
+ */
+
+/**
+ * @file ServiceManager.h
+ * @brief RPC Service Manager
+ */
 #ifndef __ServiceManager_H_INCLUDED_
 #define __ServiceManager_H_INCLUDED_
 
@@ -19,6 +32,11 @@ using ::google::protobuf::Service;
 using ::std::map;
 using ::std::string;
 
+/*! \class ServiceManager
+* \brief
+*This class contains methods to handle RPC, register services, get services, get method details,
+*validate passed parameters, validate requests, validate versions, and check if services are already existed or not
+*/
 class ServiceManager {
 public:
   ServiceManager();
