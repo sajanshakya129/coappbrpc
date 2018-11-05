@@ -7,8 +7,8 @@ cog.outl("#define __ClientStub_H_INCLUDED_")
 with open('protofile.json') as fp:
 	jsonData=json.load(fp)
 cog.outl("#include \"%s\""% jsonData["headerfile"])
-cog.outl("#include <coappbrpc/ClientRPC.h>")
-cog.outl("using ::coappbrpc::ClientRPC;")
+cog.outl("#include <coappbrpc/RpcClient.h>")
+cog.outl("using ::coappbrpc::RpcClient;")
 cog.outl("using ::coappbrpc::Request;")
 cog.outl("using ::coappbrpc::Response;")
 
@@ -24,7 +24,7 @@ for item in jsonData["data"]:
 		for method in item["methods"]:
 			cog.outl("void {0}({1},{2} *);".format(method["method_name"], method["input"], method["output"]))
 cog.outl("private:")
-cog.outl("ClientRPC *client = ClientRPC::getInstance();")
+cog.outl("RpcClient *client = RpcClient::getInstance();")
 cog.outl("template<typename R> string serializeMsg(R);")
 cog.outl("};")
 cog.outl("#endif")

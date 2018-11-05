@@ -1,22 +1,55 @@
-#include "CoapClient.h"
-#include "ClientRPC.h"
+/* CoapClient.cc -- Client Handling for CoAP protocol
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
 
-using ::coappbrpc::ClientRPC;
+/**
+ * @file CoapClient.cc
+ * @brief Client Handling for CoAP protocol
+ */
+#include "CoapClient.h"
+#include "RpcClient.h"
+
+using ::coappbrpc::RpcClient;
 
 namespace coappbrpc {
-void CoapClient::clientHandler(struct coap_context_t *ctx,
+/*! \fn void CoapClient::clientHandler(struct coap_context_t *ctx,
                                 coap_session_t *session, coap_pdu_t *sent,
-                                coap_pdu_t *received, const coap_tid_t id) {
+                                coap_pdu_t *received, const coap_tid_t id)
+    \brief Callback function that sets response data to be sent back to RPC
+   client
+   \param ctx Coap context variable reference of type struct
+   coap_context_t.
+   \param session Coap Session variable reference of type
+   coap_session_t
+   \param sent CoAP PDU sent to the server
+   \param received CoAP PDU received back from server
+   \param id CoAP transaction Id of type const  coap_tid_t
+*/
+void CoapClient::clientHandler(struct coap_context_t *ctx,
+                               coap_session_t *session, coap_pdu_t *sent,
+                               coap_pdu_t *received, const coap_tid_t id) {
   unsigned char *data;
   size_t data_len;
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
       std::string strData(reinterpret_cast<char *>(data));
-      ClientRPC *client_ret = ClientRPC::getInstance();
+      RpcClient *client_ret = RpcClient::getInstance();
       client_ret->setResponse(strData);
     }
   }
 }
+
+/*! \fn int CoapClient::executeClient(ClientParams params)
+    \brief Handles coap client request, creates context, PDUs, uses UDP
+   transport protocol, registers and adds coap option and sends request to coap
+   server
+   \param params Parameters of struct type ClientParams that comprises of all
+   values required to sent to server
+*/
 
 int CoapClient::executeClient(ClientParams params) {
   CoapCommon common;

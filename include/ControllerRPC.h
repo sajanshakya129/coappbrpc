@@ -1,5 +1,19 @@
+/* ControllerRPC.h -- Controls RPC, resets, sets failed if RPC failes, handles error messages
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
+
+/**
+ * @file ControllerRPC.h
+ * @brief Controls RPC, resets, sets failed if RPC failes, handles error messages
+ **/
+
 #ifndef __ControllerRPC_H_INCLUDED_
 #define __ControllerRPC_H_INCLUDED_
+
 #include "MsgSchema.pb.h"
 #include <google/protobuf/service.h>
 #include <string>

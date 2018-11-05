@@ -1,7 +1,7 @@
-#include <coappbrpc/ServerRPC.h> //for server rpc handling
+#include <coappbrpc/RpcServer.h> //for server rpc handling
 #include "helloworld.pb.h" //protobuf output file
 
-using ::coappbrpc::ServerRPC;
+using ::coappbrpc::RpcServer;
 
 namespace coappbrpc {
 namespace api {
@@ -15,7 +15,7 @@ public:
 
   virtual void SayHello(RpcController *controller, const HelloRequest *request,
                     HelloReply *reply, Closure *done) {
-    std::string prefix("Hello ");
+    std::string prefix("Hello");
     reply->set_message(prefix + request->name());
   }
 };
@@ -24,8 +24,8 @@ public:
 } // namespace coappbrpc
 
 int main() {
-  ServerRPC server;
+  RpcServer server;
   server.registerService(new ::coappbrpc::api::GreeterServiceImpl());
-  server.runServer("localhost","5683");
+  server.runServer("aaaa::1","5683");
   return 0;
 }

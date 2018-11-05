@@ -1,8 +1,8 @@
 #include<iostream>
-#include<coappbrpc/ServerRPC.h>
-using coappbrpc::ServerRPC;
+#include<coappbrpc/RpcServer.h>
+using coappbrpc::RpcServer;
 using namespace std;
 int main(void){
-	ServerRPC server;
+	RpcServer server;
 	std::cout<<"inside main"<<endl;
 }

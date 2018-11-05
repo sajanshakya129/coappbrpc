@@ -1,0 +1,7 @@
+<map id="include/ServiceManager.h" name="include/ServiceManager.h">
+<area shape="rect" id="node2" href="$HandleService_8h.html" title="Handles RPC service and registry of services. " alt="" coords="78,80,241,107"/>
+<area shape="rect" id="node6" href="$ServiceManager_8cc.html" title="Handles Service creation, registration, getting and setting Services, handles RPC and validates reque..." alt="" coords="265,80,421,107"/>
+<area shape="rect" id="node3" href="$RpcServer_8h.html" title="Server Handling for CoAP protocol. " alt="" coords="5,155,145,181"/>
+<area shape="rect" id="node5" href="$HandleService_8cc.html" title="Handles RPC service and registry of services. " alt="" coords="170,155,317,181"/>
+<area shape="rect" id="node4" href="$RpcServer_8cc.html" title="Server Handling for CoAP protocol. " alt="" coords="13,229,137,256"/>
+</map>

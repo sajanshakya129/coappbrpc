@@ -1,22 +1,37 @@
-#include "ServiceManager.h"
+/* ServiceManager.cc -- Handles Service creation, registration, getting and
+ * setting Services, handles RPC and validates requests
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
 
+/**
+ * @file ServiceManager.cc
+ * @brief Handles Service creation, registration, getting and setting Services,
+ * handles RPC and validates requests
+ */
+#include "ServiceManager.h"
 
 namespace coappbrpc {
 
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
 using ::google::protobuf::ServiceDescriptor;
-
+/**
+ * ServiceManger.h This is constructor function
+ */
 ServiceManager::ServiceManager() {}
 
 ServiceManager::~ServiceManager() { freeServices(); }
 
 void ServiceManager::regService(Service *service) {
   const string &serviceName = service->GetDescriptor()->name();
-  _services[serviceName] = ServiceRPC(service);
+  _services[serviceName] = RpcService(service);
 }
 
-inline const ServiceRPC *
+inline const RpcService *
 ServiceManager::getServiceRPC(const string &serviceName) const {
   return &_services.at(serviceName);
 }
@@ -25,7 +40,7 @@ inline Service *ServiceManager::getService(const string &serviceName) const {
   return getServiceRPC(serviceName)->_service;
 }
 
-inline const MethodRPC *
+inline const RpcMethod *
 ServiceManager::getMethod(const string &serviceName,
                           const string &methodName) const {
   return getServiceRPC(serviceName)->getMethod(methodName);
@@ -33,7 +48,7 @@ ServiceManager::getMethod(const string &serviceName,
 
 void genResponse(string &ret, Response &rpcResponse, Message *response,
                  ControllerRPC *controller) {
-  rpcResponse.set_version(PBRPC_VERSION);
+  rpcResponse.set_version(COAP_PBRPC_VERSION);
 
   if (controller->Failed()) {
     Error error = controller->errorObj();
@@ -54,7 +69,7 @@ void ServiceManager::handleRPC(const char *data, const size_t len,
   ControllerRPC *controller = new ControllerRPC();
 
   Response rpcResponse;
-  rpcResponse.set_version(PBRPC_VERSION);
+  rpcResponse.set_version(COAP_PBRPC_VERSION);
 
   // check parameters
   if (!isValidParams(data, len, controller)) {
@@ -72,7 +87,7 @@ void ServiceManager::handleRPC(const char *data, const size_t len,
   }
 
   Service *service = getService(rpcRequest.service());
-  const MethodRPC *method =
+  const RpcMethod *method =
       getMethod(rpcRequest.service(), rpcRequest.method());
 
   Message *request = method->request->New();
@@ -112,7 +127,7 @@ bool ServiceManager::isValidRequest(const Request &request,
   if (!(isValidVersion(request.version()))) {
     controller->SetFailed(
         "The RPC request version does not qualify: Actual version: " +
-        request.version() + " Required version: " + PBRPC_VERSION);
+        request.version() + " Required version: " + COAP_PBRPC_VERSION);
     return false;
   }
 
@@ -136,7 +151,7 @@ bool ServiceManager::isValidRequest(const Request &request,
 }
 
 bool ServiceManager::isValidVersion(const string &version) const {
-  return (PBRPC_VERSION == version);
+  return (COAP_PBRPC_VERSION == version);
 }
 
 bool ServiceManager::isExistService(const string &serviceName) const {
@@ -144,7 +159,7 @@ bool ServiceManager::isExistService(const string &serviceName) const {
 }
 
 void ServiceManager::freeServices(void) {
-  map<string, ServiceRPC>::iterator ite;
+  map<string, RpcService>::iterator ite;
   for (ite = _services.begin(); ite != _services.end(); ++ite) {
     delete ite->second._service;
   }

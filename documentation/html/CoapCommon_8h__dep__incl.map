@@ -1,0 +1,9 @@
+<map id="include/CoapCommon.h" name="include/CoapCommon.h">
+<area shape="rect" id="node2" href="$CoapClient_8h.html" title="Client Handling for CoAP protocol. " alt="" coords="97,80,240,107"/>
+<area shape="rect" id="node6" href="$RpcServer_8h.html" title="Server Handling for CoAP protocol. " alt="" coords="264,80,404,107"/>
+<area shape="rect" id="node8" href="$CoapCommon_8cc.html" title="Common function to resolve address used by both coap client and coap server. " alt="" coords="429,80,575,107"/>
+<area shape="rect" id="node3" href="$RpcClient_8h.html" title="Sets Client parameters to be passed as Coap Parameters and calls for execution of CoAP protocol..." alt="" coords="106,155,242,181"/>
+<area shape="rect" id="node4" href="$CoapClient_8cc.html" title="Client Handling for CoAP protocol. " alt="" coords="5,229,132,256"/>
+<area shape="rect" id="node5" href="$RpcClient_8cc.html" title="Sets Client parameters to be passed as Coap Parameters and calls for execution of CoAP protocol..." alt="" coords="157,229,277,256"/>
+<area shape="rect" id="node7" href="$RpcServer_8cc.html" title="Server Handling for CoAP protocol. " alt="" coords="272,155,396,181"/>
+</map>

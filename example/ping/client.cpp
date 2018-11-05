@@ -1,11 +1,17 @@
-#include <coappbrpc/ClientRPC.h>
+/** \page Ping Examples
+ *
+ * \section Ping
+ *
+ * This example will demonstrate how to create client and server using coappbprpc library.
+ */
+#include <coappbrpc/RpcClient.h>
 
 #include "ClientStub.h"
 #include "rpc_ping.pb.h"
 #include <iostream>
 #include <string>
 
-using ::coappbrpc::ClientRPC;
+using ::coappbrpc::RpcClient;
 using ::coappbrpc::api::PingRequest;
 using ::coappbrpc::api::PingResponse;
 using ::coappbrpc::api::PingService;
@@ -30,7 +36,7 @@ private:
 
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
-  ClientRPC *client = ClientRPC::getInstance();
+  RpcClient *client = RpcClient::getInstance();
   client->setServerAddr("localhost","5683");
   //client->setServerAddr("::1","5683");
   std::string msg("Hello world");

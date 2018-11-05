@@ -89,6 +89,8 @@ g++ -o server rpc_ping.pb.cc server.cpp -lcoappbrpc -lcoap-2 -lprotobuf -lpthrea
 ./server
 ```
 
+## Documentation
+Detailed explanation of functions and classes can be found in folder documentation. You can run web based documentation by running documentation/html/index.html file
 
 ## Creating Proto File
 To create a service for RPC, you need to define the response and request schema along with defination of Service in protofile as shown below.
@@ -116,7 +118,7 @@ service PingService { //User defined Service named "PingService"
 
 ## Creating Client
 ```c++
-#include <coappbrpc/ClientRPC.h> // To Create client you must include this file: coappbrpc/ClientRPC.h
+#include <coappbrpc/RpcClient.h> // To Create client you must include this file: coappbrpc/RpcClient.h
 
 #include "ClientStub.h" //including ClientStub.h generated when you run "coappbrpc.sh <protofile>" in command prompt.
 #include "rpc_ping.pb.h" //including rpc_ping.pb.h generate when you run "coappbrpc.sh <protofile>" 
@@ -124,7 +126,7 @@ service PingService { //User defined Service named "PingService"
 
 #include <string>
 
-using ::coappbrpc::ClientRPC;  //Must be included in code
+using ::coappbrpc::RpcClient;  //Must be included in code
 using ::coappbrpc::api::PingRequest; //Must be included in code
 using ::coappbrpc::api::PingResponse; //Must be included in code
 using ::coappbrpc::api::PingService; //Must be included in code
@@ -151,7 +153,7 @@ private:
 
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION; //verifiying protocol buffers version
-  ClientRPC *client = ClientRPC::getInstance(); //creating a client instance
+  RpcClient *client = RpcClient::getInstance(); //creating a client instance
   client->setServerAddr("localhost:5683"); //setting up Server address. Default is "localhost:5683". 
   										//Note: must be in format <server_address>:<port_no>
   std::string msg("Hello world"); //defining msg to be sent to Server.
@@ -165,11 +167,11 @@ int main(void) {
 
 ## Creating Server
 ```c++
-#include <coappbrpc/ServerRPC.h> //To create server you must include this file: coappbrpc/ServerRPC.h
+#include <coappbrpc/RpcServer.h> //To create server you must include this file: coappbrpc/RpcServer.h
 #include "rpc_ping.pb.h" //including rpc_ping.pb.h generate when you run "coappbrpc.sh <protofile>" in command prompt.
 						//<filename.proto> will generate "filename.pb.h" and "filename.pb.cc"
 
-using ::coappbrpc::ServerRPC; //Must be included in code
+using ::coappbrpc::RpcServer; //Must be included in code
 
 namespace coappbrpc {
 namespace api {
@@ -198,7 +200,7 @@ public:
 } // namespace coappbrpc
 
 int main() {
-  ServerRPC server; //Creating instance of server
+  RpcServer server; //Creating instance of server
   server.registerService(new ::coappbrpc::api::PingServiceImpl()); //Registering service
   server.runServer(); //running server
   // server.runServer("localhost:5683");// You can run server by providing server_address and port no.
