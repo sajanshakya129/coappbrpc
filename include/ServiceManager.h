@@ -1,15 +1,15 @@
-/*
- * ServiceManager.h -- RPC Service Manager
+/* ServiceManager.h -- Handles Service creation, registration, getting and
+ * setting Services, handles RPC and validates requests
  *
- * Copyright (C) 2018 Sajan Shakya <sajanshakya129@gmail.com>
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
  *
- * This file is part of the CoAPPBRPC library. Please see LICENSE.md for terms
- * of use.
+ * This file is part of the CoAPPBRPC library libcoap. Please see
+ * README for terms of use.
  */
-
 /**
  * @file ServiceManager.h
- * @brief RPC Service Manager
+ * @brief Handles Service creation, registration, getting and setting Services,
+ * handles RPC and validates requests
  */
 #ifndef __ServiceManager_H_INCLUDED_
 #define __ServiceManager_H_INCLUDED_
@@ -21,8 +21,8 @@
 
 #include "Config.h"
 #include "ControllerRPC.h"
-#include "MethodRPC.h"
-#include "ServiceRPC.h"
+#include "RpcMethod.h"
+#include "RpcService.h"
 #include "MsgSchema.pb.h"
 
 namespace coappbrpc {
@@ -47,8 +47,8 @@ public:
 private:
   void freeServices(void);
   inline Service *getService(const string &serviceName) const;
-  inline const ServiceRPC *getServiceRPC(const string &serviceName) const;
-  inline const MethodRPC *getMethod(const string &serviceName,
+  inline const RpcService *getServiceRPC(const string &serviceName) const;
+  inline const RpcMethod *getMethod(const string &serviceName,
                                     const string &methodName) const;
 
   bool isValidParams(const char *data, const size_t len,
@@ -58,7 +58,7 @@ private:
   bool isExistService(const string &serviceName) const;
 
   // services in a map
-  map<string, ServiceRPC> _services;
+  map<string, RpcService> _services;
 };
 
 } // namespace coappbrpc

@@ -1,3 +1,15 @@
+/* RpcClient.cc -- Sets Client parameters to be passed as Coap Parameters and
+ * calls for execution of CoAP protocol
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
+
+/**
+ * @file RpcClient.cc
+ * @brief Sets Client parameters to be passed as Coap Parameters and calls for
+ * execution of CoAP protocol **/
 #include "RpcClient.h"
 
 namespace coappbrpc {
@@ -11,12 +23,22 @@ RpcClient *RpcClient::getInstance() { // getting new clientRPC instance
   return m_instance;
 }
 
+/*! \fn RpcClient::RpcClient()
+    \brief RPC Client constructor
+*/
 RpcClient::RpcClient() {}
 
+/*! \fn RpcClient::~RpcClient()
+    \brief RPC Client Destructor
+*/
 RpcClient::~RpcClient() {}
 
+/*! \fn void RpcClient::runClient()
+    \brief Creates data structure to be sent to Coap Client and executes coap
+   client's executeClient function
+*/
 void RpcClient::runClient() {
-  //creates structure to run coap
+  // creates structure to run coap
   CoapClient coapclient;
   ClientParams params;
   params.addr = this->m_address;
@@ -27,18 +49,44 @@ void RpcClient::runClient() {
   coapclient.executeClient(params);
 }
 
+/*! void RpcClient::setResponse(string resp)
+    \brief Setter function to store response to m_response variable
+    \param resp  Response string to be stored in member variable m_response
+*/
 void RpcClient::setResponse(string resp) { this->m_response = resp; }
 
+/*! string RpcClient::getResponse()
+    \brief Getter function to get response stored in m_response variable
+*/
 string RpcClient::getResponse() { return this->m_response; }
 
-void RpcClient::setServerAddr(string ipAddr,string port) {
-    this->m_address = ipAddr;
-    this->m_port = port;
+/*! void RpcClient::setServerAddr(string ipAddr, string port)
+    \brief Setter function to store ip address and port  to m_address and m_port
+   respectively \param ipAddr  Ip Address may be IPv4 or IPv6 to be stored in
+   m_address variable \param port Port no to be stored in m_port variable
+*/
+void RpcClient::setServerAddr(string ipAddr, string port) {
+  this->m_address = ipAddr;
+  this->m_port = port;
 }
 
+/*! Response RpcClient::execFunc(string vers, string serviceName, string method,
+                             string msg) {
+    \brief Creates protocol buffer data structure containing version number,
+   services, methods, method parameters, unique Random ids. Then it serializes
+   the data into string and stores it in m_payload variable. This function calls
+   runClient function. And after it receives response, it returns response as
+   type Response.
+
+   \param vers  version number defined in Config.h file
+   \param serviceName Name of Service to be used for RPC calls
+   \param method Method name to be called when executing RPC
+   \param msg Serialized message to be sent to Server, contains defination of
+   various parameters to a particular method.
+*/
 Response RpcClient::execFunc(string vers, string serviceName, string method,
                              string msg) {
-  //sets request that is to be sent
+  // sets request that is to be sent
   RpcClient *client = RpcClient::getInstance();
   Request req;
   req.set_version(vers);
@@ -53,7 +101,5 @@ Response RpcClient::execFunc(string vers, string serviceName, string method,
   resp.ParseFromString(client->getResponse());
   return resp;
 }
-
-
 
 } // namespace coappbrpc

@@ -1,5 +1,17 @@
-#ifndef __ServerRPC_H_INCLUDED_
-#define __ServerRPC_H_INCLUDED_
+/* RpcServer.h -- Server Handling for CoAP protocol
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
+
+/**
+ * @file RpcServer.h
+ * @brief Server Handling for CoAP protocol
+ */
+#ifndef __RpcServer_H_INCLUDED_
+#define __RpcServer_H_INCLUDED_
 
 #include "MsgSchema.pb.h"
 #include <coap2/coap.h>

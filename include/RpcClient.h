@@ -1,3 +1,15 @@
+/* RpcClient.h -- Sets Client parameters to be passed as Coap Parameters and
+ * calls for execution of CoAP protocol
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
+
+/**
+ * @file RpcClient.h
+ * @brief Sets Client parameters to be passed as Coap Parameters and calls for
+ * execution of CoAP protocol **/
 #ifndef __ClientRPC_H_INCLUDED_
 #define __ClientRPC_H_INCLUDED_
 

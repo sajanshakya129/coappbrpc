@@ -47,9 +47,9 @@ file(GLOB COAP_PBRPC_SRCS "src/*.cc")
 set(COAP_PBRPC_HDRS
   include/Config.h
   include/ControllerRPC.h
-  include/MethodRPC.h
+  include/RpcMethod.h
   include/ServiceManager.h
-  include/ServiceRPC.h
+  include/RpcService.h
 	include/RpcClient.h
 	include/CoapClient.h
 	include/CoapCommon.h

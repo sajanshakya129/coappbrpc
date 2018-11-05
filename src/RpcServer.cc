@@ -1,5 +1,19 @@
-#include "RpcServer.h"
+/* RpcServer.cc -- Server Handling for CoAP protocol
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
 
+/**
+ * @file RpcServer.cc
+ * @brief Server Handling for CoAP protocol
+ */
+#include "RpcServer.h"
+/*! \def UNUSED_PARAM
+    \brief A macro that defines if parameter is not used.
+*/
 #define UNUSED_PARAM
 namespace coappbrpc {
 

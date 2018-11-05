@@ -1,10 +1,22 @@
+/* RpcService.h -- RPC Services Handling , adding methods, getting methods and checking if method exists or not.
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
+
+/**
+ * @file RpcService.h
+ * @brief RPC Services Handling , adding methods, getting methods and checking if method exists or not.
+ */
 #ifndef __ServiceRPC_H_INCLUDED_
 #define __ServiceRPC_H_INCLUDED_
 
 #include <map>
 #include <string>
 
-#include "MethodRPC.h"
+#include "RpcMethod.h"
 
 namespace coappbrpc {
 
@@ -13,11 +25,11 @@ using ::google::protobuf::ServiceDescriptor;
 using ::std::map;
 using ::std::string;
 
-class ServiceRPC {
+class RpcService {
 public:
-  ServiceRPC() : _service(NULL){};
+  RpcService() : _service(NULL){};
 
-  ServiceRPC(Service *service) : _service(service) {
+  RpcService(Service *service) : _service(service) {
     const ServiceDescriptor *serviceDesc = _service->GetDescriptor();
     const MethodDescriptor *methodDesc = NULL;
     const Message *request = NULL;
@@ -28,15 +40,15 @@ public:
       methodDesc = serviceDesc->method(i);
       request = &_service->GetRequestPrototype(methodDesc);
       response = &_service->GetResponsePrototype(methodDesc);
-      addMethod(MethodRPC(methodDesc, request, response), methodDesc->name());
+      addMethod(RpcMethod(methodDesc, request, response), methodDesc->name());
     }
   }
 
-  void addMethod(const MethodRPC &method, const string &methodName) {
+  void addMethod(const RpcMethod &method, const string &methodName) {
     _methods[methodName] = method;
   }
 
-  const MethodRPC *getMethod(const string &methodName) const {
+  const RpcMethod *getMethod(const string &methodName) const {
     return &_methods.at(methodName);
   }
 
@@ -45,7 +57,7 @@ public:
   }
 
   Service *_service;               /**< The service */
-  map<string, MethodRPC> _methods; /**< The methods in service */
+  map<string, RpcMethod> _methods; /**< The methods in service */
 };
 
 } // namespace coappbrpc

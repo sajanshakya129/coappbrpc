@@ -1,7 +1,29 @@
-#include "CoapCommon.h"
+/* CoapCommon.cc -- Common function to resolve address used by both coap client
+ * and coap server
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
 
+/**
+ * @file CoapCommon.cc
+ * @brief Common function to resolve address used by both coap client and coap
+ *server
+ **/
+
+#include "CoapCommon.h"
+/*! \fn int CoapCommon::resolveAddress(const char *host, const char *service,
+                               coap_address_t *dst)
+    \brief Resolves IPv4 and IPv6 addresses and shows error messages in case of
+   error 
+   \param host IPv4 or IPv6(global) address \param service Port number
+   \param dst Reference of a address of type coap_address_t, to store the result
+   after resolving address
+*/
 int CoapCommon::resolveAddress(const char *host, const char *service,
-                                coap_address_t *dst) {
+                               coap_address_t *dst) {
 
   struct addrinfo *res, *ainfo;
   struct addrinfo hints;
