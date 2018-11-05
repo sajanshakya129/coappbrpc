@@ -1,0 +1,70 @@
+\hypertarget{classcoappbrpc_1_1CoapClient}{}\section{coappbrpc\+:\+:Coap\+Client Class Reference}
+\label{classcoappbrpc_1_1CoapClient}\index{coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcoappbrpc_1_1CoapClient_ab27b2485df1e7213425fe0f1b75110fa}{client\+Handler} (struct coap\+\_\+context\+\_\+t $\ast$, coap\+\_\+session\+\_\+t $\ast$, coap\+\_\+pdu\+\_\+t $\ast$, coap\+\_\+pdu\+\_\+t $\ast$, const coap\+\_\+tid\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Callback function that sets response data to be sent back to R\+PC client. \end{DoxyCompactList}\item 
+static int \hyperlink{classcoappbrpc_1_1CoapClient_ac622e2dd087135defc27d8d4401a3119}{execute\+Client} (\hyperlink{structClientParams}{Client\+Params})
+\begin{DoxyCompactList}\small\item\em Handles coap client request, creates context, P\+D\+Us, uses U\+DP transport protocol, registers and adds coap option and sends request to coap server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classcoappbrpc_1_1CoapClient_ae6909f236ca1cd6b8b6343b7827ea004}{payload}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcoappbrpc_1_1CoapClient_ab27b2485df1e7213425fe0f1b75110fa}\label{classcoappbrpc_1_1CoapClient_ab27b2485df1e7213425fe0f1b75110fa}} 
+\index{coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}!client\+Handler@{client\+Handler}}
+\index{client\+Handler@{client\+Handler}!coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}}
+\subsubsection{\texorpdfstring{client\+Handler()}{clientHandler()}}
+{\footnotesize\ttfamily void coappbrpc\+::\+Coap\+Client\+::client\+Handler (\begin{DoxyParamCaption}\item[{struct coap\+\_\+context\+\_\+t $\ast$}]{ctx,  }\item[{coap\+\_\+session\+\_\+t $\ast$}]{session,  }\item[{coap\+\_\+pdu\+\_\+t $\ast$}]{sent,  }\item[{coap\+\_\+pdu\+\_\+t $\ast$}]{received,  }\item[{const coap\+\_\+tid\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Callback function that sets response data to be sent back to R\+PC client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & Coap context variable reference of type struct coap\+\_\+context\+\_\+t. \\
+\hline
+{\em session} & Coap Session variable reference of type coap\+\_\+session\+\_\+t \\
+\hline
+{\em sent} & Co\+AP P\+DU sent to the server \\
+\hline
+{\em received} & Co\+AP P\+DU received back from server \\
+\hline
+{\em id} & Co\+AP transaction Id of type const coap\+\_\+tid\+\_\+t \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcoappbrpc_1_1CoapClient_ac622e2dd087135defc27d8d4401a3119}\label{classcoappbrpc_1_1CoapClient_ac622e2dd087135defc27d8d4401a3119}} 
+\index{coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}!execute\+Client@{execute\+Client}}
+\index{execute\+Client@{execute\+Client}!coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}}
+\subsubsection{\texorpdfstring{execute\+Client()}{executeClient()}}
+{\footnotesize\ttfamily int coappbrpc\+::\+Coap\+Client\+::execute\+Client (\begin{DoxyParamCaption}\item[{\hyperlink{structClientParams}{Client\+Params}}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handles coap client request, creates context, P\+D\+Us, uses U\+DP transport protocol, registers and adds coap option and sends request to coap server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Parameters of struct type \hyperlink{structClientParams}{Client\+Params} that comprises of all values required to sent to server \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcoappbrpc_1_1CoapClient_ae6909f236ca1cd6b8b6343b7827ea004}\label{classcoappbrpc_1_1CoapClient_ae6909f236ca1cd6b8b6343b7827ea004}} 
+\index{coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}!payload@{payload}}
+\index{payload@{payload}!coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}}
+\subsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily string coappbrpc\+::\+Coap\+Client\+::payload}
+
+string to hold value of payload 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{CoapClient_8h}{Coap\+Client.\+h}\item 
+src/\hyperlink{CoapClient_8cc}{Coap\+Client.\+cc}\end{DoxyCompactItemize}

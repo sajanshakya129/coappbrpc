@@ -89,6 +89,8 @@ g++ -o server rpc_ping.pb.cc server.cpp -lcoappbrpc -lcoap-2 -lprotobuf -lpthrea
 ./server
 ```
 
+## Documentation
+Detailed explanation of functions and classes can be found in folder documentation. You can run web based documentation by running documentation/html/index.html file
 
 ## Creating Proto File
 To create a service for RPC, you need to define the response and request schema along with defination of Service in protofile as shown below.

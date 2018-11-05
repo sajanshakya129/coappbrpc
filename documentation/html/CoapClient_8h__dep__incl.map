@@ -1,0 +1,5 @@
+<map id="include/CoapClient.h" name="include/CoapClient.h">
+<area shape="rect" id="node2" href="$RpcClient_8h.html" title="Sets Client parameters to be passed as Coap Parameters and calls for execution of CoAP protocol..." alt="" coords="106,80,242,107"/>
+<area shape="rect" id="node3" href="$CoapClient_8cc.html" title="Client Handling for CoAP protocol. " alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node4" href="$RpcClient_8cc.html" title="Sets Client parameters to be passed as Coap Parameters and calls for execution of CoAP protocol..." alt="" coords="157,155,277,181"/>
+</map>
