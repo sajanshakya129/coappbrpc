@@ -11,6 +11,7 @@
  * @brief Handles Service creation, registration, getting and setting Services,
  * handles RPC and validates requests
  */
+
 #ifndef __ServiceManager_H_INCLUDED_
 #define __ServiceManager_H_INCLUDED_
 

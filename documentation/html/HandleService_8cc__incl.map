@@ -1,9 +1,8 @@
 <map id="src/HandleService.cc" name="src/HandleService.cc">
-<area shape="rect" id="node2" href="$HandleService_8h.html" title="Handles RPC service and registry of services. " alt="" coords="1871,80,1989,107"/>
-<area shape="rect" id="node3" href="$ServiceManager_8h.html" title="Handles Service creation, registration, getting and setting Services, handles RPC and validates reque..." alt="" coords="1867,155,1993,181"/>
-<area shape="rect" id="node8" href="$Config_8h_source.html" title="Config.h" alt="" coords="1895,229,1965,256"/>
-<area shape="rect" id="node9" href="$ControllerRPC_8h.html" title="Controls RPC, resets, sets failed if RPC failes, handles error messages. " alt="" coords="1580,229,1699,256"/>
-<area shape="rect" id="node10" href="$MsgSchema_8pb_8h_source.html" title="MsgSchema.pb.h" alt="" coords="1511,304,1635,331"/>
-<area shape="rect" id="node26" href="$RpcMethod_8h.html" title="Handles RPC service and registry of services. " alt="" coords="2583,304,2683,331"/>
-<area shape="rect" id="node27" href="$RpcService_8h.html" title="RPC Services Handling , adding methods, getting methods and checking if method exists or not..." alt="" coords="1990,229,2091,256"/>
+<area shape="rect" id="node2" href="$HandleService_8h.html" title="Handles RPC service and registry of services. " alt="" coords="19,80,138,107"/>
+<area shape="rect" id="node3" href="$ServiceManager_8h.html" title="Handles Service creation, registration, getting and setting Services, handles RPC and validates reque..." alt="" coords="337,155,463,181"/>
+<area shape="rect" id="node8" href="$Config_8h.html" title="Config file defining RPC version. " alt="" coords="589,229,659,256"/>
+<area shape="rect" id="node9" href="$ControllerRPC_8h.html" title="Controls RPC, resets, sets failed if RPC failes, handles error messages. " alt="" coords="167,229,286,256"/>
+<area shape="rect" id="node11" href="$RpcMethod_8h.html" title="Handles RPC service and registry of services. " alt="" coords="438,304,538,331"/>
+<area shape="rect" id="node12" href="$RpcService_8h.html" title="RPC Services Handling , adding methods, getting methods and checking if method exists or not..." alt="" coords="463,229,564,256"/>
 </map>

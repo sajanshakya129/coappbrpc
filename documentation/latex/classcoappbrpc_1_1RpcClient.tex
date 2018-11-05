@@ -15,8 +15,8 @@ string \hyperlink{classcoappbrpc_1_1RpcClient_ac79e3b2a76335a214cbe1c6f169d46c2}
 \begin{DoxyCompactList}\small\item\em Getter function to get response stored in m\+\_\+response variable. \end{DoxyCompactList}\item 
 void \hyperlink{classcoappbrpc_1_1RpcClient_a69755d690a7f2d6373e191d359e48986}{set\+Server\+Addr} (string, string)
 \begin{DoxyCompactList}\small\item\em Setter function to store ip address and port to m\+\_\+address and m\+\_\+port respectively. \end{DoxyCompactList}\item 
-\hyperlink{classcoappbrpc_1_1Response}{Response} \hyperlink{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}{exec\+Func} (string, string, string, string)
-\begin{DoxyCompactList}\small\item\em Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m\+\_\+payload variable. This function calls run\+Client function. And after it receives response, it returns response as type \hyperlink{classcoappbrpc_1_1Response}{Response}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Response \hyperlink{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}{exec\+Func} (string, string, string, string)
+\begin{DoxyCompactList}\small\item\em Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m\+\_\+payload variable. This function calls run\+Client function. And after it receives response, it returns response as type Response. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,15 +30,15 @@ static \hyperlink{classcoappbrpc_1_1RpcClient}{Rpc\+Client} $\ast$ {\bfseries ge
 \index{coappbrpc\+::\+Rpc\+Client@{coappbrpc\+::\+Rpc\+Client}!exec\+Func@{exec\+Func}}
 \index{exec\+Func@{exec\+Func}!coappbrpc\+::\+Rpc\+Client@{coappbrpc\+::\+Rpc\+Client}}
 \subsubsection{\texorpdfstring{exec\+Func()}{execFunc()}}
-{\footnotesize\ttfamily \hyperlink{classcoappbrpc_1_1Response}{Response} coappbrpc\+::\+Rpc\+Client\+::exec\+Func (\begin{DoxyParamCaption}\item[{string}]{vers,  }\item[{string}]{service\+Name,  }\item[{string}]{method,  }\item[{string}]{msg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Response coappbrpc\+::\+Rpc\+Client\+::exec\+Func (\begin{DoxyParamCaption}\item[{string}]{vers,  }\item[{string}]{service\+Name,  }\item[{string}]{method,  }\item[{string}]{msg }\end{DoxyParamCaption})}
 
 
 
-Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m\+\_\+payload variable. This function calls run\+Client function. And after it receives response, it returns response as type \hyperlink{classcoappbrpc_1_1Response}{Response}. 
+Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m\+\_\+payload variable. This function calls run\+Client function. And after it receives response, it returns response as type Response. 
 
-\hyperlink{classcoappbrpc_1_1Response}{Response} \hyperlink{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}{Rpc\+Client\+::exec\+Func}(string vers, string service\+Name, string method, string msg) \{ 
+Response \hyperlink{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}{Rpc\+Client\+::exec\+Func}(string vers, string service\+Name, string method, string msg) \{ 
 \begin{DoxyParams}{Parameters}
-{\em vers} & version number defined in \hyperlink{Config_8h_source}{Config.\+h} file \\
+{\em vers} & version number defined in \hyperlink{Config_8h}{Config.\+h} file \\
 \hline
 {\em service\+Name} & Name of Service to be used for R\+PC calls \\
 \hline
@@ -69,7 +69,7 @@ Setter function to store response to m\+\_\+response variable.
 
 void \hyperlink{classcoappbrpc_1_1RpcClient_a0f08b63838a62377d4470eb2a0259178}{Rpc\+Client\+::set\+Response(string resp)} 
 \begin{DoxyParams}{Parameters}
-{\em resp} & \hyperlink{classcoappbrpc_1_1Response}{Response} string to be stored in member variable m\+\_\+response \\
+{\em resp} & Response string to be stored in member variable m\+\_\+response \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_a69755d690a7f2d6373e191d359e48986}\label{classcoappbrpc_1_1RpcClient_a69755d690a7f2d6373e191d359e48986}} 

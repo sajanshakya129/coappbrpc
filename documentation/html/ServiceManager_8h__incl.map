@@ -1,7 +1,6 @@
 <map id="include/ServiceManager.h" name="include/ServiceManager.h">
-<area shape="rect" id="node6" href="$Config_8h_source.html" title="Config.h" alt="" coords="323,80,393,107"/>
-<area shape="rect" id="node7" href="$ControllerRPC_8h.html" title="Controls RPC, resets, sets failed if RPC failes, handles error messages. " alt="" coords="523,80,641,107"/>
-<area shape="rect" id="node8" href="$MsgSchema_8pb_8h_source.html" title="MsgSchema.pb.h" alt="" coords="1515,155,1639,181"/>
-<area shape="rect" id="node24" href="$RpcMethod_8h.html" title="Handles RPC service and registry of services. " alt="" coords="91,155,191,181"/>
-<area shape="rect" id="node25" href="$RpcService_8h.html" title="RPC Services Handling , adding methods, getting methods and checking if method exists or not..." alt="" coords="146,80,247,107"/>
+<area shape="rect" id="node6" href="$Config_8h.html" title="Config file defining RPC version. " alt="" coords="317,80,388,107"/>
+<area shape="rect" id="node7" href="$ControllerRPC_8h.html" title="Controls RPC, resets, sets failed if RPC failes, handles error messages. " alt="" coords="464,80,583,107"/>
+<area shape="rect" id="node9" href="$RpcMethod_8h.html" title="Handles RPC service and registry of services. " alt="" coords="92,155,192,181"/>
+<area shape="rect" id="node10" href="$RpcService_8h.html" title="RPC Services Handling , adding methods, getting methods and checking if method exists or not..." alt="" coords="191,80,293,107"/>
 </map>

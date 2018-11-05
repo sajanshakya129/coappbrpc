@@ -1,8 +1,7 @@
 <map id="src/ServiceManager.cc" name="src/ServiceManager.cc">
-<area shape="rect" id="node2" href="$ServiceManager_8h.html" title="Handles Service creation, registration, getting and setting Services, handles RPC and validates reque..." alt="" coords="295,80,421,107"/>
-<area shape="rect" id="node7" href="$Config_8h_source.html" title="Config.h" alt="" coords="323,155,393,181"/>
-<area shape="rect" id="node8" href="$ControllerRPC_8h.html" title="Controls RPC, resets, sets failed if RPC failes, handles error messages. " alt="" coords="523,155,641,181"/>
-<area shape="rect" id="node9" href="$MsgSchema_8pb_8h_source.html" title="MsgSchema.pb.h" alt="" coords="1515,229,1639,256"/>
-<area shape="rect" id="node25" href="$RpcMethod_8h.html" title="Handles RPC service and registry of services. " alt="" coords="91,229,191,256"/>
-<area shape="rect" id="node26" href="$RpcService_8h.html" title="RPC Services Handling , adding methods, getting methods and checking if method exists or not..." alt="" coords="146,155,247,181"/>
+<area shape="rect" id="node2" href="$ServiceManager_8h.html" title="Handles Service creation, registration, getting and setting Services, handles RPC and validates reque..." alt="" coords="289,80,416,107"/>
+<area shape="rect" id="node7" href="$Config_8h.html" title="Config file defining RPC version. " alt="" coords="317,155,388,181"/>
+<area shape="rect" id="node8" href="$ControllerRPC_8h.html" title="Controls RPC, resets, sets failed if RPC failes, handles error messages. " alt="" coords="464,155,583,181"/>
+<area shape="rect" id="node10" href="$RpcMethod_8h.html" title="Handles RPC service and registry of services. " alt="" coords="92,229,192,256"/>
+<area shape="rect" id="node11" href="$RpcService_8h.html" title="RPC Services Handling , adding methods, getting methods and checking if method exists or not..." alt="" coords="191,155,293,181"/>
 </map>

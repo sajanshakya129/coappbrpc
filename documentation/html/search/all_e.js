@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unused_5fparam',['UNUSED_PARAM',['../RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b',1,'RpcServer.cc']]]
+  ['_7erpcclient',['~RpcClient',['../classcoappbrpc_1_1RpcClient.html#a9b90b3ba0fef5ebd90748e454c1c7fd9',1,'coappbrpc::RpcClient']]]
 ];

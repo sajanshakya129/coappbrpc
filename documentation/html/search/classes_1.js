@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['error',['Error',['../classcoappbrpc_1_1Error.html',1,'coappbrpc']]],
-  ['errordefaulttypeinternal',['ErrorDefaultTypeInternal',['../classcoappbrpc_1_1ErrorDefaultTypeInternal.html',1,'coappbrpc']]]
+  ['greeterclient',['GreeterClient',['../classGreeterClient.html',1,'']]],
+  ['greeterserviceimpl',['GreeterServiceImpl',['../classcoappbrpc_1_1api_1_1GreeterServiceImpl.html',1,'coappbrpc::api']]]
 ];

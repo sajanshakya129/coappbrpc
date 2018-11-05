@@ -1,4 +1,4 @@
-/* CoapClient.h -- Config file defining RPC version
+/* Config.h -- Config file defining RPC version
  *
  * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
  *
@@ -7,7 +7,7 @@
  */
 
 /**
- * @file CoapClient.h
+ * @file Config.h
  * @brief Config file defining RPC version
  */
 #ifndef __Config_H_INCLUDED
