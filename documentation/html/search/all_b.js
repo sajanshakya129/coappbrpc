@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['request',['Request',['../classcoappbrpc_1_1Request.html',1,'coappbrpc::Request'],['../classcoappbrpc_1_1RpcMethod.html#ac8d0272f2480f41d10c91c023708b8f8',1,'coappbrpc::RpcMethod::request()']]],
-  ['requestdefaulttypeinternal',['RequestDefaultTypeInternal',['../classcoappbrpc_1_1RequestDefaultTypeInternal.html',1,'coappbrpc']]],
+  ['request',['request',['../classcoappbrpc_1_1RpcMethod.html#ac8d0272f2480f41d10c91c023708b8f8',1,'coappbrpc::RpcMethod']]],
   ['resolveaddress',['resolveAddress',['../classCoapCommon.html#a3a2b20fe477be1c328f3ad0bc98f28dd',1,'CoapCommon']]],
-  ['response',['Response',['../classcoappbrpc_1_1Response.html',1,'coappbrpc::Response'],['../classcoappbrpc_1_1RpcMethod.html#a95a64db4546c8e418232fafa297fc9a5',1,'coappbrpc::RpcMethod::response()']]],
-  ['responsedefaulttypeinternal',['ResponseDefaultTypeInternal',['../classcoappbrpc_1_1ResponseDefaultTypeInternal.html',1,'coappbrpc']]],
+  ['response',['response',['../classcoappbrpc_1_1RpcMethod.html#a95a64db4546c8e418232fafa297fc9a5',1,'coappbrpc::RpcMethod']]],
   ['rpcclient',['RpcClient',['../classcoappbrpc_1_1RpcClient.html',1,'coappbrpc']]],
   ['rpcclient_2ecc',['RpcClient.cc',['../RpcClient_8cc.html',1,'']]],
   ['rpcclient_2eh',['RpcClient.h',['../RpcClient_8h.html',1,'']]],

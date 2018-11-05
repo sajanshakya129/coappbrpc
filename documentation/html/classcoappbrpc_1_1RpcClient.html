@@ -91,8 +91,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a69755d690a7f2d6373e191d359e48986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a69755d690a7f2d6373e191d359e48986">setServerAddr</a> (string, string)</td></tr>
 <tr class="memdesc:a69755d690a7f2d6373e191d359e48986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter function to store ip address and port to m_address and m_port respectively.  <a href="#a69755d690a7f2d6373e191d359e48986">More...</a><br /></td></tr>
 <tr class="separator:a69755d690a7f2d6373e191d359e48986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe2dc0caa49442db4898379d040c8b64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcoappbrpc_1_1Response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#afe2dc0caa49442db4898379d040c8b64">execFunc</a> (string, string, string, string)</td></tr>
-<tr class="memdesc:afe2dc0caa49442db4898379d040c8b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type <a class="el" href="classcoappbrpc_1_1Response.html">Response</a>.  <a href="#afe2dc0caa49442db4898379d040c8b64">More...</a><br /></td></tr>
+<tr class="memitem:afe2dc0caa49442db4898379d040c8b64"><td class="memItemLeft" align="right" valign="top">Response&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#afe2dc0caa49442db4898379d040c8b64">execFunc</a> (string, string, string, string)</td></tr>
+<tr class="memdesc:afe2dc0caa49442db4898379d040c8b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type Response.  <a href="#afe2dc0caa49442db4898379d040c8b64">More...</a><br /></td></tr>
 <tr class="separator:afe2dc0caa49442db4898379d040c8b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -109,7 +109,7 @@ static <a class="el" href="classcoappbrpc_1_1RpcClient.html">RpcClient</a> *&#16
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classcoappbrpc_1_1Response.html">Response</a> coappbrpc::RpcClient::execFunc </td>
+          <td class="memname">Response coappbrpc::RpcClient::execFunc </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>vers</em>, </td>
@@ -140,10 +140,10 @@ static <a class="el" href="classcoappbrpc_1_1RpcClient.html">RpcClient</a> *&#16
       </table>
 </div><div class="memdoc">
 
-<p>Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type <a class="el" href="classcoappbrpc_1_1Response.html">Response</a>. </p>
-<p><a class="el" href="classcoappbrpc_1_1Response.html">Response</a> <a class="el" href="classcoappbrpc_1_1RpcClient.html#afe2dc0caa49442db4898379d040c8b64" title="Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type Response. ">RpcClient::execFunc</a>(string vers, string serviceName, string method, string msg) { </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type Response. </p>
+<p>Response <a class="el" href="classcoappbrpc_1_1RpcClient.html#afe2dc0caa49442db4898379d040c8b64" title="Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type Response. ">RpcClient::execFunc</a>(string vers, string serviceName, string method, string msg) { </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vers</td><td>version number defined in <a class="el" href="Config_8h_source.html">Config.h</a> file </td></tr>
+    <tr><td class="paramname">vers</td><td>version number defined in <a class="el" href="Config_8h.html" title="Config file defining RPC version. ">Config.h</a> file </td></tr>
     <tr><td class="paramname">serviceName</td><td>Name of Service to be used for RPC calls </td></tr>
     <tr><td class="paramname">method</td><td>Method name to be called when executing RPC </td></tr>
     <tr><td class="paramname">msg</td><td>Serialized message to be sent to Server, contains defination of various parameters to a particular method. </td></tr>
@@ -192,7 +192,7 @@ static <a class="el" href="classcoappbrpc_1_1RpcClient.html">RpcClient</a> *&#16
 <p>Setter function to store response to m_response variable. </p>
 <p>void <a class="el" href="classcoappbrpc_1_1RpcClient.html#a0f08b63838a62377d4470eb2a0259178" title="Setter function to store response to m_response variable. ">RpcClient::setResponse(string resp)</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">resp</td><td><a class="el" href="classcoappbrpc_1_1Response.html">Response</a> string to be stored in member variable m_response </td></tr>
+    <tr><td class="paramname">resp</td><td>Response string to be stored in member variable m_response </td></tr>
   </table>
   </dd>
 </dl>
