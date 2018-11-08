@@ -49,18 +49,18 @@ void RpcClient::runClient() {
   coapclient.executeClient(params);
 }
 
-/*! void RpcClient::setResponse(string resp)
+/*! \fn void RpcClient::setResponse(string resp)
     \brief Setter function to store response to m_response variable
     \param resp  Response string to be stored in member variable m_response
 */
 void RpcClient::setResponse(string resp) { this->m_response = resp; }
 
-/*! string RpcClient::getResponse()
+/*! \fn string RpcClient::getResponse()
     \brief Getter function to get response stored in m_response variable
 */
 string RpcClient::getResponse() { return this->m_response; }
 
-/*! void RpcClient::setServerAddr(string ipAddr, string port)
+/*! \fn void RpcClient::setServerAddr(string ipAddr, string port)
     \brief Setter function to store ip address and port  to m_address and m_port
    respectively \param ipAddr  Ip Address may be IPv4 or IPv6 to be stored in
    m_address variable \param port Port no to be stored in m_port variable
@@ -70,8 +70,8 @@ void RpcClient::setServerAddr(string ipAddr, string port) {
   this->m_port = port;
 }
 
-/*! Response RpcClient::execFunc(string vers, string serviceName, string method,
-                             string msg) {
+/*! \fn Response RpcClient::execFunc(string vers, string serviceName, string method,
+                             string msg)
     \brief Creates protocol buffer data structure containing version number,
    services, methods, method parameters, unique Random ids. Then it serializes
    the data into string and stores it in m_payload variable. This function calls

@@ -17,7 +17,7 @@ ServiceManager __srv_man;
 
 /*! \fn string handleService(const char *data, const size_t len)
     \brief Uses handleRPC function of ServiceManager instance.
-   error 
+   
    \param data Data reference to be sent to Service Manager, of type char 
    \param len length of data of type size_t
 */
@@ -28,7 +28,7 @@ string handleService(const char *data, const size_t len) {
 }
 /*! \fn void handleRegService(Service *service)
     \brief Uses register Service function of ServiceManager instance.
-   error 
+    
    \param service Service reference to be sent to Service Manager
 */
 void handleRegService(Service *service) { __srv_man.regService(service); }
