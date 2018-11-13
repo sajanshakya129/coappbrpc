@@ -26,6 +26,7 @@ public:
 int main() {
   RpcServer server;
   server.registerService(new ::coappbrpc::api::GreeterServiceImpl());
-  server.runServer("aaaa::1","5683");
+  server.runServer("localhost","5683");
+  //server.runServer("192.168.56.101","5683");
   return 0;
 }

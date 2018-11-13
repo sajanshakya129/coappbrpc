@@ -15,7 +15,7 @@ class GreeterClient {
 public:
   string SayHello(const std::string& user) { 
     
-     HelloRequest request;
+    HelloRequest request;
     request.set_name(user);
 
     HelloReply reply;
@@ -31,7 +31,8 @@ private:
 int main(void) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   RpcClient *client = RpcClient::getInstance();
-  client->setServerAddr("aaaa::1","5683");
+  client->setServerAddr("localhost","5683");
+  //client->setServerAddr("192.168.56.101","5683");
   std::string user("world");
   GreeterClient greeter;
   std::string reply = greeter.SayHello(user);

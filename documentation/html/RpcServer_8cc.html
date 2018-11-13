@@ -64,7 +64,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">RpcServer.cc File Reference</div>  </div>
@@ -90,22 +89,88 @@ Include dependency graph for RpcServer.cc:</div>
 </map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a32dce3380228f1a23cdc1f784263762b"><td class="memItemLeft" align="right" valign="top"><a id="a32dce3380228f1a23cdc1f784263762b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a></td></tr>
-<tr class="memdesc:a32dce3380228f1a23cdc1f784263762b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A macro that defines if parameter is not used. <br /></td></tr>
-<tr class="separator:a32dce3380228f1a23cdc1f784263762b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab57e80d8e445f012664cef3d94889b77"><td class="memItemLeft" align="right" valign="top"><a id="ab57e80d8e445f012664cef3d94889b77"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>coappbrpc::return_handler</b> (coap_context_t *ctx <a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a>, struct coap_resource_t *resource <a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a>, coap_session_t *session <a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a>, coap_pdu_t *request <a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a>, coap_binary_t *token <a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a>, coap_string_t *query <a class="el" href="RpcServer_8cc.html#a32dce3380228f1a23cdc1f784263762b">UNUSED_PARAM</a>, coap_pdu_t *response)</td></tr>
-<tr class="separator:ab57e80d8e445f012664cef3d94889b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e01846fbd4bcab8aacc8f22e7dfb61b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RpcServer_8cc.html#a9e01846fbd4bcab8aacc8f22e7dfb61b">coappbrpc::return_handler</a> (coap_context_t *ctx, struct coap_resource_t *resource, coap_session_t *session, coap_pdu_t *request, coap_binary_t *token, coap_string_t *query, coap_pdu_t *response)</td></tr>
+<tr class="memdesc:a9e01846fbd4bcab8aacc8f22e7dfb61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function that sets response data to be sent back to RPC client.  <a href="RpcServer_8cc.html#a9e01846fbd4bcab8aacc8f22e7dfb61b">More...</a><br /></td></tr>
+<tr class="separator:a9e01846fbd4bcab8aacc8f22e7dfb61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Server Handling for CoAP protocol. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="file_a9e01846fbd4bcab8aacc8f22e7dfb61b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a9e01846fbd4bcab8aacc8f22e7dfb61b">&#9670;&nbsp;</a></span>return_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void coappbrpc::return_handler </td>
+          <td>(</td>
+          <td class="paramtype">coap_context_t *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct coap_resource_t *&#160;</td>
+          <td class="paramname"><em>resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">coap_session_t *&#160;</td>
+          <td class="paramname"><em>session</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">coap_pdu_t *&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">coap_binary_t *&#160;</td>
+          <td class="paramname"><em>token</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">coap_string_t *&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">coap_pdu_t *&#160;</td>
+          <td class="paramname"><em>response</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback function that sets response data to be sent back to RPC client. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Coap context variable reference of type struct coap_context_t. </td></tr>
+    <tr><td class="paramname">resource</td><td>Coap resource referece. </td></tr>
+    <tr><td class="paramname">session</td><td>Coap Session variable reference of type coap_session_t </td></tr>
+    <tr><td class="paramname">request</td><td>CoAP PDU request received by server </td></tr>
+    <tr><td class="paramname">token</td><td>CoAP unique token references </td></tr>
+    <tr><td class="paramname">query</td><td>CoAP query reference </td></tr>
+    <tr><td class="paramname">response</td><td>CoAP PDU response reference for storing data to be returned from Server </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

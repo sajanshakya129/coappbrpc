@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['descriptor',['descriptor',['../classcoappbrpc_1_1RpcMethod.html#a52010a290e164174ca969c8904d1f3da',1,'coappbrpc::RpcMethod']]]
+  ['ctx',['ctx',['../classcoappbrpc_1_1RpcServer.html#a34a0db66e265d8986dea6d9e360a7ca3',1,'coappbrpc::RpcServer']]]
 ];

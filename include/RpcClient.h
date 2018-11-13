@@ -20,18 +20,18 @@
 using namespace std;
 
 namespace coappbrpc {
-/*! \class C
-* \brief
-*This class contains methods to handle RPC, register services, get services, get method details,
-*validate passed parameters, validate requests, validate versions, and check if services are already existed or not
-*/
+/*! \class RpcClient
+ * \brief
+ *This class contains methods to run client, set responses, get responses, setup
+ *server addresses and execute function which is called from client stubs.
+ */
 class RpcClient {
 private:
-  static RpcClient *m_instance;
-  string m_address;
-  string m_port;
-  string m_payload;
-  string m_response;
+  static RpcClient *m_instance; /*!<static instance pointer of RPC client to store address so that this instance can be manipulated in various levels.*/
+  string m_address;/*!<string variable to store IP address */
+  string m_port;/*!<string variable to store port address*/
+  string m_payload;/*!<string variable to store encoded payload  */
+  string m_response;/*!<string varibale to store response sent back by server  */
   RpcClient();
 
 public:
@@ -40,7 +40,7 @@ public:
   void runClient();
   void setResponse(string);
   string getResponse();
-  void setServerAddr(string,string);
+  void setServerAddr(string, string);
   Response execFunc(string, string, string, string);
 };
 } // namespace coappbrpc

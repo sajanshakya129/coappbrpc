@@ -58,8 +58,7 @@ private:
   bool isValidVersion(const string &version) const;
   bool isExistService(const string &serviceName) const;
 
-  // services in a map
-  map<string, RpcService> _services;
+  map<string, RpcService> _services; /*!< services mapped */
 };
 
 } // namespace coappbrpc

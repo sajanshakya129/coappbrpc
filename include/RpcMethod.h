@@ -21,18 +21,19 @@ namespace coappbrpc {
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
 using ::google::protobuf::Service;
-
-/*This class describes a RPC Method object.
+/*! \class RpcMethod
+ * \brief
+ *This class describes a RPC Method object.
  */
 class RpcMethod {
 public:
-  const MethodDescriptor *descriptor; /**< method descriptor */
-  const Message *request;             /**< parameters */
-  const Message *response;            /**< result */
+  const MethodDescriptor *descriptor; /*!< method descriptor */
+  const Message *request; /*!< parameters */
+  const Message *response;  /*!< result */
 
   RpcMethod(const MethodDescriptor *descriptor, const Message *request,
-            const Message *response)
-      : descriptor(descriptor), request(request), response(response) {}
+            const Message *response) 
+      : descriptor(descriptor), request(request), response(response) {} /*!< Constructor function that inherits from protobufs MethodDescriptor, Message and Services*/	
 
   RpcMethod(void) : descriptor(NULL), request(NULL), response(NULL) {}
 };

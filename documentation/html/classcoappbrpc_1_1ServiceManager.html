@@ -78,33 +78,91 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7d88663a8d839cf80c3e4942346fa48f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1ServiceManager.html#a7d88663a8d839cf80c3e4942346fa48f">ServiceManager</a> ()</td></tr>
+<tr class="memitem:a7d88663a8d839cf80c3e4942346fa48f"><td class="memItemLeft" align="right" valign="top"><a id="a7d88663a8d839cf80c3e4942346fa48f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1ServiceManager.html#a7d88663a8d839cf80c3e4942346fa48f">ServiceManager</a> ()</td></tr>
+<tr class="memdesc:a7d88663a8d839cf80c3e4942346fa48f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcoappbrpc_1_1ServiceManager.html" title="This class contains methods to handle RPC, register services, get services, get method details...">ServiceManager</a> Constructor function. <br /></td></tr>
 <tr class="separator:a7d88663a8d839cf80c3e4942346fa48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13dd031e5d5f6f22af9cbead44ed1db1"><td class="memItemLeft" align="right" valign="top"><a id="a13dd031e5d5f6f22af9cbead44ed1db1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleRPC</b> (const char *data, const size_t len, string &amp;ret)</td></tr>
+<tr class="memitem:a051a08030f0df597217ce33627efce37"><td class="memItemLeft" align="right" valign="top"><a id="a051a08030f0df597217ce33627efce37"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1ServiceManager.html#a051a08030f0df597217ce33627efce37">~ServiceManager</a> ()</td></tr>
+<tr class="memdesc:a051a08030f0df597217ce33627efce37"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcoappbrpc_1_1ServiceManager.html" title="This class contains methods to handle RPC, register services, get services, get method details...">ServiceManager</a> Destructor function, calls freeServices method. <br /></td></tr>
+<tr class="separator:a051a08030f0df597217ce33627efce37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13dd031e5d5f6f22af9cbead44ed1db1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1ServiceManager.html#a13dd031e5d5f6f22af9cbead44ed1db1">handleRPC</a> (const char *data, const size_t len, string &amp;ret)</td></tr>
+<tr class="memdesc:a13dd031e5d5f6f22af9cbead44ed1db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is important function that checks the validity of the parameters passed and actual method calling takes place inside this function. If received parameters are not valid then error messages are sent back to client.  <a href="#a13dd031e5d5f6f22af9cbead44ed1db1">More...</a><br /></td></tr>
 <tr class="separator:a13dd031e5d5f6f22af9cbead44ed1db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace94f3f9fbbabc2b1ce23d4267bbfa71"><td class="memItemLeft" align="right" valign="top"><a id="ace94f3f9fbbabc2b1ce23d4267bbfa71"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>regService</b> (Service *service)</td></tr>
+<tr class="memitem:ace94f3f9fbbabc2b1ce23d4267bbfa71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1ServiceManager.html#ace94f3f9fbbabc2b1ce23d4267bbfa71">regService</a> (Service *service)</td></tr>
+<tr class="memdesc:ace94f3f9fbbabc2b1ce23d4267bbfa71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers services.  <a href="#ace94f3f9fbbabc2b1ce23d4267bbfa71">More...</a><br /></td></tr>
 <tr class="separator:ace94f3f9fbbabc2b1ce23d4267bbfa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class contains methods to handle RPC, register services, get services, get method details, validate passed parameters, validate requests, validate versions, and check if services are already existed or not. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7d88663a8d839cf80c3e4942346fa48f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d88663a8d839cf80c3e4942346fa48f">&#9670;&nbsp;</a></span>ServiceManager()</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a13dd031e5d5f6f22af9cbead44ed1db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13dd031e5d5f6f22af9cbead44ed1db1">&#9670;&nbsp;</a></span>handleRPC()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">coappbrpc::ServiceManager::ServiceManager </td>
+          <td class="memname">void coappbrpc::ServiceManager::handleRPC </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>ret</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is important function that checks the validity of the parameters passed and actual method calling takes place inside this function. If received parameters are not valid then error messages are sent back to client. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>data sent to RPC </td></tr>
+    <tr><td class="paramname">len</td><td>length of variable data </td></tr>
+    <tr><td class="paramname">ret</td><td>output variable for response. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ace94f3f9fbbabc2b1ce23d4267bbfa71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace94f3f9fbbabc2b1ce23d4267bbfa71">&#9670;&nbsp;</a></span>regService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void coappbrpc::ServiceManager::regService </td>
+          <td>(</td>
+          <td class="paramtype">Service *&#160;</td>
+          <td class="paramname"><em>service</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ServiceManger.h This is constructor function </p>
+
+<p>Registers services. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service</td><td>instance of service pointer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

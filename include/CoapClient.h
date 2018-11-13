@@ -17,32 +17,21 @@
 
 #include "CoapCommon.h"
 using namespace std;
-/** @struct ClientParams
- *  A structure that defines parameters to be passed to CoapServer
- *
- *  @var ClientParams::addr
- *    IP address either IPv4 or global IPv6
- *  @var ClientParams::port
- *    Port number, Default is port number 5683
- *  @var ClientParams::methodType
- *	Method Name defined in proto file
- *  @var ClientParams::interface
- *	Interface is "rpc" defined as COAP_INTERFACE_NAME in CoapCommon.h file
- *  @var ClientParams::payload
- *	Payload is encoded stringified data to be sent to coap server
+/**! \struct ClientParams
+ *  \brief A structure that defines parameters to be passed to CoapServer
  *
  */
 typedef struct {
-  string addr;
-  string port;
-  int methodType;
-  string interface;
-  string payload;
+  string addr;/*!< IP address either IPv4 or global IPv6 */
+  string port;/*!< Port number, Default is port number 5683 */
+  int methodType;/*!< Method Name defined in proto file*/
+  string interface;/*!< Interface is "rpc" defined as COAP_INTERFACE_NAME in CoapCommon.h file*/
+  string payload;/*!< Payload is encoded stringified data to be sent to coap server*/
 } ClientParams;
 
 namespace coappbrpc {
 
-/* \class CoapClient
+/*! \class CoapClient
  * \brief
  *This class contains two methods to clientHandler and executeClient
  *client Handler is a callback function which returns response back to RPC

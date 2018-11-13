@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['request',['request',['../classcoappbrpc_1_1RpcMethod.html#ac8d0272f2480f41d10c91c023708b8f8',1,'coappbrpc::RpcMethod']]],
-  ['response',['response',['../classcoappbrpc_1_1RpcMethod.html#a95a64db4546c8e418232fafa297fc9a5',1,'coappbrpc::RpcMethod']]]
+  ['payload',['payload',['../structClientParams.html#aa16d76f3cbdfa5bfd4e54bcdb9a25737',1,'ClientParams::payload()'],['../classcoappbrpc_1_1CoapClient.html#ae6909f236ca1cd6b8b6343b7827ea004',1,'coappbrpc::CoapClient::payload()']]],
+  ['port',['port',['../structClientParams.html#ade2b9a6084d6b1989c3440fe2cd60fdb',1,'ClientParams::port()'],['../classcoappbrpc_1_1RpcServer.html#a9fec802c5d77b168560d14b73fc988e1',1,'coappbrpc::RpcServer::port()']]]
 ];

@@ -11,18 +11,13 @@
  * @brief Server Handling for CoAP protocol
  */
 #include "RpcServer.h"
-/*! \def UNUSED_PARAM
-    \brief A macro that defines if parameter is not used.
-*/
-#define UNUSED_PARAM
 namespace coappbrpc {
 /*! \fn void return_handler(coap_context_t *ctx,
-                    struct coap_resource_t *resource,
-                    coap_session_t *session,
-                    coap_pdu_t *request,
-                    coap_binary_t *token,
-                    coap_string_t *query, coap_pdu_t *response)
-
+                    struct coap_resource_t *resource ,
+                    coap_session_t *session ,
+                    coap_pdu_t *request ,
+                    coap_binary_t *token ,
+                    coap_string_t *query , coap_pdu_t *response)
     \brief Callback function that sets response data to be sent back to RPC
    client
    \param ctx Coap context variable reference of type struct
@@ -36,12 +31,12 @@ namespace coappbrpc {
    \param response CoAP PDU response reference for storing data to be returned
    from Server
 */
-void return_handler(coap_context_t *ctx UNUSED_PARAM,
-                    struct coap_resource_t *resource UNUSED_PARAM,
-                    coap_session_t *session UNUSED_PARAM,
-                    coap_pdu_t *request UNUSED_PARAM,
-                    coap_binary_t *token UNUSED_PARAM,
-                    coap_string_t *query UNUSED_PARAM, coap_pdu_t *response) {
+void return_handler(coap_context_t *ctx,
+                    struct coap_resource_t *resource,
+                    coap_session_t *session,
+                    coap_pdu_t *request,
+                    coap_binary_t *token,
+                    coap_string_t *query, coap_pdu_t *response) {
   unsigned char buf[3];
   const char *response_data;
 
@@ -69,7 +64,7 @@ void return_handler(coap_context_t *ctx UNUSED_PARAM,
 */
 RpcServer::RpcServer() { running = false; }
 
-/*! \fn RpcServer::_RpcServer()
+/*! \fn RpcServer::~RpcServer()
     \brief Destructor Function
 */
 RpcServer::~RpcServer() {}
@@ -85,16 +80,17 @@ void RpcServer::runServer(const char *ipAddr, const char *port) {
   this->port = port;
   this->start();
 }
-/*! \fn RpcServer::RpcServer()
-    \brief Getter function to get response stored in m_response variable
+/*! \fn void RpcServer::runServer()
+    \brief default runServer function which overloads if ip address and port is not given.
 */
 void RpcServer::runServer() {
   this->serverAddr = "localhost";
   this->port = "5683";
   this->start();
 }
-/*! \fn RpcServer::start()
-    \brief creates context 
+/*! \fn int RpcServer::start()
+    \brief this function starts the coap server
+    First it checks if the RPC server is running or not. Then it creates a coap context, handles coap resresources and runs the coap server.
 */
 int RpcServer::start() {
   if (running) {
@@ -136,7 +132,10 @@ int RpcServer::start() {
   running = true;
   this->stop(EXIT_SUCCESS);
 }
-
+/*! \fn int RpcServer::stop()
+    \brief This function stops the coap server
+    It stops coap server, free coap context, cleanup memory allocations and resets running flag to false.
+*/
 bool RpcServer::stop(int result) {
   if (running) {
     coap_free_context(ctx);
@@ -146,7 +145,10 @@ bool RpcServer::stop(int result) {
 
   return !running;
 }
-
+/*! \fn void RpcServer::registerService(Service *service)
+    \brief This function calls handleRegService
+    \param service Type Service defined in protobuf services
+*/
 void RpcServer::registerService(Service *service) { handleRegService(service); }
 
 } // namespace coappbrpc

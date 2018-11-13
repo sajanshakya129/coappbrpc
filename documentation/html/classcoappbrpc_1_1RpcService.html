@@ -71,20 +71,28 @@ $(function() {
 <div class="title">coappbrpc::RpcService Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class defines service for remote calls. It has methods for adding rpc methods, getting methods, validating if method exists.  
+ <a href="classcoappbrpc_1_1RpcService.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="RpcService_8h_source.html">RpcService.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a66c75fc19a62dbf650f4dc5080d15bfa"><td class="memItemLeft" align="right" valign="top"><a id="a66c75fc19a62dbf650f4dc5080d15bfa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RpcService</b> (Service *service)</td></tr>
+<tr class="memitem:a66c75fc19a62dbf650f4dc5080d15bfa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcService.html#a66c75fc19a62dbf650f4dc5080d15bfa">RpcService</a> (Service *service)</td></tr>
+<tr class="memdesc:a66c75fc19a62dbf650f4dc5080d15bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is constructor function that scans service description, gets request prototype &amp; response prototype,loops over numbers of available methods and calls addMethod function for each methods defined.  <a href="#a66c75fc19a62dbf650f4dc5080d15bfa">More...</a><br /></td></tr>
 <tr class="separator:a66c75fc19a62dbf650f4dc5080d15bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76ef44b476c6c6082ec701feae570d91"><td class="memItemLeft" align="right" valign="top"><a id="a76ef44b476c6c6082ec701feae570d91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addMethod</b> (const <a class="el" href="classcoappbrpc_1_1RpcMethod.html">RpcMethod</a> &amp;method, const string &amp;methodName)</td></tr>
-<tr class="separator:a76ef44b476c6c6082ec701feae570d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56c07781a0e0322f26c1360292d19a51"><td class="memItemLeft" align="right" valign="top"><a id="a56c07781a0e0322f26c1360292d19a51"></a>
-const <a class="el" href="classcoappbrpc_1_1RpcMethod.html">RpcMethod</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getMethod</b> (const string &amp;methodName) const</td></tr>
-<tr class="separator:a56c07781a0e0322f26c1360292d19a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cb969b5056dc0d5264552a16c1d244f"><td class="memItemLeft" align="right" valign="top"><a id="a3cb969b5056dc0d5264552a16c1d244f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcService.html#a3cb969b5056dc0d5264552a16c1d244f">addMethod</a> (const <a class="el" href="classcoappbrpc_1_1RpcMethod.html">RpcMethod</a> &amp;method, const string &amp;methodName)</td></tr>
+<tr class="memdesc:a3cb969b5056dc0d5264552a16c1d244f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is setter function that adds methodName to _method array of type map&lt;string, RpcMethod&gt; <br /></td></tr>
+<tr class="separator:a3cb969b5056dc0d5264552a16c1d244f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdbb7a187c602fc830c5b3101e6b2e35"><td class="memItemLeft" align="right" valign="top"><a id="afdbb7a187c602fc830c5b3101e6b2e35"></a>
+const <a class="el" href="classcoappbrpc_1_1RpcMethod.html">RpcMethod</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcService.html#afdbb7a187c602fc830c5b3101e6b2e35">getMethod</a> (const string &amp;methodName) const</td></tr>
+<tr class="memdesc:afdbb7a187c602fc830c5b3101e6b2e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is getter function that gets the methods if they exist in _method array. <br /></td></tr>
+<tr class="separator:afdbb7a187c602fc830c5b3101e6b2e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c7f4041e49a3d4e0abd6eb9aad9691d"><td class="memItemLeft" align="right" valign="top"><a id="a0c7f4041e49a3d4e0abd6eb9aad9691d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isExistMethod</b> (const string &amp;methodName) const</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcService.html#a0c7f4041e49a3d4e0abd6eb9aad9691d">isExistMethod</a> (const string &amp;methodName) const</td></tr>
+<tr class="memdesc:a0c7f4041e49a3d4e0abd6eb9aad9691d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is for validating if the method name exists or not. <br /></td></tr>
 <tr class="separator:a0c7f4041e49a3d4e0abd6eb9aad9691d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -94,6 +102,43 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a14b0b1bae1efc308e1c61d7737b7c4ac"><td class="memItemLeft" align="right" valign="top">map&lt; string, <a class="el" href="classcoappbrpc_1_1RpcMethod.html">RpcMethod</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcService.html#a14b0b1bae1efc308e1c61d7737b7c4ac">_methods</a></td></tr>
 <tr class="separator:a14b0b1bae1efc308e1c61d7737b7c4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class defines service for remote calls. It has methods for adding rpc methods, getting methods, validating if method exists. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a66c75fc19a62dbf650f4dc5080d15bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66c75fc19a62dbf650f4dc5080d15bfa">&#9670;&nbsp;</a></span>RpcService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">coappbrpc::RpcService::RpcService </td>
+          <td>(</td>
+          <td class="paramtype">Service *&#160;</td>
+          <td class="paramname"><em>service</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is constructor function that scans service description, gets request prototype &amp; response prototype,loops over numbers of available methods and calls addMethod function for each methods defined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service</td><td>service is of type Service defined in google's protobuf service </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a14b0b1bae1efc308e1c61d7737b7c4ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14b0b1bae1efc308e1c61d7737b7c4ac">&#9670;&nbsp;</a></span>_methods</h2>
@@ -121,7 +166,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The service </p>
+<p>Instance pointer of Service </p>
 
 </div>
 </div>

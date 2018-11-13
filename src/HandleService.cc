@@ -13,7 +13,7 @@
 #include "HandleService.h"
 
 namespace coappbrpc {
-ServiceManager __srv_man;
+ServiceManager __srv_man;   /*!< Instance of a ServiceManager */
 
 /*! \fn string handleService(const char *data, const size_t len)
     \brief Uses handleRPC function of ServiceManager instance.

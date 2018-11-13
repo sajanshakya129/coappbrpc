@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['c',['C',['../classC.html',1,'']]],
   ['clienthandler',['clientHandler',['../classcoappbrpc_1_1CoapClient.html#ab27b2485df1e7213425fe0f1b75110fa',1,'coappbrpc::CoapClient']]],
   ['clientparams',['ClientParams',['../structClientParams.html',1,'']]],
+  ['clientstubtemplate_2ecc',['ClientStubTemplate.cc',['../ClientStubTemplate_8cc.html',1,'']]],
   ['clientstubtemplate_2eh',['ClientStubTemplate.h',['../ClientStubTemplate_8h.html',1,'']]],
   ['coap_5finterface_5fname',['COAP_INTERFACE_NAME',['../CoapCommon_8h.html#a064db62080cf9c526cb56e1b512427e2',1,'CoapCommon.h']]],
   ['coap_5fpbrpc_5fversion',['COAP_PBRPC_VERSION',['../Config_8h.html#ada696ad86d91ba8a6f44f654e443f774',1,'Config.h']]],
@@ -14,5 +14,6 @@ var searchData=
   ['coapcommon_2eh',['CoapCommon.h',['../CoapCommon_8h.html',1,'']]],
   ['config_2eh',['Config.h',['../Config_8h.html',1,'']]],
   ['controllerrpc',['ControllerRPC',['../classcoappbrpc_1_1ControllerRPC.html',1,'coappbrpc']]],
-  ['controllerrpc_2eh',['ControllerRPC.h',['../ControllerRPC_8h.html',1,'']]]
+  ['controllerrpc_2eh',['ControllerRPC.h',['../ControllerRPC_8h.html',1,'']]],
+  ['ctx',['ctx',['../classcoappbrpc_1_1RpcServer.html#a34a0db66e265d8986dea6d9e360a7ca3',1,'coappbrpc::RpcServer']]]
 ];

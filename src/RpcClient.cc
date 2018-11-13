@@ -15,7 +15,11 @@
 namespace coappbrpc {
 RpcClient *RpcClient::m_instance = 0; // initializing instance
 
-RpcClient *RpcClient::getInstance() { // getting new clientRPC instance
+/*! \fn RpcClient *RpcClient::getInstance()
+    \brief getting new clientRPC instance
+*/
+
+RpcClient *RpcClient::getInstance() { 
   if (m_instance == 0) {
     m_instance = new RpcClient();
   }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7erpcclient',['~RpcClient',['../classcoappbrpc_1_1RpcClient.html#a9b90b3ba0fef5ebd90748e454c1c7fd9',1,'coappbrpc::RpcClient']]]
+  ['isexistmethod',['isExistMethod',['../classcoappbrpc_1_1RpcService.html#a0c7f4041e49a3d4e0abd6eb9aad9691d',1,'coappbrpc::RpcService']]]
 ];
