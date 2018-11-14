@@ -12,27 +12,57 @@ This class contains methods to handle R\+PC, register services, get services, ge
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_a7d88663a8d839cf80c3e4942346fa48f}\label{classcoappbrpc_1_1ServiceManager_a7d88663a8d839cf80c3e4942346fa48f}} 
 \hyperlink{classcoappbrpc_1_1ServiceManager_a7d88663a8d839cf80c3e4942346fa48f}{Service\+Manager} ()
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_a13dd031e5d5f6f22af9cbead44ed1db1}\label{classcoappbrpc_1_1ServiceManager_a13dd031e5d5f6f22af9cbead44ed1db1}} 
-void {\bfseries handle\+R\+PC} (const char $\ast$data, const size\+\_\+t len, string \&ret)
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_ace94f3f9fbbabc2b1ce23d4267bbfa71}\label{classcoappbrpc_1_1ServiceManager_ace94f3f9fbbabc2b1ce23d4267bbfa71}} 
-void {\bfseries reg\+Service} (Service $\ast$service)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classcoappbrpc_1_1ServiceManager}{Service\+Manager} Constructor function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_a051a08030f0df597217ce33627efce37}\label{classcoappbrpc_1_1ServiceManager_a051a08030f0df597217ce33627efce37}} 
+virtual \hyperlink{classcoappbrpc_1_1ServiceManager_a051a08030f0df597217ce33627efce37}{$\sim$\+Service\+Manager} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classcoappbrpc_1_1ServiceManager}{Service\+Manager} Destructor function, calls free\+Services method. \end{DoxyCompactList}\item 
+void \hyperlink{classcoappbrpc_1_1ServiceManager_a13dd031e5d5f6f22af9cbead44ed1db1}{handle\+R\+PC} (const char $\ast$data, const size\+\_\+t len, string \&ret)
+\begin{DoxyCompactList}\small\item\em This is important function that checks the validity of the parameters passed and actual method calling takes place inside this function. If received parameters are not valid then error messages are sent back to client. \end{DoxyCompactList}\item 
+void \hyperlink{classcoappbrpc_1_1ServiceManager_ace94f3f9fbbabc2b1ce23d4267bbfa71}{reg\+Service} (Service $\ast$service)
+\begin{DoxyCompactList}\small\item\em Registers services. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 This class contains methods to handle R\+PC, register services, get services, get method details, validate passed parameters, validate requests, validate versions, and check if services are already existed or not. 
 
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_a7d88663a8d839cf80c3e4942346fa48f}\label{classcoappbrpc_1_1ServiceManager_a7d88663a8d839cf80c3e4942346fa48f}} 
-\index{coappbrpc\+::\+Service\+Manager@{coappbrpc\+::\+Service\+Manager}!Service\+Manager@{Service\+Manager}}
-\index{Service\+Manager@{Service\+Manager}!coappbrpc\+::\+Service\+Manager@{coappbrpc\+::\+Service\+Manager}}
-\subsubsection{\texorpdfstring{Service\+Manager()}{ServiceManager()}}
-{\footnotesize\ttfamily coappbrpc\+::\+Service\+Manager\+::\+Service\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_a13dd031e5d5f6f22af9cbead44ed1db1}\label{classcoappbrpc_1_1ServiceManager_a13dd031e5d5f6f22af9cbead44ed1db1}} 
+\index{coappbrpc\+::\+Service\+Manager@{coappbrpc\+::\+Service\+Manager}!handle\+R\+PC@{handle\+R\+PC}}
+\index{handle\+R\+PC@{handle\+R\+PC}!coappbrpc\+::\+Service\+Manager@{coappbrpc\+::\+Service\+Manager}}
+\subsubsection{\texorpdfstring{handle\+R\+P\+C()}{handleRPC()}}
+{\footnotesize\ttfamily void coappbrpc\+::\+Service\+Manager\+::handle\+R\+PC (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data,  }\item[{const size\+\_\+t}]{len,  }\item[{string \&}]{ret }\end{DoxyParamCaption})}
 
-Service\+Manger.\+h This is constructor function 
+
+
+This is important function that checks the validity of the parameters passed and actual method calling takes place inside this function. If received parameters are not valid then error messages are sent back to client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data sent to R\+PC \\
+\hline
+{\em len} & length of variable data \\
+\hline
+{\em ret} & output variable for response. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcoappbrpc_1_1ServiceManager_ace94f3f9fbbabc2b1ce23d4267bbfa71}\label{classcoappbrpc_1_1ServiceManager_ace94f3f9fbbabc2b1ce23d4267bbfa71}} 
+\index{coappbrpc\+::\+Service\+Manager@{coappbrpc\+::\+Service\+Manager}!reg\+Service@{reg\+Service}}
+\index{reg\+Service@{reg\+Service}!coappbrpc\+::\+Service\+Manager@{coappbrpc\+::\+Service\+Manager}}
+\subsubsection{\texorpdfstring{reg\+Service()}{regService()}}
+{\footnotesize\ttfamily void coappbrpc\+::\+Service\+Manager\+::reg\+Service (\begin{DoxyParamCaption}\item[{Service $\ast$}]{service }\end{DoxyParamCaption})}
+
+
+
+Registers services. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & instance of service pointer \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

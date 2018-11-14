@@ -2,8 +2,16 @@
 \label{classcoappbrpc_1_1ControllerRPC}\index{coappbrpc\+::\+Controller\+R\+PC@{coappbrpc\+::\+Controller\+R\+PC}}
 
 
-Inheritance diagram for coappbrpc\+:\+:Controller\+R\+PC\+:
-\nopagebreak
+This class inherits properties from google protobuf Rpc\+Controller, it has methods for resetting, setting failed, get error object if there is any error in the R\+PC.  
+
+
+
+
+{\ttfamily \#include $<$Controller\+R\+P\+C.\+h$>$}
+
+
+
+Inheritance diagram for coappbrpc\+:\+:Controller\+R\+PC\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +20,7 @@ Inheritance diagram for coappbrpc\+:\+:Controller\+R\+PC\+:
 \end{figure}
 
 
-Collaboration diagram for coappbrpc\+:\+:Controller\+R\+PC\+:
-\nopagebreak
+Collaboration diagram for coappbrpc\+:\+:Controller\+R\+PC\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,32 +31,57 @@ Collaboration diagram for coappbrpc\+:\+:Controller\+R\+PC\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_aac8d7a0e52a017d60a411a462bad6d91}\label{classcoappbrpc_1_1ControllerRPC_aac8d7a0e52a017d60a411a462bad6d91}} 
-void {\bfseries Reset} ()
-\item 
+void \hyperlink{classcoappbrpc_1_1ControllerRPC_aac8d7a0e52a017d60a411a462bad6d91}{Reset} ()
+\begin{DoxyCompactList}\small\item\em Resets m\+\_\+failed flag to false. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a20a3b119687bea2ac836db07a3b04287}\label{classcoappbrpc_1_1ControllerRPC_a20a3b119687bea2ac836db07a3b04287}} 
-bool {\bfseries Failed} () const
-\item 
+bool \hyperlink{classcoappbrpc_1_1ControllerRPC_a20a3b119687bea2ac836db07a3b04287}{Failed} () const
+\begin{DoxyCompactList}\small\item\em getter function that returns m\+\_\+failed flag \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a96035415234221d2972a3f2f790275ce}\label{classcoappbrpc_1_1ControllerRPC_a96035415234221d2972a3f2f790275ce}} 
-string {\bfseries Error\+Text} () const
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a3d91a6d0ba16232c531c3313e4412212}\label{classcoappbrpc_1_1ControllerRPC_a3d91a6d0ba16232c531c3313e4412212}} 
-void {\bfseries Set\+Failed} (const string \&reason)
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a480586532b344e3ca8da2d2519ba593f}\label{classcoappbrpc_1_1ControllerRPC_a480586532b344e3ca8da2d2519ba593f}} 
-void {\bfseries append\+Failed} (const string \&reason)
-\item 
+string \hyperlink{classcoappbrpc_1_1ControllerRPC_a96035415234221d2972a3f2f790275ce}{Error\+Text} () const
+\begin{DoxyCompactList}\small\item\em Getter function that returns message stored in m\+\_\+message. \end{DoxyCompactList}\item 
+void \hyperlink{classcoappbrpc_1_1ControllerRPC_a3d91a6d0ba16232c531c3313e4412212}{Set\+Failed} (const string \&reason)
+\begin{DoxyCompactList}\small\item\em Setter function which sets m\+\_\+failed to true when R\+PC fails and set m\+\_\+message to the reason of failure sent as parameter. \end{DoxyCompactList}\item 
+void \hyperlink{classcoappbrpc_1_1ControllerRPC_a480586532b344e3ca8da2d2519ba593f}{append\+Failed} (const string \&reason)
+\begin{DoxyCompactList}\small\item\em Function that appends multiple reasons for failure. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_aab955bb22c799e5d544b3083fe64c7d7}\label{classcoappbrpc_1_1ControllerRPC_aab955bb22c799e5d544b3083fe64c7d7}} 
-Error {\bfseries error\+Obj} (void) const
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a48a78ccc3c70a2135c78d612154e077c}\label{classcoappbrpc_1_1ControllerRPC_a48a78ccc3c70a2135c78d612154e077c}} 
-void {\bfseries Start\+Cancel} ()
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_ab6458ec248edf24fcc83b12a2573e13f}\label{classcoappbrpc_1_1ControllerRPC_ab6458ec248edf24fcc83b12a2573e13f}} 
-bool {\bfseries Is\+Canceled} () const
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_abc9385d7476171035cffb779c7966f89}\label{classcoappbrpc_1_1ControllerRPC_abc9385d7476171035cffb779c7966f89}} 
-void {\bfseries Notify\+On\+Cancel} (Closure $\ast$callback)
-\end{DoxyCompactItemize}
+Error \hyperlink{classcoappbrpc_1_1ControllerRPC_aab955bb22c799e5d544b3083fe64c7d7}{error\+Obj} (void) const
+\begin{DoxyCompactList}\small\item\em gets the Error object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class inherits properties from google protobuf Rpc\+Controller, it has methods for resetting, setting failed, get error object if there is any error in the R\+PC. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a480586532b344e3ca8da2d2519ba593f}\label{classcoappbrpc_1_1ControllerRPC_a480586532b344e3ca8da2d2519ba593f}} 
+\index{coappbrpc\+::\+Controller\+R\+PC@{coappbrpc\+::\+Controller\+R\+PC}!append\+Failed@{append\+Failed}}
+\index{append\+Failed@{append\+Failed}!coappbrpc\+::\+Controller\+R\+PC@{coappbrpc\+::\+Controller\+R\+PC}}
+\subsubsection{\texorpdfstring{append\+Failed()}{appendFailed()}}
+{\footnotesize\ttfamily void coappbrpc\+::\+Controller\+R\+P\+C\+::append\+Failed (\begin{DoxyParamCaption}\item[{const string \&}]{reason }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function that appends multiple reasons for failure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reason} & string value that has explanation for failure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcoappbrpc_1_1ControllerRPC_a3d91a6d0ba16232c531c3313e4412212}\label{classcoappbrpc_1_1ControllerRPC_a3d91a6d0ba16232c531c3313e4412212}} 
+\index{coappbrpc\+::\+Controller\+R\+PC@{coappbrpc\+::\+Controller\+R\+PC}!Set\+Failed@{Set\+Failed}}
+\index{Set\+Failed@{Set\+Failed}!coappbrpc\+::\+Controller\+R\+PC@{coappbrpc\+::\+Controller\+R\+PC}}
+\subsubsection{\texorpdfstring{Set\+Failed()}{SetFailed()}}
+{\footnotesize\ttfamily void coappbrpc\+::\+Controller\+R\+P\+C\+::\+Set\+Failed (\begin{DoxyParamCaption}\item[{const string \&}]{reason }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter function which sets m\+\_\+failed to true when R\+PC fails and set m\+\_\+message to the reason of failure sent as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reason} & string value that has explanation for failure \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

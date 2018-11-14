@@ -2,56 +2,63 @@
 \label{structClientParams}\index{Client\+Params@{Client\+Params}}
 
 
+A structure that defines parameters to be passed to Coap\+Server.  
+
+
+
+
 {\ttfamily \#include $<$Coap\+Client.\+h$>$}
 
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-string \hyperlink{structClientParams_a15c02b4f805bdbc73474b14179e8d370}{addr}
+string \hyperlink{structClientParams_a3277dd9bc0fa8283a7d3b82d53f3c16a}{addr}
 \item 
-string \hyperlink{structClientParams_aa71e8951100ec8ea3cfa3e7be5e6ae22}{port}
+string \hyperlink{structClientParams_ade2b9a6084d6b1989c3440fe2cd60fdb}{port}
 \item 
-int \hyperlink{structClientParams_ac6202bfc3778f0ea08c40e29ca1bc891}{method\+Type}
+int \hyperlink{structClientParams_aa40f37f1eeb3ed6cff8a76e92a7e9bd1}{method\+Type}
 \item 
-string \hyperlink{structClientParams_a1cc5eb17475cf861c44e59e15dab8919}{interface}
+string \hyperlink{structClientParams_a6af6f3817ebf9ed3f7d9378e6a23a59e}{interface}
 \item 
-string \hyperlink{structClientParams_afda4769c8fe511da0db2bc541023ad47}{payload}
+string \hyperlink{structClientParams_aa16d76f3cbdfa5bfd4e54bcdb9a25737}{payload}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A structure that defines parameters to be passed to Coap\+Server 
+A structure that defines parameters to be passed to Coap\+Server. 
+
+! 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{structClientParams_a15c02b4f805bdbc73474b14179e8d370}\label{structClientParams_a15c02b4f805bdbc73474b14179e8d370}} 
+\mbox{\Hypertarget{structClientParams_a3277dd9bc0fa8283a7d3b82d53f3c16a}\label{structClientParams_a3277dd9bc0fa8283a7d3b82d53f3c16a}} 
 \index{Client\+Params@{Client\+Params}!addr@{addr}}
 \index{addr@{addr}!Client\+Params@{Client\+Params}}
 \subsubsection{\texorpdfstring{addr}{addr}}
-{\footnotesize\ttfamily Client\+Params\+::addr}
+{\footnotesize\ttfamily string Client\+Params\+::addr}
 
-IP address either I\+Pv4 or global I\+Pv6 \mbox{\Hypertarget{structClientParams_a1cc5eb17475cf861c44e59e15dab8919}\label{structClientParams_a1cc5eb17475cf861c44e59e15dab8919}} 
+IP address either I\+Pv4 or global I\+Pv6 \mbox{\Hypertarget{structClientParams_a6af6f3817ebf9ed3f7d9378e6a23a59e}\label{structClientParams_a6af6f3817ebf9ed3f7d9378e6a23a59e}} 
 \index{Client\+Params@{Client\+Params}!interface@{interface}}
 \index{interface@{interface}!Client\+Params@{Client\+Params}}
 \subsubsection{\texorpdfstring{interface}{interface}}
-{\footnotesize\ttfamily Client\+Params\+::interface}
+{\footnotesize\ttfamily string Client\+Params\+::interface}
 
-Interface is \char`\"{}rpc\char`\"{} defined as C\+O\+A\+P\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+E\+\_\+\+N\+A\+ME in \hyperlink{CoapCommon_8h}{Coap\+Common.\+h} file \mbox{\Hypertarget{structClientParams_ac6202bfc3778f0ea08c40e29ca1bc891}\label{structClientParams_ac6202bfc3778f0ea08c40e29ca1bc891}} 
+Interface is \char`\"{}rpc\char`\"{} defined as C\+O\+A\+P\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+E\+\_\+\+N\+A\+ME in \hyperlink{CoapCommon_8h}{Coap\+Common.\+h} file \mbox{\Hypertarget{structClientParams_aa40f37f1eeb3ed6cff8a76e92a7e9bd1}\label{structClientParams_aa40f37f1eeb3ed6cff8a76e92a7e9bd1}} 
 \index{Client\+Params@{Client\+Params}!method\+Type@{method\+Type}}
 \index{method\+Type@{method\+Type}!Client\+Params@{Client\+Params}}
 \subsubsection{\texorpdfstring{method\+Type}{methodType}}
-{\footnotesize\ttfamily Client\+Params\+::method\+Type}
+{\footnotesize\ttfamily int Client\+Params\+::method\+Type}
 
-Method Name defined in proto file \mbox{\Hypertarget{structClientParams_afda4769c8fe511da0db2bc541023ad47}\label{structClientParams_afda4769c8fe511da0db2bc541023ad47}} 
+Method Name defined in proto file \mbox{\Hypertarget{structClientParams_aa16d76f3cbdfa5bfd4e54bcdb9a25737}\label{structClientParams_aa16d76f3cbdfa5bfd4e54bcdb9a25737}} 
 \index{Client\+Params@{Client\+Params}!payload@{payload}}
 \index{payload@{payload}!Client\+Params@{Client\+Params}}
 \subsubsection{\texorpdfstring{payload}{payload}}
-{\footnotesize\ttfamily Client\+Params\+::payload}
+{\footnotesize\ttfamily string Client\+Params\+::payload}
 
-Payload is encoded stringified data to be sent to coap server \mbox{\Hypertarget{structClientParams_aa71e8951100ec8ea3cfa3e7be5e6ae22}\label{structClientParams_aa71e8951100ec8ea3cfa3e7be5e6ae22}} 
+Payload is encoded stringified data to be sent to coap server \mbox{\Hypertarget{structClientParams_ade2b9a6084d6b1989c3440fe2cd60fdb}\label{structClientParams_ade2b9a6084d6b1989c3440fe2cd60fdb}} 
 \index{Client\+Params@{Client\+Params}!port@{port}}
 \index{port@{port}!Client\+Params@{Client\+Params}}
 \subsubsection{\texorpdfstring{port}{port}}
-{\footnotesize\ttfamily Client\+Params\+::port}
+{\footnotesize\ttfamily string Client\+Params\+::port}
 
 Port number, Default is port number 5683 
 

@@ -8,16 +8,14 @@ Client Handling for Co\+AP protocol.
 {\ttfamily \#include $<$coap2/coap.\+h$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include \char`\"{}Coap\+Common.\+h\char`\"{}}\newline
-Include dependency graph for Coap\+Client.\+h\+:
-\nopagebreak
+Include dependency graph for Coap\+Client.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{CoapClient_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,9 +26,9 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structClientParams}{Client\+Params}
-\item 
+\begin{DoxyCompactList}\small\item\em A structure that defines parameters to be passed to Coap\+Server. \end{DoxyCompactList}\item 
 class \hyperlink{classcoappbrpc_1_1CoapClient}{coappbrpc\+::\+Coap\+Client}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class contains two methods to client\+Handler and execute\+Client client Handler is a callback function which returns response back to R\+PC client excute\+Client handles coap client request. It creates a coap context, uses U\+DP as transport controller, registers, adds options and creates P\+DU and sends to server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

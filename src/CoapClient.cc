@@ -59,6 +59,9 @@ int CoapClient::executeClient(ClientParams params) {
   coap_pdu_t *pdu = nullptr;
   int result = EXIT_FAILURE;
 
+  static unsigned char _token_data[8];
+  coap_binary_t the_token = { 0, _token_data };
+  
   const char *payload_data =
       params.payload.c_str(); // converting binary encoded data to const char*
   size_t data_length = strlen(payload_data); // length of payload_data
@@ -83,11 +86,15 @@ int CoapClient::executeClient(ClientParams params) {
   coap_register_response_handler(ctx, clientHandler);
 
   /* construct CoAP message */
-  pdu = coap_pdu_init(COAP_MESSAGE_CON, params.methodType, 0 /* message id */,
+  pdu = coap_pdu_init(COAP_MESSAGE_CON, params.methodType, coap_new_message_id(session),
                       coap_session_max_pdu_size(session));
   if (!pdu) {
     coap_log(LOG_EMERG, "cannot create PDU\n");
     goto finish;
+  }
+  /* Adding Token */
+  if ( !coap_add_token(pdu, the_token.length, the_token.s)) {
+    coap_log(LOG_DEBUG, "cannot add token to request\n");
   }
 
   /* add a Uri-Path option */

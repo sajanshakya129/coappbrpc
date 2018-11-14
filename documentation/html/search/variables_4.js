@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['methodtype',['methodType',['../structClientParams.html#ac6202bfc3778f0ea08c40e29ca1bc891',1,'ClientParams']]]
+  ['interface',['interface',['../structClientParams.html#a6af6f3817ebf9ed3f7d9378e6a23a59e',1,'ClientParams']]]
 ];

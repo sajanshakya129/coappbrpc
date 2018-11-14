@@ -25,7 +25,7 @@
     \brief A macro containing name of URI to be used in COAP request
 */
 #define COAP_INTERFACE_NAME "rpc"
-/* \class CoapCommon
+/*! \class CoapCommon
  * \brief
  *This class contains a function named resolveAddress. This file is used and
  *shared by both client and server side to verify ip addresses.

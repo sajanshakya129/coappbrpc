@@ -6,28 +6,50 @@ Server Handling for Co\+AP protocol.
 
 
 {\ttfamily \#include \char`\"{}Rpc\+Server.\+h\char`\"{}}\newline
-Include dependency graph for Rpc\+Server.\+cc\+:
-\nopagebreak
+Include dependency graph for Rpc\+Server.\+cc\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{RpcServer_8cc__incl}
 \end{center}
 \end{figure}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}\label{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}} 
-\#define \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}
-\begin{DoxyCompactList}\small\item\em A macro that defines if parameter is not used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{RpcServer_8cc_ab57e80d8e445f012664cef3d94889b77}\label{RpcServer_8cc_ab57e80d8e445f012664cef3d94889b77}} 
-void {\bfseries coappbrpc\+::return\+\_\+handler} (coap\+\_\+context\+\_\+t $\ast$ctx \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}, struct coap\+\_\+resource\+\_\+t $\ast$resource \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}, coap\+\_\+session\+\_\+t $\ast$session \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}, coap\+\_\+pdu\+\_\+t $\ast$request \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}, coap\+\_\+binary\+\_\+t $\ast$token \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}, coap\+\_\+string\+\_\+t $\ast$query \hyperlink{RpcServer_8cc_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}, coap\+\_\+pdu\+\_\+t $\ast$response)
-\end{DoxyCompactItemize}
+void \hyperlink{RpcServer_8cc_a9e01846fbd4bcab8aacc8f22e7dfb61b}{coappbrpc\+::return\+\_\+handler} (coap\+\_\+context\+\_\+t $\ast$ctx, struct coap\+\_\+resource\+\_\+t $\ast$resource, coap\+\_\+session\+\_\+t $\ast$session, coap\+\_\+pdu\+\_\+t $\ast$request, coap\+\_\+binary\+\_\+t $\ast$token, coap\+\_\+string\+\_\+t $\ast$query, coap\+\_\+pdu\+\_\+t $\ast$response)
+\begin{DoxyCompactList}\small\item\em Callback function that sets response data to be sent back to R\+PC client. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Server Handling for Co\+AP protocol. 
 
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{RpcServer_8cc_file_a9e01846fbd4bcab8aacc8f22e7dfb61b}\label{RpcServer_8cc_file_a9e01846fbd4bcab8aacc8f22e7dfb61b}} 
+\index{Rpc\+Server.\+cc@{Rpc\+Server.\+cc}!return\+\_\+handler@{return\+\_\+handler}}
+\index{return\+\_\+handler@{return\+\_\+handler}!Rpc\+Server.\+cc@{Rpc\+Server.\+cc}}
+\subsubsection{\texorpdfstring{return\+\_\+handler()}{return\_handler()}}
+{\footnotesize\ttfamily void coappbrpc\+::return\+\_\+handler (\begin{DoxyParamCaption}\item[{coap\+\_\+context\+\_\+t $\ast$}]{ctx,  }\item[{struct coap\+\_\+resource\+\_\+t $\ast$}]{resource,  }\item[{coap\+\_\+session\+\_\+t $\ast$}]{session,  }\item[{coap\+\_\+pdu\+\_\+t $\ast$}]{request,  }\item[{coap\+\_\+binary\+\_\+t $\ast$}]{token,  }\item[{coap\+\_\+string\+\_\+t $\ast$}]{query,  }\item[{coap\+\_\+pdu\+\_\+t $\ast$}]{response }\end{DoxyParamCaption})}
+
+
+
+Callback function that sets response data to be sent back to R\+PC client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & Coap context variable reference of type struct coap\+\_\+context\+\_\+t. \\
+\hline
+{\em resource} & Coap resource referece. \\
+\hline
+{\em session} & Coap Session variable reference of type coap\+\_\+session\+\_\+t \\
+\hline
+{\em request} & Co\+AP P\+DU request received by server \\
+\hline
+{\em token} & Co\+AP unique token references \\
+\hline
+{\em query} & Co\+AP query reference \\
+\hline
+{\em response} & Co\+AP P\+DU response reference for storing data to be returned from Server \\
+\hline
+\end{DoxyParams}

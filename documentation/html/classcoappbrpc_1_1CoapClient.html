@@ -71,6 +71,11 @@ $(function() {
 <div class="title">coappbrpc::CoapClient Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class contains two methods to clientHandler and executeClient client Handler is a callback function which returns response back to RPC client excuteClient handles coap client request. It creates a coap context, uses UDP as transport controller, registers, adds options and creates PDU and sends to server.  
+ <a href="classcoappbrpc_1_1CoapClient.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="CoapClient_8h_source.html">CoapClient.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -86,7 +91,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae6909f236ca1cd6b8b6343b7827ea004"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1CoapClient.html#ae6909f236ca1cd6b8b6343b7827ea004">payload</a></td></tr>
 <tr class="separator:ae6909f236ca1cd6b8b6343b7827ea004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class contains two methods to clientHandler and executeClient client Handler is a callback function which returns response back to RPC client excuteClient handles coap client request. It creates a coap context, uses UDP as transport controller, registers, adds options and creates PDU and sends to server. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab27b2485df1e7213425fe0f1b75110fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab27b2485df1e7213425fe0f1b75110fa">&#9670;&nbsp;</a></span>clientHandler()</h2>
 
@@ -180,7 +187,7 @@ Public Attributes</h2></td></tr>
 <p>Handles coap client request, creates context, PDUs, uses UDP transport protocol, registers and adds coap option and sends request to coap server. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">params</td><td>Parameters of struct type <a class="el" href="structClientParams.html">ClientParams</a> that comprises of all values required to sent to server </td></tr>
+    <tr><td class="paramname">params</td><td>Parameters of struct type <a class="el" href="structClientParams.html" title="A structure that defines parameters to be passed to CoapServer. ">ClientParams</a> that comprises of all values required to sent to server </td></tr>
   </table>
   </dd>
 </dl>

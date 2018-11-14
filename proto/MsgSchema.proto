@@ -1,3 +1,16 @@
+/* MsgSchema.proto --Protocol buffer file what contains schema/definitions of response and request message transimitted between server and client
+ *
+ * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
+ *
+ * This file is part of the CoAPPBRPC library. Please see
+ * README for terms of use.
+ */
+
+/**
+ * @file MsgSchema.proto
+ * @brief Protocol buffer file what contains schema/definitions of response and request message transimitted between server and client
+ */
+
 syntax = "proto3";
 
 // The definition of COAP-PB-RPC 1.1

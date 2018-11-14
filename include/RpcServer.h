@@ -32,7 +32,10 @@ using ::coappbrpc::Response;
 
 using namespace std;
 namespace coappbrpc {
-
+/*! \class RpcServer
+ * \brief
+ *This class consists of methods to registerService and runServer.
+ */
 class RpcServer {
 public:
   RpcServer();
@@ -43,11 +46,11 @@ public:
   void runServer(const char *,const char *);
   void registerService(Service *service);
 
-  coap_context_t *ctx = nullptr;
+  coap_context_t *ctx = nullptr; /*!< Coap context pointer variable */
 
-  const char *port;
-  const char *serverAddr;
-  bool running = false;
+  const char *port;/*!< const char variable to store port no */
+  const char *serverAddr;/*!< const char variable to store IP address */
+  bool running = false;/*!< boolean variable to flag whether RPC is running or not */
 };
 
 } // namespace coappbrpc

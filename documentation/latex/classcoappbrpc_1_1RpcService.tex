@@ -1,20 +1,28 @@
 \hypertarget{classcoappbrpc_1_1RpcService}{}\section{coappbrpc\+:\+:Rpc\+Service Class Reference}
 \label{classcoappbrpc_1_1RpcService}\index{coappbrpc\+::\+Rpc\+Service@{coappbrpc\+::\+Rpc\+Service}}
+
+
+This class defines service for remote calls. It has methods for adding rpc methods, getting methods, validating if method exists.  
+
+
+
+
+{\ttfamily \#include $<$Rpc\+Service.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcService_a66c75fc19a62dbf650f4dc5080d15bfa}\label{classcoappbrpc_1_1RpcService_a66c75fc19a62dbf650f4dc5080d15bfa}} 
-{\bfseries Rpc\+Service} (Service $\ast$service)
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcService_a76ef44b476c6c6082ec701feae570d91}\label{classcoappbrpc_1_1RpcService_a76ef44b476c6c6082ec701feae570d91}} 
-void {\bfseries add\+Method} (const \hyperlink{classcoappbrpc_1_1RpcMethod}{Rpc\+Method} \&method, const string \&method\+Name)
-\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcService_a56c07781a0e0322f26c1360292d19a51}\label{classcoappbrpc_1_1RpcService_a56c07781a0e0322f26c1360292d19a51}} 
-const \hyperlink{classcoappbrpc_1_1RpcMethod}{Rpc\+Method} $\ast$ {\bfseries get\+Method} (const string \&method\+Name) const
-\item 
+\hyperlink{classcoappbrpc_1_1RpcService_a66c75fc19a62dbf650f4dc5080d15bfa}{Rpc\+Service} (Service $\ast$service)
+\begin{DoxyCompactList}\small\item\em This is constructor function that scans service description, gets request prototype \& response prototype,loops over numbers of available methods and calls add\+Method function for each methods defined. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcService_a3cb969b5056dc0d5264552a16c1d244f}\label{classcoappbrpc_1_1RpcService_a3cb969b5056dc0d5264552a16c1d244f}} 
+void \hyperlink{classcoappbrpc_1_1RpcService_a3cb969b5056dc0d5264552a16c1d244f}{add\+Method} (const \hyperlink{classcoappbrpc_1_1RpcMethod}{Rpc\+Method} \&method, const string \&method\+Name)
+\begin{DoxyCompactList}\small\item\em This function is setter function that adds method\+Name to \+\_\+method array of type map$<$string, Rpc\+Method$>$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcService_afdbb7a187c602fc830c5b3101e6b2e35}\label{classcoappbrpc_1_1RpcService_afdbb7a187c602fc830c5b3101e6b2e35}} 
+const \hyperlink{classcoappbrpc_1_1RpcMethod}{Rpc\+Method} $\ast$ \hyperlink{classcoappbrpc_1_1RpcService_afdbb7a187c602fc830c5b3101e6b2e35}{get\+Method} (const string \&method\+Name) const
+\begin{DoxyCompactList}\small\item\em This is getter function that gets the methods if they exist in \+\_\+method array. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcoappbrpc_1_1RpcService_a0c7f4041e49a3d4e0abd6eb9aad9691d}\label{classcoappbrpc_1_1RpcService_a0c7f4041e49a3d4e0abd6eb9aad9691d}} 
-bool {\bfseries is\+Exist\+Method} (const string \&method\+Name) const
-\end{DoxyCompactItemize}
+bool \hyperlink{classcoappbrpc_1_1RpcService_a0c7f4041e49a3d4e0abd6eb9aad9691d}{is\+Exist\+Method} (const string \&method\+Name) const
+\begin{DoxyCompactList}\small\item\em This function is for validating if the method name exists or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,6 +30,27 @@ Service $\ast$ \hyperlink{classcoappbrpc_1_1RpcService_ab79621dd2a66b154352101e6
 \item 
 map$<$ string, \hyperlink{classcoappbrpc_1_1RpcMethod}{Rpc\+Method} $>$ \hyperlink{classcoappbrpc_1_1RpcService_a14b0b1bae1efc308e1c61d7737b7c4ac}{\+\_\+methods}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class defines service for remote calls. It has methods for adding rpc methods, getting methods, validating if method exists. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcService_a66c75fc19a62dbf650f4dc5080d15bfa}\label{classcoappbrpc_1_1RpcService_a66c75fc19a62dbf650f4dc5080d15bfa}} 
+\index{coappbrpc\+::\+Rpc\+Service@{coappbrpc\+::\+Rpc\+Service}!Rpc\+Service@{Rpc\+Service}}
+\index{Rpc\+Service@{Rpc\+Service}!coappbrpc\+::\+Rpc\+Service@{coappbrpc\+::\+Rpc\+Service}}
+\subsubsection{\texorpdfstring{Rpc\+Service()}{RpcService()}}
+{\footnotesize\ttfamily coappbrpc\+::\+Rpc\+Service\+::\+Rpc\+Service (\begin{DoxyParamCaption}\item[{Service $\ast$}]{service }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This is constructor function that scans service description, gets request prototype \& response prototype,loops over numbers of available methods and calls add\+Method function for each methods defined. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & service is of type Service defined in google\textquotesingle{}s protobuf service \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Data Documentation}
@@ -37,7 +66,7 @@ The methods in service \mbox{\Hypertarget{classcoappbrpc_1_1RpcService_ab79621dd
 \subsubsection{\texorpdfstring{\+\_\+service}{\_service}}
 {\footnotesize\ttfamily Service$\ast$ coappbrpc\+::\+Rpc\+Service\+::\+\_\+service}
 
-The service 
+Instance pointer of Service 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -6,8 +6,7 @@ Handles Service creation, registration, getting and setting Services, handles R\
 
 
 {\ttfamily \#include \char`\"{}Service\+Manager.\+h\char`\"{}}\newline
-Include dependency graph for Service\+Manager.\+cc\+:
-\nopagebreak
+Include dependency graph for Service\+Manager.\+cc\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,11 +16,34 @@ Include dependency graph for Service\+Manager.\+cc\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{ServiceManager_8cc_a301fc8b0fb4b4295f18931bc93ac5fc4}\label{ServiceManager_8cc_a301fc8b0fb4b4295f18931bc93ac5fc4}} 
-void {\bfseries coappbrpc\+::gen\+Response} (string \&ret, Response \&rpc\+Response, Message $\ast$response, Controller\+R\+PC $\ast$controller)
-\end{DoxyCompactItemize}
+void \hyperlink{ServiceManager_8cc_a301fc8b0fb4b4295f18931bc93ac5fc4}{coappbrpc\+::gen\+Response} (string \&ret, Response \&rpc\+Response, Message $\ast$response, Controller\+R\+PC $\ast$controller)
+\begin{DoxyCompactList}\small\item\em inline function that gets method of a particular service \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Handles Service creation, registration, getting and setting Services, handles R\+PC and validates requests. 
 
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ServiceManager_8cc_file_a301fc8b0fb4b4295f18931bc93ac5fc4}\label{ServiceManager_8cc_file_a301fc8b0fb4b4295f18931bc93ac5fc4}} 
+\index{Service\+Manager.\+cc@{Service\+Manager.\+cc}!gen\+Response@{gen\+Response}}
+\index{gen\+Response@{gen\+Response}!Service\+Manager.\+cc@{Service\+Manager.\+cc}}
+\subsubsection{\texorpdfstring{gen\+Response()}{genResponse()}}
+{\footnotesize\ttfamily void coappbrpc\+::gen\+Response (\begin{DoxyParamCaption}\item[{string \&}]{ret,  }\item[{Response \&}]{rpc\+Response,  }\item[{Message $\ast$}]{response,  }\item[{\hyperlink{classcoappbrpc_1_1ControllerRPC}{Controller\+R\+PC} $\ast$}]{controller }\end{DoxyParamCaption})}
+
+
+
+inline function that gets method of a particular service 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ret} & pointer address to store returned string \\
+\hline
+{\em rpc\+Response} & response from R\+PC of type Response \\
+\hline
+{\em response} & response message \\
+\hline
+{\em controller} & instance of Controller\+R\+PC \\
+\hline
+\end{DoxyParams}

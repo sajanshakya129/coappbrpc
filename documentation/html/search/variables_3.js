@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interface',['interface',['../structClientParams.html#a1cc5eb17475cf861c44e59e15dab8919',1,'ClientParams']]]
+  ['descriptor',['descriptor',['../classcoappbrpc_1_1RpcMethod.html#a52010a290e164174ca969c8904d1f3da',1,'coappbrpc::RpcMethod']]]
 ];
