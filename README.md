@@ -15,15 +15,7 @@ sudo apt-get install cmake build-essential dh-autoreconf python python-pip
 Follow the following link and [install protobuf](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
 Or follow the following steps
 ```bash
-git clone https://github.com/protocolbuffers/protobuf.git
-cd protobuf
-git submodule update --init --recursive
-./autogen.sh
-./configure
-make
-make check
-sudo make install
-sudo ldconfig # refresh shared library cache.
+sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
 
 #### LibCoAP Library Installation
