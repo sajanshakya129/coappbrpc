@@ -76,9 +76,9 @@ public:
     return error;
   }
 
-  //void StartCancel() {}
-  //bool IsCanceled() const { return false; };
-  //void NotifyOnCancel(Closure *callback){};
+  void StartCancel() {}
+  bool IsCanceled() const { return false; };
+  void NotifyOnCancel(Closure *callback){};
 
 private:
   bool m_failed; /*!< Boolean variable to set on and off if RPC fails */
