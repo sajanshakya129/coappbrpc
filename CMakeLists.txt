@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 set(CMAKE_BUILD_TYPE Release)
 
 add_subdirectory(proto)
-
+include(InstallProtobufExt)
 include(FindPythonInterp)
 if(NOT PYTHONINTERP_FOUND)
   message(FATAL_ERROR" Python doesnot exist in your system.Please download and install Python3 in your System")
