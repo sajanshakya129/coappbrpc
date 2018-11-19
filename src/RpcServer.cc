@@ -11,6 +11,7 @@
  * @brief Server Handling for CoAP protocol
  */
 #include "RpcServer.h"
+
 namespace coappbrpc {
 /*! \fn void return_handler(coap_context_t *ctx,
                     struct coap_resource_t *resource ,
