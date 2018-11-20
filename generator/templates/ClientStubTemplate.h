@@ -23,6 +23,7 @@ with open('protofile.json') as fp:
 	jsonData=json.load(fp)
 cog.outl("#include \"%s\""% jsonData["headerfile"])
 cog.outl("#include <coappbrpc/RpcClient.h>")
+cog.outl("#include <coappbrpc/Config.h>")
 cog.outl("using ::coappbrpc::RpcClient;")
 cog.outl("using ::coappbrpc::Request;")
 cog.outl("using ::coappbrpc::Response;")

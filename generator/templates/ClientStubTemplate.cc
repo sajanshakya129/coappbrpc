@@ -27,7 +27,7 @@ for item in jsonData["data"]:
                         cog.outl("void ClientStub::{0}({1} request,{2} *response)".format(method["method_name"], method["input"], method["output"]))
                         cog.outl("{ std::string reqPayload;")
                         cog.outl("Response resp;")
-                        cog.outl("reqPayload=makeRpcPayload(\"1.1\",\"{0}\",\"{1}\",serializeReq(request));".format(item["name"],method["method_name"]))
+                        cog.outl("reqPayload=makeRpcPayload(COAP_PBRPC_VERSION,\"{0}\",\"{1}\",serializeReq(request));".format(item["name"],method["method_name"]))
                         cog.outl("executeRPC(reqPayload, &resp);")
                         cog.outl("response->ParseFromString(resp.result());")
                         cog.outl("}")
@@ -72,14 +72,14 @@ string ClientStub::makeRpcPayload(string vers, string serviceName, string method
 
 /*! \fn void ClientStub::executeRPC(string reqPayload, Response *resp)
     \brief This function calls
-   runClient function. And after it receives response, it returns response as
+   createCoapPayload function. And after it receives response, it returns response as
    type Response.
 
    \param reqPayload  Request Payload
    \param Response Response variable address
 */
 
-void ClientStub::executeRPC(string reqPayload, Response *Response){
-  client->runClient(reqPayload);
+void ClientStub::executeRPC(string reqPayload, Response *resp){
+  client->createCoapPayload(reqPayload);
   resp->ParseFromString(client->getResponse());
 }

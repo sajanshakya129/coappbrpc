@@ -28,8 +28,8 @@ public:
 int main() {
   RpcServer server;
   server.registerService(new ::coappbrpc::api::PingServiceImpl());
-  //server.runServer();
-  server.runServer("localhost","5683");
-  //server.runServer("::1","5683"); //Ipv6
+  //server.initiateServer();
+  server.initiateServer("localhost","5683");
+  //server.initiateServer("::1","5683"); //Ipv6
   return 0;
 }

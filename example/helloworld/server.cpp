@@ -28,7 +28,7 @@ public:
 int main() {
   RpcServer server; //Creating instance of server
   server.registerService(new ::coappbrpc::api::GreeterServiceImpl()); //Registering service
-  //server.runServer(); //running server
-  server.runServer("localhost","5683");// You can run server by providing server_address and port no.
+  //server.initiateServer(); //running server
+  server.initiateServer("localhost","5683");// You can run server by providing server_address and port no.
   return 0;
 }

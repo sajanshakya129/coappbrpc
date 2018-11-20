@@ -70,30 +70,30 @@ RpcServer::RpcServer() { running = false; }
 */
 RpcServer::~RpcServer() {}
 
-/*! \fn void RpcServer::runServer(const char *ipAddr, const char *port)
-    \brief Setter function to set server ip address and port number and calls for "start" function to run Server.
+/*! \fn void RpcServer::initiateServer(const char *ipAddr, const char *port)
+    \brief Setter function to set server ip address and port number and calls for "startServer" function to run Server.
       Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed.
     \param ipAddr Ip Address reference variable
     \param port port reference variable
 */
-void RpcServer::runServer(const char *ipAddr, const char *port) {
+void RpcServer::initiateServer(const char *ipAddr, const char *port) {
   this->serverAddr = ipAddr;
   this->port = port;
-  this->start();
+  this->startServer();
 }
-/*! \fn void RpcServer::runServer()
-    \brief default runServer function which overloads if ip address and port is not given.
+/*! \fn void RpcServer::initiateServer()
+    \brief default initiateServer function which overloads if ip address and port is not given.
 */
-void RpcServer::runServer() {
+void RpcServer::initiateServer() {
   this->serverAddr = "localhost";
   this->port = "5683";
-  this->start();
+  this->startServer();
 }
-/*! \fn int RpcServer::start()
+/*! \fn int RpcServer::startServer()
     \brief this function starts the coap server
     First it checks if the RPC server is running or not. Then it creates a coap context, handles coap resresources and runs the coap server.
 */
-int RpcServer::start() {
+int RpcServer::startServer() {
   if (running) {
     return 0;
   }
@@ -111,7 +111,7 @@ int RpcServer::start() {
   /* resolve destination address where server should be sent */
   if (common.resolveAddress(this->serverAddr, this->port, &dst) < 0) {
     coap_log(LOG_CRIT, "failed to resolve address\n");
-    this->stop(EXIT_FAILURE);
+    this->stopServer(EXIT_FAILURE);
   }
 
   /* create CoAP context */
@@ -120,7 +120,7 @@ int RpcServer::start() {
 
   if (!ctx || !(endpoint = coap_new_endpoint(ctx, &dst, COAP_PROTO_UDP))) {
     coap_log(LOG_EMERG, "cannot initialize context\n");
-    this->stop(EXIT_FAILURE);
+    this->stopServer(EXIT_FAILURE);
   }
 
   resource = coap_resource_init(&ruri, 0);
@@ -131,13 +131,13 @@ int RpcServer::start() {
     coap_run_once(ctx, 0);
   }
   running = true;
-  this->stop(EXIT_SUCCESS);
+  this->stopServer(EXIT_SUCCESS);
 }
-/*! \fn int RpcServer::stop()
+/*! \fn int RpcServer::stopServer()
     \brief This function stops the coap server
     It stops coap server, free coap context, cleanup memory allocations and resets running flag to false.
 */
-bool RpcServer::stop(int result) {
+bool RpcServer::stopServer(int result) {
   if (running) {
     coap_free_context(ctx);
     coap_cleanup();

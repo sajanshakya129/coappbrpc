@@ -31,16 +31,14 @@ private:
   string m_address;/*!<string variable to store IP address */
   string m_port;/*!<string variable to store port address*/
   string m_response;/*!<string varibale to store response sent back by server  */
-  RpcClient();
-
 public:
   static RpcClient *getInstance();
+  RpcClient();
   virtual ~RpcClient();
-  void runClient(string payload);
+  void createCoapPayload(string);
   void setResponse(string);
   string getResponse();
   void setServerAddr(string, string);
-  Response execFunc(string, string, string, string);
 };
 } // namespace coappbrpc
 

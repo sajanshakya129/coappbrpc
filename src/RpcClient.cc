@@ -40,20 +40,20 @@ RpcClient *RpcClient::getInstance() {
   return m_instance;
 }
 
-/*! \fn void RpcClient::runClient()
+/*! \fn void RpcClient::createCoapPayload()
     \brief Creates data structure to be sent to Coap Client and executes coap
    client's executeClient function
 */
-void RpcClient::runClient(string payload) {
+void RpcClient::createCoapPayload(string rpc_payload) {
   // creates structure to run coap
-  CoapClient coapclient;
-  ClientParams params;
-  params.addr = this->m_address;
-  params.port = this->m_port;
-  params.methodType = COAP_REQUEST_POST;
-  params.interface = COAP_INTERFACE_NAME;
-  params.payload = payload;
-  coapclient.executeClient(params);
+  CoapClient coap_client;
+  ClientParams coap_client_payload;
+  coap_client_payload.addr = this->m_address;
+  coap_client_payload.port = this->m_port;
+  coap_client_payload.methodType = COAP_REQUEST_POST;
+  coap_client_payload.interface = COAP_INTERFACE_NAME;
+  coap_client_payload.payload = rpc_payload;
+  coap_client.executeClient(coap_client_payload);
 }
 
 /*! \fn void RpcClient::setResponse(string resp)
