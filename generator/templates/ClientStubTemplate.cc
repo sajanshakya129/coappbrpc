@@ -24,19 +24,62 @@ with open('protofile.json') as fp:
 for item in jsonData["data"]:
         if item["type"]=="Service":
                 for method in item["methods"]:
-                        cog.outl("void ClientStub::{0}({1} request,{2}*response)".format(method["method_name"], method["input"], method["output"]))
-                        cog.outl("{ Response resp;")
-                        cog.outl("resp=client->execFunc(\"1.1\",\"{0}\",\"{1}\",serializeMsg(request));".format(item["name"],method["method_name"]))
+                        cog.outl("void ClientStub::{0}({1} request,{2} *response)".format(method["method_name"], method["input"], method["output"]))
+                        cog.outl("{ std::string reqPayload;")
+                        cog.outl("Response resp;")
+                        cog.outl("reqPayload=makeRpcPayload(COAP_PBRPC_VERSION,\"{0}\",\"{1}\",serializeReq(request));".format(item["name"],method["method_name"]))
+                        cog.outl("executeRPC(reqPayload, &resp);")
                         cog.outl("response->ParseFromString(resp.result());")
                         cog.outl("}")
 
 ]]]*/
 //[[[end]]]
-/* \fn template <typename R> string ClientStub::serializeMsg(R request)
+
+/* \fn template <typename R> string ClientStub::serializeReq(R request)
     \brief Function to serialize custom data
 */
-template <typename R> string ClientStub::serializeMsg(R request) {
-  std::string msg;
-  request.SerializeToString(&msg);
-  return msg;
+template <typename R> string ClientStub::serializeReq(R request) {
+  std::string encodedReqMsg;
+  request.SerializeToString(&encodedReqMsg);
+  return encodedReqMsg;
+}
+/*! \fn Response ClientStub::makeRpcPayload(string vers, string serviceName, string method,
+                             string msg)
+    \brief Creates protocol buffer data structure containing version number,
+   services, methods, method parameters, unique Random ids. Then it serializes
+   the data into string and stores it in m_payload variable. 
+
+   \param vers  version number defined in Config.h file
+   \param serviceName Name of Service to be used for RPC calls
+   \param method Method name to be called when executing RPC
+   \param msg Serialized message to be sent to Server, contains defination of
+   various parameters to a particular method.
+*/
+string ClientStub::makeRpcPayload(string vers, string serviceName, string method,
+                             string encodedReqMsg) {
+  // sets request that is to be sent
+  std::string rpc_payload;
+  Request req;
+  req.set_version(vers);
+  req.set_service(serviceName);
+  req.set_method(method);
+  req.set_params(encodedReqMsg);
+  req.set_id((rand() % 9999 + 1));
+  req.SerializeToString(&rpc_payload);
+  rpc_payload=serializeReq(req);
+  return rpc_payload;
+}
+
+/*! \fn void ClientStub::executeRPC(string reqPayload, Response *resp)
+    \brief This function calls
+   createCoapPayload function. And after it receives response, it returns response as
+   type Response.
+
+   \param reqPayload  Request Payload
+   \param Response Response variable address
+*/
+
+void ClientStub::executeRPC(string reqPayload, Response *resp){
+  client->createCoapPayload(reqPayload);
+  resp->ParseFromString(client->getResponse());
 }

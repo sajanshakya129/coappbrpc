@@ -18,7 +18,7 @@ Or follow the following steps
 sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
 
-#### LibCoAP Library Installation
+#### LibCoAP version 2 Library Installation
 ```bash
 git clone https://github.com/obgm/libcoap.git
 cd libcoap

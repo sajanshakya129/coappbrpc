@@ -30,18 +30,15 @@ private:
   static RpcClient *m_instance; /*!<static instance pointer of RPC client to store address so that this instance can be manipulated in various levels.*/
   string m_address;/*!<string variable to store IP address */
   string m_port;/*!<string variable to store port address*/
-  string m_payload;/*!<string variable to store encoded payload  */
   string m_response;/*!<string varibale to store response sent back by server  */
-  RpcClient();
-
 public:
   static RpcClient *getInstance();
+  RpcClient();
   virtual ~RpcClient();
-  void runClient();
+  void createCoapPayload(string);
   void setResponse(string);
   string getResponse();
   void setServerAddr(string, string);
-  Response execFunc(string, string, string, string);
 };
 } // namespace coappbrpc
 

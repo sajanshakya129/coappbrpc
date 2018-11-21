@@ -23,6 +23,7 @@ with open('protofile.json') as fp:
 	jsonData=json.load(fp)
 cog.outl("#include \"%s\""% jsonData["headerfile"])
 cog.outl("#include <coappbrpc/RpcClient.h>")
+cog.outl("#include <coappbrpc/Config.h>")
 cog.outl("using ::coappbrpc::RpcClient;")
 cog.outl("using ::coappbrpc::Request;")
 cog.outl("using ::coappbrpc::Response;")
@@ -40,11 +41,11 @@ for item in jsonData["data"]:
 			cog.outl("void {0}({1},{2} *);".format(method["method_name"], method["input"], method["output"]))
 cog.outl("private:")
 cog.outl("RpcClient *client = RpcClient::getInstance();")
-cog.outl("template<typename R> string serializeMsg(R);")
+cog.outl("string makeRpcPayload(string, string, string, string);")
+cog.outl("template<typename R> string serializeReq(R);")
+cog.outl("void executeRPC(string, Response *);")
 cog.outl("};")
 cog.outl("#endif")
 
 ]]]*/
 //[[[end]]]
-
-

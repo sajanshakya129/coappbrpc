@@ -34,18 +34,18 @@ using namespace std;
 namespace coappbrpc {
 /*! \class RpcServer
  * \brief
- *This class consists of methods to registerService and runServer.
+ *This class consists of methods to registerService and initiateServer.
  */
 class RpcServer {
 public:
   RpcServer();
   virtual ~RpcServer();
-  int start();
-  bool stop(int);
-  void runServer();
-  void runServer(const char *,const char *);
+  int startServer();
+  bool stopServer(int);
+  void initiateServer();
+  void initiateServer(const char *,const char *);
   void registerService(Service *service);
-
+private:
   coap_context_t *ctx = nullptr; /*!< Coap context pointer variable */
 
   const char *port;/*!< const char variable to store port no */
