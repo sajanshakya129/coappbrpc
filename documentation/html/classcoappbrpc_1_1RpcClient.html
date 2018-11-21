@@ -79,14 +79,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a7b8bc754005e340d675684edae545084"><td class="memItemLeft" align="right" valign="top"><a id="a7b8bc754005e340d675684edae545084"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a7b8bc754005e340d675684edae545084">RpcClient</a> ()</td></tr>
+<tr class="memdesc:a7b8bc754005e340d675684edae545084"><td class="mdescLeft">&#160;</td><td class="mdescRight">RPC Client constructor. <br /></td></tr>
+<tr class="separator:a7b8bc754005e340d675684edae545084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b90b3ba0fef5ebd90748e454c1c7fd9"><td class="memItemLeft" align="right" valign="top"><a id="a9b90b3ba0fef5ebd90748e454c1c7fd9"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a9b90b3ba0fef5ebd90748e454c1c7fd9">~RpcClient</a> ()</td></tr>
 <tr class="memdesc:a9b90b3ba0fef5ebd90748e454c1c7fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">RPC Client Destructor. <br /></td></tr>
 <tr class="separator:a9b90b3ba0fef5ebd90748e454c1c7fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19f14a9f5ac45332f1656c0ab033dc09"><td class="memItemLeft" align="right" valign="top"><a id="a19f14a9f5ac45332f1656c0ab033dc09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a19f14a9f5ac45332f1656c0ab033dc09">runClient</a> ()</td></tr>
-<tr class="memdesc:a19f14a9f5ac45332f1656c0ab033dc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates data structure to be sent to Coap Client and executes coap client's executeClient function. <br /></td></tr>
-<tr class="separator:a19f14a9f5ac45332f1656c0ab033dc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17515cafc3ef2d46517ff18b165fb452"><td class="memItemLeft" align="right" valign="top"><a id="a17515cafc3ef2d46517ff18b165fb452"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a17515cafc3ef2d46517ff18b165fb452">createCoapPayload</a> (string)</td></tr>
+<tr class="memdesc:a17515cafc3ef2d46517ff18b165fb452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates data structure to be sent to Coap Client and executes coap client's executeClient function. <br /></td></tr>
+<tr class="separator:a17515cafc3ef2d46517ff18b165fb452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f08b63838a62377d4470eb2a0259178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a0f08b63838a62377d4470eb2a0259178">setResponse</a> (string)</td></tr>
 <tr class="memdesc:a0f08b63838a62377d4470eb2a0259178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter function to store response to m_response variable.  <a href="#a0f08b63838a62377d4470eb2a0259178">More...</a><br /></td></tr>
 <tr class="separator:a0f08b63838a62377d4470eb2a0259178"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,9 +101,6 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a69755d690a7f2d6373e191d359e48986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#a69755d690a7f2d6373e191d359e48986">setServerAddr</a> (string, string)</td></tr>
 <tr class="memdesc:a69755d690a7f2d6373e191d359e48986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter function to store ip address and port to m_address and m_port respectively.  <a href="#a69755d690a7f2d6373e191d359e48986">More...</a><br /></td></tr>
 <tr class="separator:a69755d690a7f2d6373e191d359e48986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe2dc0caa49442db4898379d040c8b64"><td class="memItemLeft" align="right" valign="top">Response&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcClient.html#afe2dc0caa49442db4898379d040c8b64">execFunc</a> (string, string, string, string)</td></tr>
-<tr class="memdesc:afe2dc0caa49442db4898379d040c8b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type Response.  <a href="#afe2dc0caa49442db4898379d040c8b64">More...</a><br /></td></tr>
-<tr class="separator:afe2dc0caa49442db4898379d040c8b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -111,57 +112,6 @@ static <a class="el" href="classcoappbrpc_1_1RpcClient.html">RpcClient</a> *&#16
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class contains methods to run client, set responses, get responses, setup server addresses and execute function which is called from client stubs. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="afe2dc0caa49442db4898379d040c8b64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe2dc0caa49442db4898379d040c8b64">&#9670;&nbsp;</a></span>execFunc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Response coappbrpc::RpcClient::execFunc </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>vers</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>serviceName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>method</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m_payload variable. This function calls runClient function. And after it receives response, it returns response as type Response. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">vers</td><td>version number defined in <a class="el" href="Config_8h.html" title="Config file defining RPC version. ">Config.h</a> file </td></tr>
-    <tr><td class="paramname">serviceName</td><td>Name of Service to be used for RPC calls </td></tr>
-    <tr><td class="paramname">method</td><td>Method name to be called when executing RPC </td></tr>
-    <tr><td class="paramname">msg</td><td>Serialized message to be sent to Server, contains defination of various parameters to a particular method. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a0f08b63838a62377d4470eb2a0259178"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f08b63838a62377d4470eb2a0259178">&#9670;&nbsp;</a></span>setResponse()</h2>
 

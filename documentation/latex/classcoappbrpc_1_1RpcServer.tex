@@ -2,7 +2,7 @@
 \label{classcoappbrpc_1_1RpcServer}\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
 
 
-This class consists of methods to register\+Service and run\+Server.  
+This class consists of methods to register\+Service and initiate\+Server.  
 
 
 
@@ -18,36 +18,42 @@ This class consists of methods to register\+Service and run\+Server.
 \mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a6fdde51aa522ed81525990fe2d969380}\label{classcoappbrpc_1_1RpcServer_a6fdde51aa522ed81525990fe2d969380}} 
 virtual \hyperlink{classcoappbrpc_1_1RpcServer_a6fdde51aa522ed81525990fe2d969380}{$\sim$\+Rpc\+Server} ()
 \begin{DoxyCompactList}\small\item\em Destructor Function. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a7658f607ecc19f8c05082363ffd5cd54}\label{classcoappbrpc_1_1RpcServer_a7658f607ecc19f8c05082363ffd5cd54}} 
-int \hyperlink{classcoappbrpc_1_1RpcServer_a7658f607ecc19f8c05082363ffd5cd54}{start} ()
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_aed271a2a7afc2bdf44d4375cce246f2f}\label{classcoappbrpc_1_1RpcServer_aed271a2a7afc2bdf44d4375cce246f2f}} 
+int \hyperlink{classcoappbrpc_1_1RpcServer_aed271a2a7afc2bdf44d4375cce246f2f}{start\+Server} ()
 \begin{DoxyCompactList}\small\item\em this function starts the coap server First it checks if the R\+PC server is running or not. Then it creates a coap context, handles coap resresources and runs the coap server. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a93a8e554d0e52b30b79ca8077f040bb2}\label{classcoappbrpc_1_1RpcServer_a93a8e554d0e52b30b79ca8077f040bb2}} 
-bool \hyperlink{classcoappbrpc_1_1RpcServer_a93a8e554d0e52b30b79ca8077f040bb2}{stop} (int)
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a494a1edf0c9d7b18d37af45e3967d1d6}\label{classcoappbrpc_1_1RpcServer_a494a1edf0c9d7b18d37af45e3967d1d6}} 
+bool \hyperlink{classcoappbrpc_1_1RpcServer_a494a1edf0c9d7b18d37af45e3967d1d6}{stop\+Server} (int)
 \begin{DoxyCompactList}\small\item\em This function stops the coap server It stops coap server, free coap context, cleanup memory allocations and resets running flag to false. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a453e2eb88b54439a1ba249ee66ee912e}\label{classcoappbrpc_1_1RpcServer_a453e2eb88b54439a1ba249ee66ee912e}} 
-void \hyperlink{classcoappbrpc_1_1RpcServer_a453e2eb88b54439a1ba249ee66ee912e}{run\+Server} ()
-\begin{DoxyCompactList}\small\item\em default run\+Server function which overloads if ip address and port is not given. \end{DoxyCompactList}\item 
-void \hyperlink{classcoappbrpc_1_1RpcServer_ac1742b534bbb7c0b054c40346c876cf5}{run\+Server} (const char $\ast$, const char $\ast$)
-\begin{DoxyCompactList}\small\item\em Setter function to set server ip address and port number and calls for \char`\"{}start\char`\"{} function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a1b68fbac53eeab5c2533603931e01f6a}\label{classcoappbrpc_1_1RpcServer_a1b68fbac53eeab5c2533603931e01f6a}} 
+void \hyperlink{classcoappbrpc_1_1RpcServer_a1b68fbac53eeab5c2533603931e01f6a}{initiate\+Server} ()
+\begin{DoxyCompactList}\small\item\em default initiate\+Server function which overloads if ip address and port is not given. \end{DoxyCompactList}\item 
+void \hyperlink{classcoappbrpc_1_1RpcServer_ae9dc062a4faf0591f6b8f70bfcf281a7}{initiate\+Server} (const char $\ast$, const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Setter function to set server ip address and port number and calls for \char`\"{}start\+Server\char`\"{} function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed. \end{DoxyCompactList}\item 
 void \hyperlink{classcoappbrpc_1_1RpcServer_acc9877a9bfff6783aa0261942d2917c2}{register\+Service} (Service $\ast$service)
 \begin{DoxyCompactList}\small\item\em This function calls handle\+Reg\+Service. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-coap\+\_\+context\+\_\+t $\ast$ \hyperlink{classcoappbrpc_1_1RpcServer_a34a0db66e265d8986dea6d9e360a7ca3}{ctx} = nullptr
-\item 
-const char $\ast$ \hyperlink{classcoappbrpc_1_1RpcServer_a9fec802c5d77b168560d14b73fc988e1}{port}
-\item 
-const char $\ast$ \hyperlink{classcoappbrpc_1_1RpcServer_a14953d39d8e53a7f3dcffde2d15734d0}{server\+Addr}
-\item 
-bool \hyperlink{classcoappbrpc_1_1RpcServer_a5110ce6a1447e421359982aff15744e2}{running} = false
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This class consists of methods to register\+Service and run\+Server. 
+This class consists of methods to register\+Service and initiate\+Server. 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_ae9dc062a4faf0591f6b8f70bfcf281a7}\label{classcoappbrpc_1_1RpcServer_ae9dc062a4faf0591f6b8f70bfcf281a7}} 
+\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!initiate\+Server@{initiate\+Server}}
+\index{initiate\+Server@{initiate\+Server}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
+\subsubsection{\texorpdfstring{initiate\+Server()}{initiateServer()}}
+{\footnotesize\ttfamily void coappbrpc\+::\+Rpc\+Server\+::initiate\+Server (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ip\+Addr,  }\item[{const char $\ast$}]{port }\end{DoxyParamCaption})}
+
+
+
+Setter function to set server ip address and port number and calls for \char`\"{}start\+Server\char`\"{} function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip\+Addr} & Ip Address reference variable \\
+\hline
+{\em port} & port reference variable \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_acc9877a9bfff6783aa0261942d2917c2}\label{classcoappbrpc_1_1RpcServer_acc9877a9bfff6783aa0261942d2917c2}} 
 \index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!register\+Service@{register\+Service}}
 \index{register\+Service@{register\+Service}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
@@ -63,51 +69,7 @@ This function calls handle\+Reg\+Service.
 {\em service} & Type Service defined in protobuf services \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_ac1742b534bbb7c0b054c40346c876cf5}\label{classcoappbrpc_1_1RpcServer_ac1742b534bbb7c0b054c40346c876cf5}} 
-\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!run\+Server@{run\+Server}}
-\index{run\+Server@{run\+Server}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
-\subsubsection{\texorpdfstring{run\+Server()}{runServer()}}
-{\footnotesize\ttfamily void coappbrpc\+::\+Rpc\+Server\+::run\+Server (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ip\+Addr,  }\item[{const char $\ast$}]{port }\end{DoxyParamCaption})}
 
-
-
-Setter function to set server ip address and port number and calls for \char`\"{}start\char`\"{} function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em ip\+Addr} & Ip Address reference variable \\
-\hline
-{\em port} & port reference variable \\
-\hline
-\end{DoxyParams}
-
-
-\subsection{Member Data Documentation}
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a34a0db66e265d8986dea6d9e360a7ca3}\label{classcoappbrpc_1_1RpcServer_a34a0db66e265d8986dea6d9e360a7ca3}} 
-\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!ctx@{ctx}}
-\index{ctx@{ctx}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
-\subsubsection{\texorpdfstring{ctx}{ctx}}
-{\footnotesize\ttfamily coap\+\_\+context\+\_\+t$\ast$ coappbrpc\+::\+Rpc\+Server\+::ctx = nullptr}
-
-Coap context pointer variable \mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a9fec802c5d77b168560d14b73fc988e1}\label{classcoappbrpc_1_1RpcServer_a9fec802c5d77b168560d14b73fc988e1}} 
-\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!port@{port}}
-\index{port@{port}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
-\subsubsection{\texorpdfstring{port}{port}}
-{\footnotesize\ttfamily const char$\ast$ coappbrpc\+::\+Rpc\+Server\+::port}
-
-const char variable to store port no \mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a5110ce6a1447e421359982aff15744e2}\label{classcoappbrpc_1_1RpcServer_a5110ce6a1447e421359982aff15744e2}} 
-\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!running@{running}}
-\index{running@{running}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
-\subsubsection{\texorpdfstring{running}{running}}
-{\footnotesize\ttfamily bool coappbrpc\+::\+Rpc\+Server\+::running = false}
-
-boolean variable to flag whether R\+PC is running or not \mbox{\Hypertarget{classcoappbrpc_1_1RpcServer_a14953d39d8e53a7f3dcffde2d15734d0}\label{classcoappbrpc_1_1RpcServer_a14953d39d8e53a7f3dcffde2d15734d0}} 
-\index{coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}!server\+Addr@{server\+Addr}}
-\index{server\+Addr@{server\+Addr}!coappbrpc\+::\+Rpc\+Server@{coappbrpc\+::\+Rpc\+Server}}
-\subsubsection{\texorpdfstring{server\+Addr}{serverAddr}}
-{\footnotesize\ttfamily const char$\ast$ coappbrpc\+::\+Rpc\+Server\+::server\+Addr}
-
-const char variable to store IP address 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

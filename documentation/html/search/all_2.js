@@ -15,5 +15,5 @@ var searchData=
   ['config_2eh',['Config.h',['../Config_8h.html',1,'']]],
   ['controllerrpc',['ControllerRPC',['../classcoappbrpc_1_1ControllerRPC.html',1,'coappbrpc']]],
   ['controllerrpc_2eh',['ControllerRPC.h',['../ControllerRPC_8h.html',1,'']]],
-  ['ctx',['ctx',['../classcoappbrpc_1_1RpcServer.html#a34a0db66e265d8986dea6d9e360a7ca3',1,'coappbrpc::RpcServer']]]
+  ['createcoappayload',['createCoapPayload',['../classcoappbrpc_1_1RpcClient.html#a17515cafc3ef2d46517ff18b165fb452',1,'coappbrpc::RpcClient']]]
 ];
