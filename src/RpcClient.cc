@@ -46,14 +46,14 @@ RpcClient *RpcClient::getInstance() {
 */
 void RpcClient::createCoapPayload(string rpc_payload) {
   // creates structure to run coap
-  CoapClient coap_client;
+  CoapClient *coap_client = new CoapClient();
   ClientParams coap_client_payload;
   coap_client_payload.addr = this->m_address;
   coap_client_payload.port = this->m_port;
   coap_client_payload.methodType = COAP_REQUEST_POST;
   coap_client_payload.interface = COAP_INTERFACE_NAME;
   coap_client_payload.payload = rpc_payload;
-  coap_client.executeClient(coap_client_payload);
+  coap_client->executeClient(coap_client_payload);
 }
 
 /*! \fn void RpcClient::setResponse(string resp)

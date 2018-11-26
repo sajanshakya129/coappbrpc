@@ -22,7 +22,6 @@
 
 #include "CoapCommon.h"
 #include "HandleService.h"
-
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
 using ::google::protobuf::Service;
@@ -47,7 +46,6 @@ public:
   void registerService(Service *service);
 private:
   coap_context_t *ctx = nullptr; /*!< Coap context pointer variable */
-
   const char *port;/*!< const char variable to store port no */
   const char *serverAddr;/*!< const char variable to store IP address */
   bool running = false;/*!< boolean variable to flag whether RPC is running or not */

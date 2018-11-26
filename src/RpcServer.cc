@@ -150,6 +150,6 @@ bool RpcServer::stopServer(int result) {
     \brief This function calls handleRegService
     \param service Type Service defined in protobuf services
 */
-void RpcServer::registerService(Service *service) { handleRegService(service); }
+void RpcServer::registerService(Service *service) {handleRegService(service);}
 
 } // namespace coappbrpc
