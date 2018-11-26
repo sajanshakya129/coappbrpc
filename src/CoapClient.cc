@@ -52,7 +52,7 @@ void CoapClient::clientHandler(struct coap_context_t *ctx,
 */
 
 int CoapClient::executeClient(ClientParams params) {
-  CoapCommon common;
+  CoapCommon *common= new CoapCommon();
   coap_context_t *ctx = nullptr;
   coap_session_t *session = nullptr;
   coap_address_t dst;
@@ -68,7 +68,7 @@ int CoapClient::executeClient(ClientParams params) {
 
   coap_startup();
   /* resolve destination address where server should be sent */
-  if (common.resolveAddress(params.addr.c_str(), params.port.c_str(), &dst) <
+  if (common->resolveAddress(params.addr.c_str(), params.port.c_str(), &dst) <
       0) {
     coap_log(LOG_CRIT, "failed to resolve address\n");
     goto finish;
@@ -116,6 +116,7 @@ finish:
   coap_session_release(session);
   coap_free_context(ctx);
   coap_cleanup();
+  delete common;
 
   return result;
 }
