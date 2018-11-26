@@ -1,5 +1,10 @@
 # Protobuf RPC over CoAP protocol(UDP)
 
+<a href="https://scan.coverity.com/projects/sajanshakya129-coappbrpc">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/17289/badge.svg"/>
+</a>
+
 This library is developed to create a RPC that utilises features of CoAP protocol which uses UDP for transport. 
 Protobuf is used as Interface Definition language(IDL). The goal is to use this RPC library over Constrained IoT devices.
 

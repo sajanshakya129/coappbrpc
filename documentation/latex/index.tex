@@ -14,19 +14,11 @@ sudo apt-get install cmake build-essential dh-autoreconf python python-pip
 
 Follow the following link and https\+://github.com/protocolbuffers/protobuf/blob/master/src/\+R\+E\+A\+D\+M\+E.\+md \char`\"{}install protobuf\char`\"{} Or follow the following steps 
 \begin{DoxyCode}
-git clone https://github.com/protocolbuffers/protobuf.git
-cd protobuf
-git submodule update --init --recursive
-./autogen.sh
-./configure
-make
-make check
-sudo make install
-sudo ldconfig # refresh shared library cache.
+sudo apt-get install libprotobuf-dev protobuf-compiler
 \end{DoxyCode}
 
 
-\#\#\#\# Lib\+Co\+AP Library Installation 
+\#\#\#\# Lib\+Co\+AP version 2 Library Installation 
 \begin{DoxyCode}
 git clone https://github.com/obgm/libcoap.git
 cd libcoap

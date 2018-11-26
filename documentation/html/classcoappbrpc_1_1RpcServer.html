@@ -65,14 +65,13 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classcoappbrpc_1_1RpcServer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">coappbrpc::RpcServer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This class consists of methods to registerService and runServer.  
+<p>This class consists of methods to registerService and initiateServer.  
  <a href="classcoappbrpc_1_1RpcServer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="RpcServer_8h_source.html">RpcServer.h</a>&gt;</code></p>
@@ -87,39 +86,65 @@ Public Member Functions</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a6fdde51aa522ed81525990fe2d969380">~RpcServer</a> ()</td></tr>
 <tr class="memdesc:a6fdde51aa522ed81525990fe2d969380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor Function. <br /></td></tr>
 <tr class="separator:a6fdde51aa522ed81525990fe2d969380"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7658f607ecc19f8c05082363ffd5cd54"><td class="memItemLeft" align="right" valign="top"><a id="a7658f607ecc19f8c05082363ffd5cd54"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a7658f607ecc19f8c05082363ffd5cd54">start</a> ()</td></tr>
-<tr class="memdesc:a7658f607ecc19f8c05082363ffd5cd54"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function starts the coap server First it checks if the RPC server is running or not. Then it creates a coap context, handles coap resresources and runs the coap server. <br /></td></tr>
-<tr class="separator:a7658f607ecc19f8c05082363ffd5cd54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a8e554d0e52b30b79ca8077f040bb2"><td class="memItemLeft" align="right" valign="top"><a id="a93a8e554d0e52b30b79ca8077f040bb2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a93a8e554d0e52b30b79ca8077f040bb2">stop</a> (int)</td></tr>
-<tr class="memdesc:a93a8e554d0e52b30b79ca8077f040bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function stops the coap server It stops coap server, free coap context, cleanup memory allocations and resets running flag to false. <br /></td></tr>
-<tr class="separator:a93a8e554d0e52b30b79ca8077f040bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a453e2eb88b54439a1ba249ee66ee912e"><td class="memItemLeft" align="right" valign="top"><a id="a453e2eb88b54439a1ba249ee66ee912e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a453e2eb88b54439a1ba249ee66ee912e">runServer</a> ()</td></tr>
-<tr class="memdesc:a453e2eb88b54439a1ba249ee66ee912e"><td class="mdescLeft">&#160;</td><td class="mdescRight">default runServer function which overloads if ip address and port is not given. <br /></td></tr>
-<tr class="separator:a453e2eb88b54439a1ba249ee66ee912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1742b534bbb7c0b054c40346c876cf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#ac1742b534bbb7c0b054c40346c876cf5">runServer</a> (const char *, const char *)</td></tr>
-<tr class="memdesc:ac1742b534bbb7c0b054c40346c876cf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter function to set server ip address and port number and calls for "start" function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed.  <a href="#ac1742b534bbb7c0b054c40346c876cf5">More...</a><br /></td></tr>
-<tr class="separator:ac1742b534bbb7c0b054c40346c876cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed271a2a7afc2bdf44d4375cce246f2f"><td class="memItemLeft" align="right" valign="top"><a id="aed271a2a7afc2bdf44d4375cce246f2f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#aed271a2a7afc2bdf44d4375cce246f2f">startServer</a> ()</td></tr>
+<tr class="memdesc:aed271a2a7afc2bdf44d4375cce246f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function starts the coap server First it checks if the RPC server is running or not. Then it creates a coap context, handles coap resresources and runs the coap server. <br /></td></tr>
+<tr class="separator:aed271a2a7afc2bdf44d4375cce246f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494a1edf0c9d7b18d37af45e3967d1d6"><td class="memItemLeft" align="right" valign="top"><a id="a494a1edf0c9d7b18d37af45e3967d1d6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a494a1edf0c9d7b18d37af45e3967d1d6">stopServer</a> (int)</td></tr>
+<tr class="memdesc:a494a1edf0c9d7b18d37af45e3967d1d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function stops the coap server It stops coap server, free coap context, cleanup memory allocations and resets running flag to false. <br /></td></tr>
+<tr class="separator:a494a1edf0c9d7b18d37af45e3967d1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b68fbac53eeab5c2533603931e01f6a"><td class="memItemLeft" align="right" valign="top"><a id="a1b68fbac53eeab5c2533603931e01f6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a1b68fbac53eeab5c2533603931e01f6a">initiateServer</a> ()</td></tr>
+<tr class="memdesc:a1b68fbac53eeab5c2533603931e01f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">default initiateServer function which overloads if ip address and port is not given. <br /></td></tr>
+<tr class="separator:a1b68fbac53eeab5c2533603931e01f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9dc062a4faf0591f6b8f70bfcf281a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#ae9dc062a4faf0591f6b8f70bfcf281a7">initiateServer</a> (const char *, const char *)</td></tr>
+<tr class="memdesc:ae9dc062a4faf0591f6b8f70bfcf281a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter function to set server ip address and port number and calls for "startServer" function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed.  <a href="#ae9dc062a4faf0591f6b8f70bfcf281a7">More...</a><br /></td></tr>
+<tr class="separator:ae9dc062a4faf0591f6b8f70bfcf281a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc9877a9bfff6783aa0261942d2917c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#acc9877a9bfff6783aa0261942d2917c2">registerService</a> (Service *service)</td></tr>
 <tr class="memdesc:acc9877a9bfff6783aa0261942d2917c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calls handleRegService.  <a href="#acc9877a9bfff6783aa0261942d2917c2">More...</a><br /></td></tr>
 <tr class="separator:acc9877a9bfff6783aa0261942d2917c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a34a0db66e265d8986dea6d9e360a7ca3"><td class="memItemLeft" align="right" valign="top">coap_context_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a34a0db66e265d8986dea6d9e360a7ca3">ctx</a> = nullptr</td></tr>
-<tr class="separator:a34a0db66e265d8986dea6d9e360a7ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fec802c5d77b168560d14b73fc988e1"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a9fec802c5d77b168560d14b73fc988e1">port</a></td></tr>
-<tr class="separator:a9fec802c5d77b168560d14b73fc988e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14953d39d8e53a7f3dcffde2d15734d0"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a14953d39d8e53a7f3dcffde2d15734d0">serverAddr</a></td></tr>
-<tr class="separator:a14953d39d8e53a7f3dcffde2d15734d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5110ce6a1447e421359982aff15744e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1RpcServer.html#a5110ce6a1447e421359982aff15744e2">running</a> = false</td></tr>
-<tr class="separator:a5110ce6a1447e421359982aff15744e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class consists of methods to registerService and runServer. </p>
+<div class="textblock"><p>This class consists of methods to registerService and initiateServer. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae9dc062a4faf0591f6b8f70bfcf281a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9dc062a4faf0591f6b8f70bfcf281a7">&#9670;&nbsp;</a></span>initiateServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void coappbrpc::RpcServer::initiateServer </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ipAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>port</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter function to set server ip address and port number and calls for "startServer" function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ipAddr</td><td>Ip Address reference variable </td></tr>
+    <tr><td class="paramname">port</td><td>port reference variable </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acc9877a9bfff6783aa0261942d2917c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc9877a9bfff6783aa0261942d2917c2">&#9670;&nbsp;</a></span>registerService()</h2>
 
@@ -143,104 +168,6 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ac1742b534bbb7c0b054c40346c876cf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1742b534bbb7c0b054c40346c876cf5">&#9670;&nbsp;</a></span>runServer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void coappbrpc::RpcServer::runServer </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>ipAddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>port</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Setter function to set server ip address and port number and calls for "start" function to run Server. Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ipAddr</td><td>Ip Address reference variable </td></tr>
-    <tr><td class="paramname">port</td><td>port reference variable </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a34a0db66e265d8986dea6d9e360a7ca3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34a0db66e265d8986dea6d9e360a7ca3">&#9670;&nbsp;</a></span>ctx</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">coap_context_t* coappbrpc::RpcServer::ctx = nullptr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Coap context pointer variable </p>
-
-</div>
-</div>
-<a id="a9fec802c5d77b168560d14b73fc988e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fec802c5d77b168560d14b73fc988e1">&#9670;&nbsp;</a></span>port</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* coappbrpc::RpcServer::port</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>const char variable to store port no </p>
-
-</div>
-</div>
-<a id="a5110ce6a1447e421359982aff15744e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5110ce6a1447e421359982aff15744e2">&#9670;&nbsp;</a></span>running</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool coappbrpc::RpcServer::running = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>boolean variable to flag whether RPC is running or not </p>
-
-</div>
-</div>
-<a id="a14953d39d8e53a7f3dcffde2d15734d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14953d39d8e53a7f3dcffde2d15734d0">&#9670;&nbsp;</a></span>serverAddr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* coappbrpc::RpcServer::serverAddr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>const char variable to store IP address </p>
 
 </div>
 </div>

@@ -12,11 +12,14 @@ This class contains methods to run client, set responses, get responses, setup s
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_a7b8bc754005e340d675684edae545084}\label{classcoappbrpc_1_1RpcClient_a7b8bc754005e340d675684edae545084}} 
+\hyperlink{classcoappbrpc_1_1RpcClient_a7b8bc754005e340d675684edae545084}{Rpc\+Client} ()
+\begin{DoxyCompactList}\small\item\em R\+PC Client constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_a9b90b3ba0fef5ebd90748e454c1c7fd9}\label{classcoappbrpc_1_1RpcClient_a9b90b3ba0fef5ebd90748e454c1c7fd9}} 
 virtual \hyperlink{classcoappbrpc_1_1RpcClient_a9b90b3ba0fef5ebd90748e454c1c7fd9}{$\sim$\+Rpc\+Client} ()
 \begin{DoxyCompactList}\small\item\em R\+PC Client Destructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_a19f14a9f5ac45332f1656c0ab033dc09}\label{classcoappbrpc_1_1RpcClient_a19f14a9f5ac45332f1656c0ab033dc09}} 
-void \hyperlink{classcoappbrpc_1_1RpcClient_a19f14a9f5ac45332f1656c0ab033dc09}{run\+Client} ()
+\mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_a17515cafc3ef2d46517ff18b165fb452}\label{classcoappbrpc_1_1RpcClient_a17515cafc3ef2d46517ff18b165fb452}} 
+void \hyperlink{classcoappbrpc_1_1RpcClient_a17515cafc3ef2d46517ff18b165fb452}{create\+Coap\+Payload} (string)
 \begin{DoxyCompactList}\small\item\em Creates data structure to be sent to Coap Client and executes coap client\textquotesingle{}s execute\+Client function. \end{DoxyCompactList}\item 
 void \hyperlink{classcoappbrpc_1_1RpcClient_a0f08b63838a62377d4470eb2a0259178}{set\+Response} (string)
 \begin{DoxyCompactList}\small\item\em Setter function to store response to m\+\_\+response variable. \end{DoxyCompactList}\item 
@@ -24,9 +27,7 @@ void \hyperlink{classcoappbrpc_1_1RpcClient_a0f08b63838a62377d4470eb2a0259178}{s
 string \hyperlink{classcoappbrpc_1_1RpcClient_ac79e3b2a76335a214cbe1c6f169d46c2}{get\+Response} ()
 \begin{DoxyCompactList}\small\item\em Getter function to get response stored in m\+\_\+response variable. \end{DoxyCompactList}\item 
 void \hyperlink{classcoappbrpc_1_1RpcClient_a69755d690a7f2d6373e191d359e48986}{set\+Server\+Addr} (string, string)
-\begin{DoxyCompactList}\small\item\em Setter function to store ip address and port to m\+\_\+address and m\+\_\+port respectively. \end{DoxyCompactList}\item 
-Response \hyperlink{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}{exec\+Func} (string, string, string, string)
-\begin{DoxyCompactList}\small\item\em Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m\+\_\+payload variable. This function calls run\+Client function. And after it receives response, it returns response as type Response. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Setter function to store ip address and port to m\+\_\+address and m\+\_\+port respectively. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,27 +40,6 @@ static \hyperlink{classcoappbrpc_1_1RpcClient}{Rpc\+Client} $\ast$ \hyperlink{cl
 This class contains methods to run client, set responses, get responses, setup server addresses and execute function which is called from client stubs. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}\label{classcoappbrpc_1_1RpcClient_afe2dc0caa49442db4898379d040c8b64}} 
-\index{coappbrpc\+::\+Rpc\+Client@{coappbrpc\+::\+Rpc\+Client}!exec\+Func@{exec\+Func}}
-\index{exec\+Func@{exec\+Func}!coappbrpc\+::\+Rpc\+Client@{coappbrpc\+::\+Rpc\+Client}}
-\subsubsection{\texorpdfstring{exec\+Func()}{execFunc()}}
-{\footnotesize\ttfamily Response coappbrpc\+::\+Rpc\+Client\+::exec\+Func (\begin{DoxyParamCaption}\item[{string}]{vers,  }\item[{string}]{service\+Name,  }\item[{string}]{method,  }\item[{string}]{msg }\end{DoxyParamCaption})}
-
-
-
-Creates protocol buffer data structure containing version number, services, methods, method parameters, unique Random ids. Then it serializes the data into string and stores it in m\+\_\+payload variable. This function calls run\+Client function. And after it receives response, it returns response as type Response. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em vers} & version number defined in \hyperlink{Config_8h}{Config.\+h} file \\
-\hline
-{\em service\+Name} & Name of Service to be used for R\+PC calls \\
-\hline
-{\em method} & Method name to be called when executing R\+PC \\
-\hline
-{\em msg} & Serialized message to be sent to Server, contains defination of various parameters to a particular method. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classcoappbrpc_1_1RpcClient_a0f08b63838a62377d4470eb2a0259178}\label{classcoappbrpc_1_1RpcClient_a0f08b63838a62377d4470eb2a0259178}} 
 \index{coappbrpc\+::\+Rpc\+Client@{coappbrpc\+::\+Rpc\+Client}!set\+Response@{set\+Response}}
 \index{set\+Response@{set\+Response}!coappbrpc\+::\+Rpc\+Client@{coappbrpc\+::\+Rpc\+Client}}
