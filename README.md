@@ -101,7 +101,7 @@ sudo uninstall_coappbrpc.sh
 * **Sajan Shakya** - *Initial work* - [Github](https://github.com/sajanshakya129)
 
 ## References
-This library was created referring to library [LibPbrpc](https://github.com/madwyn/libpbrpc) and gRPC.
+This library was created referring to library [LibPbrpc](https://github.com/madwyn/libpbrpc) and [gRPC](https://grpc.io/).
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
