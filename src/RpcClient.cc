@@ -40,16 +40,18 @@ RpcClient *RpcClient::getInstance() {
 
 /*! \fn void RpcClient::createCoapPayload()
     \brief Creates data structure to be sent to Coap Client and executes coap
-   client's executeClient function
+   client's executeClient function, generates random token using Mersenne
+   Twister pseudo-random generator and uniform discrete distribution
 */
 void RpcClient::createCoapPayload(string rpc_payload) {
   // creates structure to run coap
-  //Generating TOKEN
-  std::mt19937 rng; //A Mersenne Twister pseudo-random generator
-  rng.seed(std::random_device()());//random seed used
+  // Generating TOKEN
+  std::mt19937 rng; // A Mersenne Twister pseudo-random generator
+  rng.seed(std::random_device()()); // random seed used
   std::uniform_int_distribution<std::mt19937::result_type> dist16(
-      1, 65536); // uniform discrete distribution in range [1, 65536] 16 bit integer
-  int randomToken=dist16(rng);
+      1, 65536); // uniform discrete distribution in range [1, 65536] 16 bit
+                 // integer
+  int randomToken = dist16(rng);
   CoapClient *coap_client = new CoapClient();
   ClientParams coap_client_payload;
   coap_client_payload.addr = this->m_address;

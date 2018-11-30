@@ -111,10 +111,13 @@ int CoapClient::executeClient(ClientParams params) {
 
   coap_register_response_handler(ctx, clientHandler);
 
-  /* construct CoAP message */
-  pdu = coap_pdu_init(COAP_MESSAGE_CON, params.methodType,
-                      coap_new_message_id(session),
-                      coap_session_max_pdu_size(session));
+  /* construct PDU for COAP message */
+  pdu = coap_new_pdu(session);
+  pdu->type = COAP_MESSAGE_CON;
+  pdu->tid = coap_new_message_id(session);
+  pdu->code = params.methodType;
+
+
   if (!pdu) {
     coap_log(LOG_EMERG, "cannot create PDU\n");
     goto finish;

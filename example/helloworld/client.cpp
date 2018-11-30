@@ -39,4 +39,9 @@ int main(void) {
   GreeterClient greeter;
   std::string reply = greeter.SayHello(user);
   std::cout << "Greeter received: " << reply << std::endl;
+
+  std::string user1("Harry Porter");
+  std::string reply2 = greeter.SayHello(user1);
+  std::cout << "User 1 Greeter received: " << reply2 << std::endl;
+
 }
