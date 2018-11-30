@@ -16,6 +16,10 @@
 using ::coappbrpc::RpcClient;
 
 namespace coappbrpc {
+
+static unsigned char _token_data[8];
+coap_string_t the_token = { 0, _token_data };
+
 /*! \fn void CoapClient::clientHandler(struct coap_context_t *ctx,
                                 coap_session_t *session, coap_pdu_t *sent,
                                 coap_pdu_t *received, const coap_tid_t id)
@@ -29,11 +33,31 @@ namespace coappbrpc {
    \param received CoAP PDU received back from server
    \param id CoAP transaction Id of type const  coap_tid_t
 */
+static inline int
+check_token(coap_pdu_t *received) {
+  return received->token_length == the_token.length &&
+    memcmp(received->token, the_token.s, the_token.length) == 0;
+}
+
 void CoapClient::clientHandler(struct coap_context_t *ctx,
                                coap_session_t *session, coap_pdu_t *sent,
                                coap_pdu_t *received, const coap_tid_t id) {
   unsigned char *data;
   size_t data_len;
+  if (!check_token(received)) {
+    /* drop if this was just some message, or send RST in case of notification
+     */
+    if (!sent && (received->type == COAP_MESSAGE_CON ||
+                  received->type == COAP_MESSAGE_NON))
+      coap_send_rst(session, received);
+    return;
+  }
+
+  if (received->type == COAP_MESSAGE_RST) {
+    info("got RST\n");
+    return;
+  }
+
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
       std::string strData(reinterpret_cast<char *>(data));
@@ -52,16 +76,18 @@ void CoapClient::clientHandler(struct coap_context_t *ctx,
 */
 
 int CoapClient::executeClient(ClientParams params) {
-  CoapCommon *common= new CoapCommon();
+  CoapCommon *common = new CoapCommon();
   coap_context_t *ctx = nullptr;
   coap_session_t *session = nullptr;
   coap_address_t dst;
   coap_pdu_t *pdu = nullptr;
   int result = EXIT_FAILURE;
-
-  static unsigned char _token_data[8];
-  coap_binary_t the_token = { 0, _token_data };
   
+  the_token.length = min(sizeof(_token_data), strlen((char *)params.tokenData));
+  if (the_token.length > 0) {
+    memcpy((char *)the_token.s, params.tokenData, the_token.length);
+  }
+
   const char *payload_data =
       params.payload.c_str(); // converting binary encoded data to const char*
   size_t data_length = strlen(payload_data); // length of payload_data
@@ -86,14 +112,16 @@ int CoapClient::executeClient(ClientParams params) {
   coap_register_response_handler(ctx, clientHandler);
 
   /* construct CoAP message */
-  pdu = coap_pdu_init(COAP_MESSAGE_CON, params.methodType, coap_new_message_id(session),
+  pdu = coap_pdu_init(COAP_MESSAGE_CON, params.methodType,
+                      coap_new_message_id(session),
                       coap_session_max_pdu_size(session));
   if (!pdu) {
     coap_log(LOG_EMERG, "cannot create PDU\n");
     goto finish;
   }
   /* Adding Token */
-  if ( !coap_add_token(pdu, the_token.length, the_token.s)) {
+
+  if (!coap_add_token(pdu,the_token.length, the_token.s)) {
     coap_log(LOG_DEBUG, "cannot add token to request\n");
   }
 

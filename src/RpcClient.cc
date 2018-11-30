@@ -12,27 +12,25 @@
  * execution of CoAP protocol **/
 #include "RpcClient.h"
 
+#include <random>
 namespace coappbrpc {
 RpcClient *RpcClient::m_instance = 0; // initializing instance
 
 /*! \fn RpcClient::RpcClient()
     \brief RPC Client constructor
 */
-RpcClient::RpcClient() {
-
-}
+RpcClient::RpcClient() {}
 
 /*! \fn RpcClient::~RpcClient()
     \brief RPC Client Destructor
 */
-RpcClient::~RpcClient() {
-}
+RpcClient::~RpcClient() {}
 
 /*! \fn RpcClient *RpcClient::getInstance()
     \brief getting new clientRPC instance
 */
 
-RpcClient *RpcClient::getInstance() { 
+RpcClient *RpcClient::getInstance() {
   if (m_instance == 0) {
     m_instance = new RpcClient();
   }
@@ -46,6 +44,12 @@ RpcClient *RpcClient::getInstance() {
 */
 void RpcClient::createCoapPayload(string rpc_payload) {
   // creates structure to run coap
+  //Generating TOKEN
+  std::mt19937 rng; //A Mersenne Twister pseudo-random generator
+  rng.seed(std::random_device()());//random seed used
+  std::uniform_int_distribution<std::mt19937::result_type> dist16(
+      1, 65536); // uniform discrete distribution in range [1, 65536] 16 bit integer
+  int randomToken=dist16(rng);
   CoapClient *coap_client = new CoapClient();
   ClientParams coap_client_payload;
   coap_client_payload.addr = this->m_address;
@@ -53,6 +57,7 @@ void RpcClient::createCoapPayload(string rpc_payload) {
   coap_client_payload.methodType = COAP_REQUEST_POST;
   coap_client_payload.interface = COAP_INTERFACE_NAME;
   coap_client_payload.payload = rpc_payload;
+  memcpy(coap_client_payload.tokenData, (char *)&randomToken, 8);
   coap_client->executeClient(coap_client_payload);
 }
 

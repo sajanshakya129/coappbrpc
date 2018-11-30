@@ -22,11 +22,14 @@ using namespace std;
  *
  */
 typedef struct {
-  string addr;/*!< IP address either IPv4 or global IPv6 */
-  string port;/*!< Port number, Default is port number 5683 */
-  int methodType;/*!< Method Name defined in proto file*/
-  string interface;/*!< Interface is "rpc" defined as COAP_INTERFACE_NAME in CoapCommon.h file*/
-  string payload;/*!< Payload is encoded stringified data to be sent to coap server*/
+  string addr;      /*!< IP address either IPv4 or global IPv6 */
+  string port;      /*!< Port number, Default is port number 5683 */
+  int methodType;   /*!< Method Name defined in proto file*/
+  string interface; /*!< Interface is "rpc" defined as COAP_INTERFACE_NAME in
+                       CoapCommon.h file*/
+  string payload;   /*!< Payload is encoded stringified data to be sent to coap
+                       server*/
+  unsigned char tokenData[8]; /*token  is upto 8 byte random integer number*/
 } ClientParams;
 
 namespace coappbrpc {
@@ -41,10 +44,10 @@ namespace coappbrpc {
  */
 class CoapClient {
 public:
-  string payload;/*!< string to hold value of payload */
+  string payload; /*!< string to hold value of payload */
   static void clientHandler(struct coap_context_t *, coap_session_t *,
                             coap_pdu_t *, coap_pdu_t *, const coap_tid_t);
-  static int executeClient(ClientParams);
+  int executeClient(ClientParams);
 };
 } // namespace coappbrpc
 #endif //__CoapClient_H_INCLUDED_
