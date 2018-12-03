@@ -71,8 +71,8 @@ ServiceManager::getMethod(const string &serviceName,
   return getServiceRPC(serviceName)->getMethod(methodName);
 }
 
-/*! \fn void genResponse(string &ret, Response &rpcResponse, Message *response,ControllerRPC *controller)
-   \brief inline function that gets method
+/*! \fn void genResponse(string &ret, Response &rpcResponse, Message
+   *response,ControllerRPC *controller) \brief inline function that gets method
    of a particular service
    \param ret pointer address to store returned string
    \param rpcResponse response from RPC of type Response

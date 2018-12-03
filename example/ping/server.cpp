@@ -1,5 +1,5 @@
+#include "rpc_ping.pb.h"         //protobuf output file
 #include <coappbrpc/RpcServer.h> //for server rpc handling
-#include "rpc_ping.pb.h" //protobuf output file
 
 using ::coappbrpc::RpcServer;
 
@@ -28,8 +28,8 @@ public:
 int main() {
   RpcServer server;
   server.registerService(new ::coappbrpc::api::PingServiceImpl());
-  //server.initiateServer();
-  server.initiateServer("localhost","5683");
-  //server.initiateServer("::1","5683"); //Ipv6
+  // server.initiateServer();
+  server.initiateServer("localhost", "5683");
+  // server.initiateServer("::1","5683"); //Ipv6
   return 0;
 }

@@ -18,7 +18,7 @@ using ::coappbrpc::RpcClient;
 namespace coappbrpc {
 
 static unsigned char _token_data[8];
-coap_string_t the_token = { 0, _token_data };
+coap_string_t the_token = {0, _token_data};
 
 /*! \fn void CoapClient::clientHandler(struct coap_context_t *ctx,
                                 coap_session_t *session, coap_pdu_t *sent,
@@ -33,10 +33,9 @@ coap_string_t the_token = { 0, _token_data };
    \param received CoAP PDU received back from server
    \param id CoAP transaction Id of type const  coap_tid_t
 */
-static inline int
-check_token(coap_pdu_t *received) {
+static inline int check_token(coap_pdu_t *received) {
   return received->token_length == the_token.length &&
-    memcmp(received->token, the_token.s, the_token.length) == 0;
+         memcmp(received->token, the_token.s, the_token.length) == 0;
 }
 
 void CoapClient::clientHandler(struct coap_context_t *ctx,
@@ -59,17 +58,16 @@ void CoapClient::clientHandler(struct coap_context_t *ctx,
   }
   std::string strData(reinterpret_cast<char *>(data));
   RpcClient *client_ret = RpcClient::getInstance();
-  
+
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
       client_ret->setResponse(strData);
     }
-  }else if(COAP_RESPONSE_CLASS(received->code) == 4){
-       coap_log(LOG_CRIT, "Client side error: check parameters");
+  } else if (COAP_RESPONSE_CLASS(received->code) == 4) {
+    coap_log(LOG_CRIT, "Client side error: check parameters");
 
-  }else if(COAP_RESPONSE_CLASS(received->code) == 3){
-     coap_log(LOG_CRIT, "Server Error");
-
+  } else if (COAP_RESPONSE_CLASS(received->code) == 3) {
+    coap_log(LOG_CRIT, "Server Error");
   }
 }
 
@@ -88,7 +86,7 @@ int CoapClient::executeClient(ClientParams params) {
   coap_address_t dst;
   coap_pdu_t *pdu = nullptr;
   int result = EXIT_FAILURE;
-  
+
   the_token.length = min(sizeof(_token_data), strlen((char *)params.tokenData));
   if (the_token.length > 0) {
     memcpy((char *)the_token.s, params.tokenData, the_token.length);
@@ -123,14 +121,13 @@ int CoapClient::executeClient(ClientParams params) {
   pdu->tid = coap_new_message_id(session);
   pdu->code = params.methodType;
 
-
   if (!pdu) {
     coap_log(LOG_EMERG, "cannot create PDU\n");
     goto finish;
   }
   /* Adding Token */
 
-  if (!coap_add_token(pdu,the_token.length, the_token.s)) {
+  if (!coap_add_token(pdu, the_token.length, the_token.s)) {
     coap_log(LOG_DEBUG, "cannot add token to request\n");
   }
 

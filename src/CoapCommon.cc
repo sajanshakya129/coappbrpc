@@ -17,7 +17,7 @@
 /*! \fn int CoapCommon::resolveAddress(const char *host, const char *service,
                                coap_address_t *dst)
     \brief Resolves IPv4 and IPv6 addresses and shows error messages in case of
-   error 
+   error
    \param host IPv4 or IPv6(global) address \param service Port number
    \param dst Reference of a address of type coap_address_t, to store the result
    after resolving address

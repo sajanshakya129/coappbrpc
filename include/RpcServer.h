@@ -22,12 +22,12 @@
 
 #include "CoapCommon.h"
 #include "HandleService.h"
+using ::coappbrpc::Request;
+using ::coappbrpc::Response;
 using ::google::protobuf::Message;
 using ::google::protobuf::MethodDescriptor;
 using ::google::protobuf::Service;
 using ::google::protobuf::ServiceDescriptor;
-using ::coappbrpc::Request;
-using ::coappbrpc::Response;
 
 using namespace std;
 namespace coappbrpc {
@@ -42,13 +42,15 @@ public:
   int startServer();
   bool stopServer(int);
   void initiateServer();
-  void initiateServer(const char *,const char *);
+  void initiateServer(const char *, const char *);
   void registerService(Service *service);
+
 private:
   coap_context_t *ctx = nullptr; /*!< Coap context pointer variable */
-  const char *port;/*!< const char variable to store port no */
-  const char *serverAddr;/*!< const char variable to store IP address */
-  bool running = false;/*!< boolean variable to flag whether RPC is running or not */
+  const char *port;              /*!< const char variable to store port no */
+  const char *serverAddr;        /*!< const char variable to store IP address */
+  bool running =
+      false; /*!< boolean variable to flag whether RPC is running or not */
 };
 
 } // namespace coappbrpc

@@ -32,12 +32,10 @@ namespace coappbrpc {
    \param response CoAP PDU response reference for storing data to be returned
    from Server
 */
-void return_handler(coap_context_t *ctx,
-                    struct coap_resource_t *resource,
-                    coap_session_t *session,
-                    coap_pdu_t *request,
-                    coap_binary_t *token,
-                    coap_string_t *query, coap_pdu_t *response) {
+void return_handler(coap_context_t *ctx, struct coap_resource_t *resource,
+                    coap_session_t *session, coap_pdu_t *request,
+                    coap_binary_t *token, coap_string_t *query,
+                    coap_pdu_t *response) {
   unsigned char buf[3];
   const char *response_data;
 
@@ -59,9 +57,9 @@ void return_handler(coap_context_t *ctx,
                 (const uint8_t *)response_data);
 }
 
-
 /*! \fn RpcServer::RpcServer()
-    \brief Constructor function which sets variable "running" to false for every instance 
+    \brief Constructor function which sets variable "running" to false for every
+   instance
 */
 RpcServer::RpcServer() { running = false; }
 
@@ -71,10 +69,11 @@ RpcServer::RpcServer() { running = false; }
 RpcServer::~RpcServer() {}
 
 /*! \fn void RpcServer::initiateServer(const char *ipAddr, const char *port)
-    \brief Setter function to set server ip address and port number and calls for "startServer" function to run Server.
-      Default address is localhost and port is 5683. Function overloading used for handling default values incase parameters are not passed.
-    \param ipAddr Ip Address reference variable
-    \param port port reference variable
+    \brief Setter function to set server ip address and port number and calls
+   for "startServer" function to run Server. Default address is localhost and
+   port is 5683. Function overloading used for handling default values incase
+   parameters are not passed. \param ipAddr Ip Address reference variable \param
+   port port reference variable
 */
 void RpcServer::initiateServer(const char *ipAddr, const char *port) {
   this->serverAddr = ipAddr;
@@ -82,7 +81,8 @@ void RpcServer::initiateServer(const char *ipAddr, const char *port) {
   this->startServer();
 }
 /*! \fn void RpcServer::initiateServer()
-    \brief default initiateServer function which overloads if ip address and port is not given.
+    \brief default initiateServer function which overloads if ip address and
+   port is not given.
 */
 void RpcServer::initiateServer() {
   this->serverAddr = "localhost";
@@ -91,7 +91,8 @@ void RpcServer::initiateServer() {
 }
 /*! \fn int RpcServer::startServer()
     \brief this function starts the coap server
-    First it checks if the RPC server is running or not. Then it creates a coap context, handles coap resresources and runs the coap server.
+    First it checks if the RPC server is running or not. Then it creates a coap
+   context, handles coap resresources and runs the coap server.
 */
 int RpcServer::startServer() {
   if (running) {
@@ -135,7 +136,8 @@ int RpcServer::startServer() {
 }
 /*! \fn int RpcServer::stopServer()
     \brief This function stops the coap server
-    It stops coap server, free coap context, cleanup memory allocations and resets running flag to false.
+    It stops coap server, free coap context, cleanup memory allocations and
+   resets running flag to false.
 */
 bool RpcServer::stopServer(int result) {
   if (running) {
@@ -150,6 +152,6 @@ bool RpcServer::stopServer(int result) {
     \brief This function calls handleRegService
     \param service Type Service defined in protobuf services
 */
-void RpcServer::registerService(Service *service) {handleRegService(service);}
+void RpcServer::registerService(Service *service) { handleRegService(service); }
 
 } // namespace coappbrpc

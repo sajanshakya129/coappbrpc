@@ -28,12 +28,14 @@ using ::google::protobuf::Service;
 class RpcMethod {
 public:
   const MethodDescriptor *descriptor; /*!< method descriptor */
-  const Message *request; /*!< parameters */
-  const Message *response;  /*!< result */
+  const Message *request;             /*!< parameters */
+  const Message *response;            /*!< result */
 
   RpcMethod(const MethodDescriptor *descriptor, const Message *request,
-            const Message *response) 
-      : descriptor(descriptor), request(request), response(response) {} /*!< Constructor function that inherits from protobufs MethodDescriptor, Message and Services*/	
+            const Message *response)
+      : descriptor(descriptor), request(request), response(response) {
+  } /*!< Constructor function that inherits from protobufs MethodDescriptor,
+       Message and Services*/
 
   RpcMethod(void) : descriptor(NULL), request(NULL), response(NULL) {}
 };

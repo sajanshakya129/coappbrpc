@@ -52,18 +52,19 @@ public:
   string ErrorText() const { return m_message; }
 
   /*! \fn  void SetFailed(const string &reason)
-    \brief Setter function which sets m_failed to true when RPC fails and set m_message to the reason of failure sent as parameter
-    \param reason string value that has explanation for failure
+    \brief Setter function which sets m_failed to true when RPC fails and set
+    m_message to the reason of failure sent as parameter \param reason string
+    value that has explanation for failure
   */
   void SetFailed(const string &reason) {
     m_failed = true;
     m_message = reason;
   }
 
-   /*! \fn  void appendFailed(const string &reason)
-    \brief Function that appends multiple reasons for failure
-    \param reason string value that has explanation for failure
-  */
+  /*! \fn  void appendFailed(const string &reason)
+   \brief Function that appends multiple reasons for failure
+   \param reason string value that has explanation for failure
+ */
   void appendFailed(const string &reason) { m_message += reason; }
 
   /*! \fn Error errorObj(void) const
@@ -81,7 +82,7 @@ public:
   void NotifyOnCancel(Closure *callback){};
 
 private:
-  bool m_failed; /*!< Boolean variable to set on and off if RPC fails */
+  bool m_failed;    /*!< Boolean variable to set on and off if RPC fails */
   string m_message; /*!<String value to store error message if occurs  */
 };
 

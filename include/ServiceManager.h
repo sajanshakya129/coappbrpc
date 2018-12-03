@@ -15,16 +15,16 @@
 #ifndef __ServiceManager_H_INCLUDED_
 #define __ServiceManager_H_INCLUDED_
 
-#include <map>
-#include <string>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/service.h>
+#include <map>
+#include <string>
 
 #include "Config.h"
 #include "ControllerRPC.h"
+#include "MsgSchema.pb.h"
 #include "RpcMethod.h"
 #include "RpcService.h"
-#include "MsgSchema.pb.h"
 
 namespace coappbrpc {
 
@@ -34,10 +34,11 @@ using ::std::map;
 using ::std::string;
 
 /*! \class ServiceManager
-* \brief
-*This class contains methods to handle RPC, register services, get services, get method details,
-*validate passed parameters, validate requests, validate versions, and check if services are already existed or not
-*/
+ * \brief
+ *This class contains methods to handle RPC, register services, get services,
+ *get method details, validate passed parameters, validate requests, validate
+ *versions, and check if services are already existed or not
+ */
 class ServiceManager {
 public:
   ServiceManager();
