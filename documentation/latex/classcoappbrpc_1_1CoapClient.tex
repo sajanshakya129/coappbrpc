@@ -9,13 +9,16 @@ This class contains two methods to client\+Handler and execute\+Client client Ha
 
 {\ttfamily \#include $<$Coap\+Client.\+h$>$}
 
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classcoappbrpc_1_1CoapClient_ac622e2dd087135defc27d8d4401a3119}{execute\+Client} (\hyperlink{structClientParams}{Client\+Params})
+\begin{DoxyCompactList}\small\item\em Handles coap client request, creates context, P\+D\+Us, uses U\+DP transport protocol, registers and adds coap option and sends request to coap server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{classcoappbrpc_1_1CoapClient_ab27b2485df1e7213425fe0f1b75110fa}{client\+Handler} (struct coap\+\_\+context\+\_\+t $\ast$, coap\+\_\+session\+\_\+t $\ast$, coap\+\_\+pdu\+\_\+t $\ast$, coap\+\_\+pdu\+\_\+t $\ast$, const coap\+\_\+tid\+\_\+t)
-\begin{DoxyCompactList}\small\item\em Callback function that sets response data to be sent back to R\+PC client. \end{DoxyCompactList}\item 
-static int \hyperlink{classcoappbrpc_1_1CoapClient_ac622e2dd087135defc27d8d4401a3119}{execute\+Client} (\hyperlink{structClientParams}{Client\+Params})
-\begin{DoxyCompactList}\small\item\em Handles coap client request, creates context, P\+D\+Us, uses U\+DP transport protocol, registers and adds coap option and sends request to coap server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback function that sets response data to be sent back to R\+PC client. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,7 +57,7 @@ Callback function that sets response data to be sent back to R\+PC client.
 \index{coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}!execute\+Client@{execute\+Client}}
 \index{execute\+Client@{execute\+Client}!coappbrpc\+::\+Coap\+Client@{coappbrpc\+::\+Coap\+Client}}
 \subsubsection{\texorpdfstring{execute\+Client()}{executeClient()}}
-{\footnotesize\ttfamily int coappbrpc\+::\+Coap\+Client\+::execute\+Client (\begin{DoxyParamCaption}\item[{\hyperlink{structClientParams}{Client\+Params}}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily int coappbrpc\+::\+Coap\+Client\+::execute\+Client (\begin{DoxyParamCaption}\item[{\hyperlink{structClientParams}{Client\+Params}}]{params }\end{DoxyParamCaption})}
 
 
 

@@ -64,6 +64,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classcoappbrpc_1_1CoapClient-members.html">List of all members</a>  </div>
@@ -77,14 +78,17 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="CoapClient_8h_source.html">CoapClient.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac622e2dd087135defc27d8d4401a3119"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1CoapClient.html#ac622e2dd087135defc27d8d4401a3119">executeClient</a> (<a class="el" href="structClientParams.html">ClientParams</a>)</td></tr>
+<tr class="memdesc:ac622e2dd087135defc27d8d4401a3119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles coap client request, creates context, PDUs, uses UDP transport protocol, registers and adds coap option and sends request to coap server.  <a href="#ac622e2dd087135defc27d8d4401a3119">More...</a><br /></td></tr>
+<tr class="separator:ac622e2dd087135defc27d8d4401a3119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab27b2485df1e7213425fe0f1b75110fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1CoapClient.html#ab27b2485df1e7213425fe0f1b75110fa">clientHandler</a> (struct coap_context_t *, coap_session_t *, coap_pdu_t *, coap_pdu_t *, const coap_tid_t)</td></tr>
 <tr class="memdesc:ab27b2485df1e7213425fe0f1b75110fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function that sets response data to be sent back to RPC client.  <a href="#ab27b2485df1e7213425fe0f1b75110fa">More...</a><br /></td></tr>
 <tr class="separator:ab27b2485df1e7213425fe0f1b75110fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac622e2dd087135defc27d8d4401a3119"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcoappbrpc_1_1CoapClient.html#ac622e2dd087135defc27d8d4401a3119">executeClient</a> (<a class="el" href="structClientParams.html">ClientParams</a>)</td></tr>
-<tr class="memdesc:ac622e2dd087135defc27d8d4401a3119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles coap client request, creates context, PDUs, uses UDP transport protocol, registers and adds coap option and sends request to coap server.  <a href="#ac622e2dd087135defc27d8d4401a3119">More...</a><br /></td></tr>
-<tr class="separator:ac622e2dd087135defc27d8d4401a3119"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -165,9 +169,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int coappbrpc::CoapClient::executeClient </td>
@@ -177,11 +178,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Handles coap client request, creates context, PDUs, uses UDP transport protocol, registers and adds coap option and sends request to coap server. </p>
