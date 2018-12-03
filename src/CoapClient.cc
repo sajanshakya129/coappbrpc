@@ -57,13 +57,19 @@ void CoapClient::clientHandler(struct coap_context_t *ctx,
     info("got RST\n");
     return;
   }
-
+  std::string strData(reinterpret_cast<char *>(data));
+  RpcClient *client_ret = RpcClient::getInstance();
+  
   if (COAP_RESPONSE_CLASS(received->code) == 2) {
     if (coap_get_data(received, &data_len, &data)) {
-      std::string strData(reinterpret_cast<char *>(data));
-      RpcClient *client_ret = RpcClient::getInstance();
       client_ret->setResponse(strData);
     }
+  }else if(COAP_RESPONSE_CLASS(received->code) == 4){
+       coap_log(LOG_CRIT, "Client side error: check parameters");
+
+  }else if(COAP_RESPONSE_CLASS(received->code) == 3){
+     coap_log(LOG_CRIT, "Server Error");
+
   }
 }
 
