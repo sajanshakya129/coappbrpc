@@ -1,4 +1,4 @@
-/* MsgSchema.proto --Protocol buffer file what contains schema/definitions of response and request message transimitted between server and client
+/* MsgSchema.proto --Protocol buffer file that contains schema/definitions of response and request message transmitted between server and client
  *
  * Copyright (C) 2018 Sajan SHAKYA <sajanshakya129@gmail.com>
  *
